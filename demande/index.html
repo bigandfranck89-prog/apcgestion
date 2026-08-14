@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Écrire à APC — décrivez votre situation</title>
+<meta name="description" content="Décrivez votre situation par écrit et déposez vos documents. Réponse détaillée sous 48 heures ouvrées. Ni téléphone, ni rendez-vous.">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" href="/logo-apc.svg" type="image/svg+xml">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="/"><img src="/logo-apc.svg" alt="APC — Assistance Petites Copropriétés"></a>
+    <nav><a href="/">Retour à l'accueil</a></nav>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="wrap">
+
+    <div id="formulaire">
+      <h1>Décrivez votre situation</h1>
+      <p class="lead">Prenez le temps qu'il faut : plus votre message est précis, plus la réponse sera utile. Vous recevrez un numéro de dossier immédiatement, et une réponse détaillée <strong>sous 48 heures ouvrées</strong>.</p>
+      <div class="card terra small">
+        <strong>Nous ne vous rappellerons pas</strong> — nous n'avons pas de ligne téléphonique et ne prenons pas de rendez-vous. Tout se traite par écrit, ce qui vous laisse une trace de chaque échange.
+      </div>
+
+      <form id="f" novalidate>
+
+        <div class="champ">
+          <label>Que pouvons-nous faire pour vous ?</label>
+          <div class="radios">
+            <label><input type="radio" name="type" value="decouvrir" checked> <span><b>Découvrir APC</b><br><span class="aide">Je veux savoir ce que ça donnerait pour ma copropriété</span></span></label>
+            <label><input type="radio" name="type" value="reprise"> <span><b>Reprendre mes comptes</b><br><span class="aide">Exercice en retard, comptes laissés en désordre</span></span></label>
+            <label><input type="radio" name="type" value="dossier_ag"> <span><b>Un dossier d'assemblée</b><br><span class="aide">La mission ponctuelle à 190 / 290 / 390 €</span></span></label>
+            <label><input type="radio" name="type" value="question"> <span><b>Poser une question</b><br><span class="aide">Un point précis de comptabilité ou de règlement</span></span></label>
+            <label><input type="radio" name="type" value="partenaire"> <span><b>Proposer un partenariat</b><br><span class="aide">Éditeur, association, notaire, AMO…</span></span></label>
+            <label><input type="radio" name="type" value="autre"> <span><b>Autre chose</b><br><span class="aide">Dites-nous simplement quoi</span></span></label>
+          </div>
+        </div>
+
+        <div class="deux">
+          <div class="champ">
+            <label for="nom">Votre nom et prénom</label>
+            <input type="text" id="nom" name="nom" autocomplete="name" required maxlength="120">
+          </div>
+          <div class="champ">
+            <label for="email">Votre adresse email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required maxlength="180">
+            <p class="aide">C'est là que nous vous répondrons.</p>
+          </div>
+        </div>
+
+        <div class="champ">
+          <label for="copro">Nom de votre copropriété <span class="opt">— facultatif</span></label>
+          <input type="text" id="copro" name="copro" maxlength="160" placeholder="Ex. : Résidence des Tilleuls">
+        </div>
+
+        <div class="deux">
+          <div class="champ">
+            <label for="lots">Nombre de lots <span class="opt">— facultatif</span></label>
+            <input type="number" id="lots" name="lots" min="1" max="9999" inputmode="numeric" placeholder="Ex. : 11">
+            <p class="aide">Caves et parkings compris. Cela nous permet de vous donner un prix exact.</p>
+          </div>
+          <div class="champ">
+            <label for="cp">Code postal <span class="opt">— facultatif</span></label>
+            <input type="text" id="cp" name="cp" maxlength="10" inputmode="numeric" placeholder="Ex. : 89330">
+          </div>
+        </div>
+
+        <div class="champ">
+          <label for="message">Votre situation, avec vos mots</label>
+          <textarea id="message" name="message" required maxlength="5000"
+            placeholder="Par exemple : je suis syndic bénévole depuis deux ans. L'assemblée est prévue en mars et je n'arrive pas à sortir les annexes. L'ancien syndic ne m'a jamais transmis les comptes de 2024…"></textarea>
+          <p class="aide"><span id="cpt">0</span> / 5000 caractères. N'hésitez pas à être précis : dates de clôture, ce qui bloque, ce que vous avez déjà essayé.</p>
+        </div>
+
+        <div class="champ">
+          <label>C'est urgent ?</label>
+          <div class="radios">
+            <label><input type="radio" name="urgence" value="normale" checked> <span>Non, je peux attendre la réponse sous 48 heures ouvrées</span></label>
+            <label><input type="radio" name="urgence" value="ca_presse"> <span>Oui, j'ai une échéance proche — précisez-la dans votre message</span></label>
+          </div>
+        </div>
+
+        <div class="champ">
+          <label>Vos documents <span class="opt">— facultatif, vous pourrez les envoyer plus tard</span></label>
+          <div class="depot" id="depot" tabindex="0" role="button" aria-controls="fichier">
+            <span class="ic" aria-hidden="true">📎</span>
+            <strong>Cliquez ici pour choisir vos fichiers</strong><br>
+            <span class="aide">ou faites-les glisser dans ce cadre — 25 Mo par fichier, 20 fichiers maximum<br>
+            PDF, photos, Word, Excel, CSV ou ZIP</span>
+          </div>
+          <input type="file" id="fichier" multiple hidden
+                 accept=".pdf,.jpg,.jpeg,.png,.heic,.csv,.txt,.doc,.docx,.xls,.xlsx,.zip">
+          <ul class="fichiers" id="liste"></ul>
+          <p class="aide">Utile dès maintenant : règlement de copropriété, état descriptif de division (les tantièmes), derniers comptes approuvés, trois derniers procès-verbaux d'assemblée, relevés bancaires.</p>
+        </div>
+
+        <div class="champ">
+          <label class="coche">
+            <input type="checkbox" id="rgpd" required>
+            <span>J'accepte que les informations ci-dessus soient utilisées pour traiter ma demande. Elles sont conservées trois ans, hébergées dans l'Union européenne, et ne sont ni vendues ni cédées. Je peux demander leur effacement à tout moment.</span>
+          </label>
+        </div>
+
+        <!-- Piège à robots : invisible pour un humain, rempli par les automates -->
+        <div style="position:absolute;left:-9999px" aria-hidden="true">
+          <label for="site_web">Ne pas remplir</label>
+          <input type="text" id="site_web" name="site_web" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="msg err" id="erreur" role="alert"></div>
+        <div class="msg info" id="patiente" role="status"></div>
+
+        <div class="cta">
+          <button type="submit" class="btn" id="envoyer">Envoyer ma demande</button>
+          <p class="sous">Vous recevrez votre numéro de dossier tout de suite, à l'écran.</p>
+        </div>
+      </form>
+    </div>
+
+    <div class="confirm" id="confirmation" role="status" aria-live="polite">
+      <span class="ic" aria-hidden="true">✅</span>
+      <h2>Votre demande est bien arrivée</h2>
+      <p>Voici votre numéro de dossier. <strong>Notez-le</strong> : il vous servira si vous voulez ajouter quelque chose.</p>
+      <div class="dossier" id="numero">—</div>
+      <p>Vous recevrez une réponse écrite et détaillée <strong>au plus tard le <span id="avant">—</span></strong>, à l'adresse que vous avez indiquée.</p>
+      <p class="small mut" id="depot-ok" style="display:none"></p>
+      <p class="small mut">Pensez à regarder vos indésirables : c'est souvent là que tombe une première réponse.</p>
+      <div class="cta"><a class="btn ghost" href="/">Retour à l'accueil</a></div>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>APC — Assistance Petites Copropriétés</strong> · Franck Bigand · 7 lieu-dit Les Martins, 89330 Verlin · SIREN 519 339 170</p>
+    <p class="small"><a href="/">Accueil</a> · <a href="/opposition">Ne plus recevoir de courrier</a> · <a href="/checklist">Checklist gratuite</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var API = "https://bmvytqfddrfgcgokoxfn.supabase.co";
+  var CLE = "sb_publishable_tGwuRROW7-AjWdE8K8ZbFA_R8_V2LUU";
+  var SEAU = "depots-apc";
+  var MAX = 25 * 1024 * 1024, MAXN = 20;
+
+  var f = document.getElementById("f"), btn = document.getElementById("envoyer");
+  var err = document.getElementById("erreur"), att = document.getElementById("patiente");
+  var input = document.getElementById("fichier"), depot = document.getElementById("depot"), liste = document.getElementById("liste");
+  var msg = document.getElementById("message"), cpt = document.getElementById("cpt");
+  var choisis = [];
+
+  msg.addEventListener("input", function(){ cpt.textContent = msg.value.length; });
+
+  function montre(el, texte){ el.textContent = texte; el.classList.add("on"); }
+  function cache(el){ el.classList.remove("on"); }
+  function taille(o){ return o < 1024*1024 ? Math.max(1, Math.round(o/1024)) + " Ko" : (o/1048576).toFixed(1) + " Mo"; }
+
+  function dessine(){
+    liste.innerHTML = "";
+    choisis.forEach(function(fi, i){
+      var li = document.createElement("li");
+      var g = document.createElement("span");
+      g.textContent = fi.name + " — " + taille(fi.size);
+      var b = document.createElement("button");
+      b.type = "button"; b.textContent = "✕";
+      b.setAttribute("aria-label", "Retirer " + fi.name);
+      b.onclick = function(){ choisis.splice(i,1); dessine(); };
+      li.appendChild(g); li.appendChild(b); liste.appendChild(li);
+    });
+  }
+
+  function ajoute(fs){
+    cache(err);
+    var refus = [];
+    Array.prototype.forEach.call(fs, function(fi){
+      if (fi.size > MAX) { refus.push(fi.name + " (trop lourd)"); return; }
+      if (choisis.length >= MAXN) { refus.push(fi.name + " (au-delà de 20 fichiers)"); return; }
+      if (choisis.some(function(c){ return c.name === fi.name && c.size === fi.size; })) return;
+      choisis.push(fi);
+    });
+    if (refus.length) montre(err, "Ces fichiers n'ont pas pu être ajoutés : " + refus.join(", ") + ". Chaque fichier doit peser moins de 25 Mo.");
+    dessine();
+  }
+
+  depot.addEventListener("click", function(){ input.click(); });
+  depot.addEventListener("keydown", function(e){ if (e.key === "Enter" || e.key === " ") { e.preventDefault(); input.click(); } });
+  input.addEventListener("change", function(){ ajoute(input.files); input.value = ""; });
+  ["dragenter","dragover"].forEach(function(ev){
+    depot.addEventListener(ev, function(e){ e.preventDefault(); depot.classList.add("sur"); });
+  });
+  ["dragleave","drop"].forEach(function(ev){
+    depot.addEventListener(ev, function(e){ e.preventDefault(); depot.classList.remove("sur"); });
+  });
+  depot.addEventListener("drop", function(e){ if (e.dataTransfer && e.dataTransfer.files) ajoute(e.dataTransfer.files); });
+
+  function propre(nom){
+    return nom.normalize("NFD").replace(/[̀-ͯ]/g, "")
+              .replace(/[^A-Za-z0-9._-]/g, "_").slice(-90);
+  }
+
+  f.addEventListener("submit", function(e){
+    e.preventDefault();
+    cache(err); cache(att);
+
+    if (document.getElementById("site_web").value) return;           // robot
+    var nom = document.getElementById("nom").value.trim();
+    var email = document.getElementById("email").value.trim();
+    var texte = msg.value.trim();
+    if (nom.length < 2)  { montre(err, "Merci d'indiquer votre nom."); document.getElementById("nom").focus(); return; }
+    if (!/^[^@\s]+@[^@\s]+\.[a-zA-Z]{2,}$/.test(email)) { montre(err, "Cette adresse email ne semble pas valide — c'est par là que nous vous répondrons."); document.getElementById("email").focus(); return; }
+    if (texte.length < 10) { montre(err, "Décrivez votre situation en quelques mots, même brièvement."); msg.focus(); return; }
+    if (!document.getElementById("rgpd").checked) { montre(err, "Merci de cocher la case d'accord sur l'utilisation de vos informations."); return; }
+
+    btn.disabled = true;
+    var type = f.querySelector('input[name=type]:checked').value;
+    var urg  = f.querySelector('input[name=urgence]:checked').value;
+    var ref  = "web-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2,7);
+    var chemins = [], envoyes = 0, rates = 0;
+
+    function envoiFichier(i){
+      if (i >= choisis.length) return Promise.resolve();
+      var fi = choisis[i];
+      montre(att, "Envoi de vos documents… " + (i+1) + " sur " + choisis.length + " (" + fi.name + ")");
+      var chemin = ref + "/" + (i+1) + "-" + propre(fi.name);
+      return fetch(API + "/storage/v1/object/" + SEAU + "/" + encodeURI(chemin), {
+        method: "POST",
+        headers: { "apikey": CLE, "Authorization": "Bearer " + CLE,
+                   "Content-Type": fi.type || "application/octet-stream", "x-upsert": "true" },
+        body: fi
+      }).then(function(r){
+        if (r.ok) { chemins.push(chemin); envoyes++; } else { rates++; chemins.push("[ÉCHEC] " + fi.name); }
+      }).catch(function(){ rates++; chemins.push("[ÉCHEC] " + fi.name); })
+        .then(function(){ return envoiFichier(i+1); });
+    }
+
+    envoiFichier(0).then(function(){
+      montre(att, "Enregistrement de votre demande…");
+      return fetch(API + "/rest/v1/rpc/apc_deposer_demande", {
+        method: "POST",
+        headers: { "apikey": CLE, "Authorization": "Bearer " + CLE, "Content-Type": "application/json" },
+        body: JSON.stringify({
+          p_type: type, p_nom: nom, p_email: email, p_message: texte,
+          p_copropriete: document.getElementById("copro").value.trim() || null,
+          p_nb_lots: parseInt(document.getElementById("lots").value, 10) || null,
+          p_code_postal: document.getElementById("cp").value.trim() || null,
+          p_urgence: urg, p_fichiers: chemins, p_origine: "site:" + ref
+        })
+      });
+    }).then(function(r){
+      return r.json().then(function(d){ return { ok: r.ok, d: d }; });
+    }).then(function(res){
+      cache(att);
+      if (!res.ok) {
+        var m = (res.d && (res.d.message || res.d.hint)) || "";
+        var lisible = "Votre demande n'a pas pu être enregistrée. ";
+        if (/trop_de_demandes/.test(m))      lisible += "Vous avez déjà envoyé plusieurs demandes dans l'heure : elles nous sont bien parvenues, inutile de recommencer.";
+        else if (/email_invalide/.test(m))   lisible += "L'adresse email n'est pas valide.";
+        else if (/message_trop_court/.test(m)) lisible += "Le message est trop court.";
+        else if (/message_trop_long/.test(m))  lisible += "Le message dépasse 5000 caractères.";
+        else lisible += "Réessayez dans un instant. Si cela se reproduit, notez l'heure : nous pourrons retrouver la trace de l'incident.";
+        montre(err, lisible);
+        btn.disabled = false;
+        return;
+      }
+      document.getElementById("numero").textContent = res.d.numero_dossier;
+      document.getElementById("avant").textContent  = res.d.reponse_avant;
+      if (choisis.length) {
+        var p = document.getElementById("depot-ok");
+        p.style.display = "block";
+        p.textContent = rates
+          ? envoyes + " document(s) bien reçu(s), " + rates + " n'ont pas pu être envoyés — vous pourrez les joindre à une nouvelle demande en rappelant votre numéro de dossier."
+          : envoyes + " document(s) bien reçu(s).";
+      }
+      document.getElementById("formulaire").style.display = "none";
+      document.getElementById("confirmation").classList.add("on");
+      window.scrollTo(0, 0);
+    }).catch(function(){
+      cache(att);
+      montre(err, "La connexion n'a pas abouti. Vérifiez votre accès à internet et réessayez — rien n'a été perdu, votre texte est toujours là.");
+      btn.disabled = false;
+    });
+  });
+})();
+</script>
+</body>
+</html>
