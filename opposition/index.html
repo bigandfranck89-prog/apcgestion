@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ne plus recevoir de courrier d'APC</title>
+<meta name="description" content="Demandez en une minute à ne plus recevoir de courrier d'APC. Vos coordonnées sont retirées de nos envois sous 48 heures ouvrées.">
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" href="/logo-apc.svg" type="image/svg+xml">
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="/"><img src="/logo-apc.svg" alt="APC — Assistance Petites Copropriétés"></a>
+    <nav><a href="/">Retour à l'accueil</a></nav>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="wrap">
+
+    <div id="formulaire">
+      <h1>Ne plus recevoir de courrier d'APC</h1>
+      <p class="lead">Vous avez reçu un courrier de notre part et vous ne souhaitez pas en recevoir d'autre. C'est votre droit, et cela prend une minute.</p>
+
+      <div class="card terra">
+        <p style="margin-top:0"><strong>D'où viennent vos coordonnées ?</strong></p>
+        <p>Du <strong>Registre national d'immatriculation des copropriétés</strong>, publié en libre accès par l'Anah sur data.gouv.fr sous Licence Ouverte 2.0. Ce registre indique le nom du représentant légal de chaque copropriété et l'adresse de l'immeuble. Nous n'avons acheté aucun fichier et nous n'avons pas votre numéro de téléphone.</p>
+        <p style="margin-bottom:0">Le traitement repose sur l'intérêt légitime (article 6.1.f du RGPD) ; vous pouvez vous y opposer à tout moment et sans justification, en application de l'article 21.</p>
+      </div>
+
+      <form id="f" novalidate>
+        <div class="champ">
+          <label for="nom">Le nom qui figure sur le courrier</label>
+          <input type="text" id="nom" required maxlength="120" autocomplete="name">
+          <p class="aide">Recopiez-le tel qu'il est imprimé, même s'il est mal orthographié : c'est ce qui nous permet de retrouver la ligne exacte.</p>
+        </div>
+
+        <div class="deux">
+          <div class="champ">
+            <label for="cp">Code postal <span class="opt">— facultatif</span></label>
+            <input type="text" id="cp" maxlength="10" inputmode="numeric">
+          </div>
+          <div class="champ">
+            <label for="commune">Commune <span class="opt">— facultatif</span></label>
+            <input type="text" id="commune" maxlength="120">
+          </div>
+        </div>
+
+        <div class="champ">
+          <label for="adresse">Adresse de l'immeuble <span class="opt">— facultatif</span></label>
+          <input type="text" id="adresse" maxlength="200">
+        </div>
+
+        <div class="champ">
+          <label for="email">Votre email <span class="opt">— facultatif</span></label>
+          <input type="email" id="email" maxlength="180" autocomplete="email">
+          <p class="aide">Uniquement si vous souhaitez une confirmation écrite. Il ne servira à rien d'autre et ne sera jamais utilisé pour vous démarcher.</p>
+        </div>
+
+        <div class="champ">
+          <label for="motif">Un mot à nous dire ? <span class="opt">— facultatif</span></label>
+          <textarea id="motif" maxlength="800" style="min-height:90px"></textarea>
+        </div>
+
+        <div style="position:absolute;left:-9999px" aria-hidden="true">
+          <label for="site_web">Ne pas remplir</label>
+          <input type="text" id="site_web" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="msg err" id="erreur" role="alert"></div>
+
+        <div class="cta">
+          <button type="submit" class="btn" id="envoyer">Me retirer de la liste</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="confirm" id="confirmation" role="status" aria-live="polite">
+      <span class="ic" aria-hidden="true">✅</span>
+      <h2>C'est enregistré</h2>
+      <p>Vos coordonnées sont retirées de nos envois. <strong>Vous ne recevrez plus de courrier d'APC.</strong></p>
+      <p class="small mut">Un envoi déjà remis à La Poste peut encore vous parvenir dans les jours qui viennent : il était parti avant votre demande.</p>
+      <p class="small mut">Votre nom est conservé uniquement sur notre liste d'opposition, précisément pour ne plus jamais vous écrire. C'est ce que prévoit la réglementation.</p>
+      <div class="cta"><a class="btn ghost" href="/">Voir ce que fait APC</a></div>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>APC — Assistance Petites Copropriétés</strong> · Franck Bigand · 7 lieu-dit Les Martins, 89330 Verlin · SIREN 519 339 170</p>
+    <p class="small">Vous disposez d'un droit d'accès, de rectification, d'opposition, d'effacement et de portabilité de vos données, ainsi que du droit d'introduire une réclamation auprès de la CNIL.</p>
+    <p class="small"><a href="/">Accueil</a> · <a href="/demande">Nous écrire</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var API = "https://bmvytqfddrfgcgokoxfn.supabase.co";
+  var CLE = "sb_publishable_tGwuRROW7-AjWdE8K8ZbFA_R8_V2LUU";
+  var f = document.getElementById("f"), btn = document.getElementById("envoyer"), err = document.getElementById("erreur");
+
+  f.addEventListener("submit", function(e){
+    e.preventDefault();
+    err.classList.remove("on");
+    if (document.getElementById("site_web").value) return;
+    var nom = document.getElementById("nom").value.trim();
+    if (nom.length < 2) { err.textContent = "Merci d'indiquer le nom qui figure sur le courrier."; err.classList.add("on"); document.getElementById("nom").focus(); return; }
+    btn.disabled = true;
+
+    fetch(API + "/rest/v1/rpc/apc_demander_opposition", {
+      method: "POST",
+      headers: { "apikey": CLE, "Authorization": "Bearer " + CLE, "Content-Type": "application/json" },
+      body: JSON.stringify({
+        p_nom: nom,
+        p_code_postal: document.getElementById("cp").value.trim() || null,
+        p_commune: document.getElementById("commune").value.trim() || null,
+        p_adresse: document.getElementById("adresse").value.trim() || null,
+        p_email: document.getElementById("email").value.trim() || null,
+        p_motif: document.getElementById("motif").value.trim() || null
+      })
+    }).then(function(r){
+      if (!r.ok) throw new Error("ko");
+      document.getElementById("formulaire").style.display = "none";
+      document.getElementById("confirmation").classList.add("on");
+      window.scrollTo(0,0);
+    }).catch(function(){
+      err.textContent = "L'enregistrement n'a pas abouti. Réessayez dans un instant — et si cela persiste, écrivez-nous par le formulaire : votre demande sera traitée à la main.";
+      err.classList.add("on");
+      btn.disabled = false;
+    });
+  });
+})();
+</script>
+</body>
+</html>
