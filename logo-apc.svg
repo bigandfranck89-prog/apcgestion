@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 160" width="520" height="160" role="img" aria-label="Logo APC - Assistance Petites Copropriétés">
+  <title>APC — Assistance Petites Copropriétés</title>
+  <!-- Emblème : carré terracotta arrondi, immeuble + étincelle -->
+  <rect x="20" y="28" width="104" height="104" rx="22" fill="#d96b41"/>
+  <!-- immeuble -->
+  <rect x="44" y="58" width="40" height="58" rx="3" fill="#fffaf5"/>
+  <rect x="78" y="46" width="30" height="70" rx="3" fill="#f6ddcb"/>
+  <!-- fenêtres -->
+  <g fill="#8c3c20">
+    <rect x="50" y="66" width="9" height="9" rx="1.5"/>
+    <rect x="64" y="66" width="9" height="9" rx="1.5"/>
+    <rect x="50" y="82" width="9" height="9" rx="1.5"/>
+    <rect x="64" y="82" width="9" height="9" rx="1.5"/>
+    <rect x="50" y="98" width="9" height="9" rx="1.5"/>
+    <rect x="64" y="98" width="9" height="9" rx="1.5"/>
+    <rect x="86" y="56" width="8" height="8" rx="1.5"/>
+    <rect x="97" y="56" width="8" height="8" rx="1.5"/>
+    <rect x="86" y="70" width="8" height="8" rx="1.5"/>
+    <rect x="97" y="70" width="8" height="8" rx="1.5"/>
+    <rect x="86" y="84" width="8" height="8" rx="1.5"/>
+    <rect x="97" y="84" width="8" height="8" rx="1.5"/>
+  </g>
+  <!-- étincelle (le coup de main qui change tout) -->
+  <g fill="#e9a13b">
+    <path d="M104 40 l5 13 13 5 -13 5 -5 13 -5 -13 -13 -5 13 -5 z"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="148" y="78" font-family="Georgia, 'Times New Roman', serif" font-size="52" font-weight="700" fill="#8c3c20">APC</text>
+  <text x="150" y="104" font-family="Verdana, Geneva, sans-serif" font-size="15" fill="#d96b41">Assistance Petites Copropriétés</text>
+  <text x="150" y="126" font-family="Georgia, serif" font-size="14" font-style="italic" fill="#9a6b4f">Le coup de main qui change tout</text>
+</svg>

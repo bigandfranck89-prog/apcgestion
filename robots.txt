@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /demande
+Disallow: /opposition
+Disallow: /boite
+
+Sitemap: https://apcgestion.fr/sitemap.xml

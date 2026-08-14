@@ -1,0 +1,136 @@
+/* APC — apcgestion.fr — charte terracotta, sobre, lisible au téléphone */
+:root{
+  --terra:#d96b41; --terra-d:#b34a28; --terra-l:#f6ddcb; --brun:#8c3c20;
+  --ink:#2b2320; --ink2:#5c4f48; --mut:#8a7a70;
+  --bg:#fffaf5; --card:#ffffff; --line:#ecdfd4;
+  --ok:#2e7d4f; --ok-bg:#e8f5ed; --warn:#8a6d00; --warn-bg:#fff6dc; --bad:#b3261e; --bad-bg:#fdecea;
+  --r:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);
+  font:16.5px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  -webkit-text-size-adjust:100%}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+
+/* En-tête */
+header{background:var(--card);border-bottom:1px solid var(--line);padding:14px 0;position:sticky;top:0;z-index:50}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+header img{height:54px;width:auto;display:block}
+nav{display:flex;gap:18px;flex-wrap:wrap}
+nav a{color:var(--ink2);text-decoration:none;font-size:15px;font-weight:600}
+nav a:hover,nav a:focus{color:var(--terra-d);text-decoration:underline}
+
+/* Titres */
+h1{font:700 clamp(27px,5.2vw,40px)/1.2 Georgia,"Times New Roman",serif;color:var(--brun);margin-bottom:14px}
+h2{font:700 clamp(21px,3.6vw,27px)/1.3 Georgia,serif;color:var(--brun);margin:44px 0 14px}
+h3{font-size:17.5px;font-weight:700;margin:22px 0 8px;color:var(--terra-d)}
+p{margin:12px 0}
+.lead{font-size:19px;color:var(--ink2);line-height:1.6}
+.mut{color:var(--mut)}
+.small{font-size:14px}
+strong{color:var(--brun)}
+
+/* Blocs */
+section{padding:34px 0}
+.hero{padding:52px 0 34px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;margin:16px 0}
+.card.terra{border-left:4px solid var(--terra)}
+.card.ok{border-left:4px solid var(--ok);background:var(--ok-bg)}
+.card.warn{border-left:4px solid var(--warn);background:var(--warn-bg)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+
+/* Étapes numérotées */
+.etapes{counter-reset:e;list-style:none;margin:16px 0}
+.etapes li{counter-increment:e;position:relative;padding-left:46px;margin:16px 0}
+.etapes li:before{content:counter(e);position:absolute;left:0;top:1px;width:31px;height:31px;border-radius:50%;
+  background:var(--terra);color:#fff;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center}
+.etapes b{display:block;color:var(--brun)}
+
+/* Listes oui / non */
+ul.oui,ul.non{list-style:none;margin:12px 0}
+ul.oui li,ul.non li{position:relative;padding-left:28px;margin:9px 0}
+ul.oui li:before{content:"✓";position:absolute;left:2px;color:var(--ok);font-weight:700}
+ul.non li:before{content:"✕";position:absolute;left:2px;color:var(--bad);font-weight:700}
+ul.puces{margin:12px 0 12px 22px}
+ul.puces li{margin:8px 0}
+
+/* Prix */
+.prix{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:6px 0 2px}
+.prix .n{font:700 40px/1 Georgia,serif;color:var(--terra-d)}
+.prix .u{color:var(--ink2);font-size:16px}
+.barre{text-decoration:line-through;color:var(--mut);font-size:17px}
+
+/* Tableau */
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:15.5px}
+th,td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--terra-l);color:var(--brun);font-weight:700}
+td.num,th.num{text-align:right;white-space:nowrap}
+
+/* Boutons */
+.btn{display:inline-block;background:var(--terra);color:#fff;text-decoration:none;font-weight:700;font-size:17px;
+  padding:15px 30px;border-radius:30px;border:none;cursor:pointer;transition:background .15s;font-family:inherit}
+.btn:hover,.btn:focus{background:var(--terra-d)}
+.btn[disabled]{opacity:.55;cursor:not-allowed}
+.btn.ghost{background:transparent;color:var(--terra-d);border:2px solid var(--terra);padding:13px 28px}
+.btn.ghost:hover{background:var(--terra-l)}
+.cta{text-align:center;padding:16px 0 6px}
+.cta .sous{font-size:14.5px;color:var(--mut);margin-top:12px}
+
+/* Formulaire */
+form{margin:18px 0}
+.champ{margin:20px 0}
+label{display:block;font-weight:700;margin-bottom:7px;color:var(--brun);font-size:15.5px}
+label .opt{font-weight:400;color:var(--mut);font-size:14px}
+input[type=text],input[type=email],input[type=number],select,textarea{
+  width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:10px;background:#fff;
+  font:16.5px inherit;color:var(--ink);font-family:inherit}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--terra);box-shadow:0 0 0 3px rgba(217,107,65,.16)}
+textarea{min-height:150px;resize:vertical}
+.aide{font-size:14px;color:var(--mut);margin-top:6px}
+.radios{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));margin-top:8px}
+.radios label{display:flex;gap:10px;align-items:flex-start;font-weight:400;background:#fff;border:1.5px solid var(--line);
+  border-radius:10px;padding:13px 14px;cursor:pointer;margin:0;color:var(--ink);font-size:15.5px}
+.radios label:hover{border-color:var(--terra)}
+.radios input{margin-top:3px;flex:none;width:18px;height:18px;accent-color:var(--terra)}
+.radios label:has(input:checked){border-color:var(--terra);background:var(--terra-l)}
+.coche{display:flex;gap:11px;align-items:flex-start;font-weight:400;font-size:15px;color:var(--ink2)}
+.coche input{margin-top:4px;flex:none;width:18px;height:18px;accent-color:var(--terra)}
+.deux{display:grid;gap:16px;grid-template-columns:1fr 1fr}
+@media(max-width:560px){.deux{grid-template-columns:1fr}}
+
+/* Zone de dépôt */
+.depot{border:2px dashed var(--line);border-radius:12px;padding:24px 18px;text-align:center;background:#fff;cursor:pointer}
+.depot:hover,.depot.sur{border-color:var(--terra);background:var(--terra-l)}
+.depot .ic{font-size:30px;display:block;margin-bottom:6px}
+.fichiers{list-style:none;margin:12px 0 0}
+.fichiers li{display:flex;justify-content:space-between;gap:12px;align-items:center;
+  background:#fff;border:1px solid var(--line);border-radius:9px;padding:9px 12px;margin:7px 0;font-size:14.5px}
+.fichiers button{background:none;border:none;color:var(--bad);cursor:pointer;font-size:19px;line-height:1;padding:0 4px;font-family:inherit}
+.etat{font-size:13.5px;color:var(--mut)}
+
+/* Messages */
+.msg{border-radius:12px;padding:16px 18px;margin:18px 0;display:none}
+.msg.on{display:block}
+.msg.err{background:var(--bad-bg);border:1px solid var(--bad);color:var(--bad)}
+.msg.info{background:var(--warn-bg);border:1px solid var(--warn);color:var(--warn)}
+.confirm{background:var(--ok-bg);border:2px solid var(--ok);border-radius:var(--r);padding:30px 26px;text-align:center;display:none}
+.confirm.on{display:block}
+.confirm .ic{font-size:52px;display:block;margin-bottom:10px}
+.confirm h2{color:var(--ok);margin:0 0 10px}
+.dossier{display:inline-block;background:#fff;border:2px dashed var(--ok);border-radius:10px;
+  padding:12px 22px;margin:14px 0;font:700 25px/1 ui-monospace,Menlo,monospace;color:var(--brun);letter-spacing:1px}
+
+/* Pied de page */
+footer{background:var(--brun);color:#f3e6de;margin-top:52px;padding:34px 0 26px;font-size:14.5px}
+footer a{color:#f6ddcb}
+footer h4{color:#fff;font-size:15px;margin-bottom:8px}
+footer .cols{display:grid;gap:26px;grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+footer p{margin:6px 0;line-height:1.6}
+.legal{border-top:1px solid rgba(255,255,255,.2);margin-top:24px;padding-top:16px;font-size:13px;color:#d8c3b6}
+
+/* Accessibilité */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+  outline:3px solid var(--terra-d);outline-offset:2px}
+@media print{header,footer,.cta,.btn{display:none}body{background:#fff}}
