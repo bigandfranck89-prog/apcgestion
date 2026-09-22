@@ -24,22 +24,22 @@
 
     <div id="formulaire">
       <h1>Décrivez votre situation</h1>
-      <p class="lead">Prenez le temps qu'il faut : plus votre message est précis, plus la réponse sera utile. Vous recevrez un numéro de dossier immédiatement, et une réponse détaillée <strong>sous 48 heures ouvrées</strong>.</p>
+      <p class="lead">Prenez le temps qu'il faut : plus votre message est précis, plus ma réponse sera précise. Vous recevrez un numéro de dossier immédiatement, et une réponse détaillée <strong>sous 48 heures ouvrées</strong>. Pour une place pilote, indiquez le nombre de lots et la date de votre prochaine assemblée.</p>
       <div class="card terra small">
-        <strong>Nous ne vous rappellerons pas</strong> — nous n'avons pas de ligne téléphonique et ne prenons pas de rendez-vous. Tout se traite par écrit, ce qui vous laisse une trace de chaque échange.
+        <strong>Je ne vous rappellerai pas</strong> — APC n'a pas de ligne téléphonique et ne prend pas de rendez-vous. Tout se traite par écrit, ce qui vous laisse une trace de chaque échange.
       </div>
 
       <form id="f" novalidate>
 
         <div class="champ">
-          <label>Que pouvons-nous faire pour vous ?</label>
+          <label>Que puis-je faire pour vous ?</label>
           <div class="radios">
-            <label><input type="radio" name="type" value="decouvrir" checked> <span><b>Découvrir APC</b><br><span class="aide">Je veux savoir ce que ça donnerait pour ma copropriété</span></span></label>
-            <label><input type="radio" name="type" value="reprise"> <span><b>Reprendre mes comptes</b><br><span class="aide">Exercice en retard, comptes laissés en désordre</span></span></label>
-            <label><input type="radio" name="type" value="dossier_ag"> <span><b>Un dossier d'assemblée</b><br><span class="aide">La mission ponctuelle à 190 / 290 / 390 €</span></span></label>
-            <label><input type="radio" name="type" value="question"> <span><b>Poser une question</b><br><span class="aide">Un point précis de comptabilité ou de règlement</span></span></label>
-            <label><input type="radio" name="type" value="partenaire"> <span><b>Proposer un partenariat</b><br><span class="aide">Éditeur, association, notaire, AMO…</span></span></label>
-            <label><input type="radio" name="type" value="autre"> <span><b>Autre chose</b><br><span class="aide">Dites-nous simplement quoi</span></span></label>
+            <label><input type="radio" name="type" value="pilote" checked> <span><b>Réserver une place de copropriété pilote</b><br><span class="aide">Le logiciel offert jusqu'à ma prochaine assemblée — cinq places</span></span></label>
+            <label><input type="radio" name="type" value="decouvrir"> <span><b>Découvrir APC</b><br><span class="aide">Je veux savoir ce que ça donnerait pour ma copropriété, et le prix exact</span></span></label>
+            <label><input type="radio" name="type" value="reprise"> <span><b>Reprendre mes comptes</b><br><span class="aide">Exercice en retard, comptes laissés en désordre par l'ancien syndic</span></span></label>
+            <label><input type="radio" name="type" value="question"> <span><b>Poser une question</b><br><span class="aide">Un point précis de copropriété, de comptes ou de règlement</span></span></label>
+            <label><input type="radio" name="type" value="partenaire"> <span><b>Proposer un partenariat</b><br><span class="aide">Association, notaire, agence, éditeur…</span></span></label>
+            <label><input type="radio" name="type" value="autre"> <span><b>Autre chose</b><br><span class="aide">Dites-moi simplement quoi</span></span></label>
           </div>
         </div>
 
@@ -51,7 +51,7 @@
           <div class="champ">
             <label for="email">Votre adresse email</label>
             <input type="email" id="email" name="email" autocomplete="email" required maxlength="180">
-            <p class="aide">C'est là que nous vous répondrons.</p>
+            <p class="aide">C'est là que je vous répondrai.</p>
           </div>
         </div>
 
@@ -64,7 +64,7 @@
           <div class="champ">
             <label for="lots">Nombre de lots <span class="opt">— facultatif</span></label>
             <input type="number" id="lots" name="lots" min="1" max="9999" inputmode="numeric" placeholder="Ex. : 11">
-            <p class="aide">Caves et parkings compris. Cela nous permet de vous donner un prix exact.</p>
+            <p class="aide">Caves et parkings compris. Cela me permet de vous donner un prix exact.</p>
           </div>
           <div class="champ">
             <label for="cp">Code postal <span class="opt">— facultatif</span></label>
@@ -218,7 +218,7 @@
     var email = document.getElementById("email").value.trim();
     var texte = msg.value.trim();
     if (nom.length < 2)  { montre(err, "Merci d'indiquer votre nom."); document.getElementById("nom").focus(); return; }
-    if (!/^[^@\s]+@[^@\s]+\.[a-zA-Z]{2,}$/.test(email)) { montre(err, "Cette adresse email ne semble pas valide — c'est par là que nous vous répondrons."); document.getElementById("email").focus(); return; }
+    if (!/^[^@\s]+@[^@\s]+\.[a-zA-Z]{2,}$/.test(email)) { montre(err, "Cette adresse email ne semble pas valide — c'est par là que je vous répondrai."); document.getElementById("email").focus(); return; }
     if (texte.length < 10) { montre(err, "Décrivez votre situation en quelques mots, même brièvement."); msg.focus(); return; }
     if (!document.getElementById("rgpd").checked) { montre(err, "Merci de cocher la case d'accord sur l'utilisation de vos informations."); return; }
 
@@ -264,11 +264,11 @@
       if (!res.ok) {
         var m = (res.d && (res.d.message || res.d.hint)) || "";
         var lisible = "Votre demande n'a pas pu être enregistrée. ";
-        if (/trop_de_demandes/.test(m))      lisible += "Vous avez déjà envoyé plusieurs demandes dans l'heure : elles nous sont bien parvenues, inutile de recommencer.";
+        if (/trop_de_demandes/.test(m))      lisible += "Vous avez déjà envoyé plusieurs demandes dans l'heure : elles me sont bien parvenues, inutile de recommencer.";
         else if (/email_invalide/.test(m))   lisible += "L'adresse email n'est pas valide.";
         else if (/message_trop_court/.test(m)) lisible += "Le message est trop court.";
         else if (/message_trop_long/.test(m))  lisible += "Le message dépasse 5000 caractères.";
-        else lisible += "Réessayez dans un instant. Si cela se reproduit, notez l'heure : nous pourrons retrouver la trace de l'incident.";
+        else lisible += "Réessayez dans un instant. Si cela se reproduit, notez l'heure : je pourrai retrouver la trace de l'incident.";
         montre(err, lisible);
         btn.disabled = false;
         return;

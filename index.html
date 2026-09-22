@@ -3,28 +3,75 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>APC — le logiciel de gestion des syndics bénévoles de copropriété</title>
-<meta name="description" content="APC édite JARVIS, le logiciel qui prépare les comptes, les cinq annexes et le dossier d'assemblée de votre copropriété. Vous restez le syndic : vous relisez et vous validez. 100 % par écrit, sans téléphone ni rendez-vous.">
+<title>APC — le logiciel des syndics bénévoles</title>
+<meta name="description" content="APC est le logiciel du syndic bénévole : il enregistre vos pièces et sort vos documents pour les 37 tâches du syndic — comptes, appels de fonds, assemblée, carnet d'entretien, immatriculation, recouvrement. Vous envoyez vos papiers par mail, vous validez par un OK. À partir de 149 € par an pour toute la copropriété.">
 <link rel="canonical" href="https://apcgestion.fr/">
 <link rel="stylesheet" href="/style.css">
 <link rel="icon" href="/logo-apc.svg" type="image/svg+xml">
-<meta property="og:title" content="APC — le logiciel des syndics bénévoles">
-<meta property="og:description" content="Le logiciel prépare vos comptes et votre dossier d'assemblée. Vous relisez et vous validez : vous restez le syndic.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://apcgestion.fr/">
-<meta property="og:locale" content="fr_FR">
+<style>
+/* ——— ajouts v2 : cartes courtes, détail au clic ——— */
+.hero{padding:44px 0 26px}
+.hero h1{margin-bottom:10px}
+.hero .lead{max-width:640px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0 6px}
+@media(max-width:600px){.kpis{grid-template-columns:1fr}}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;text-align:center}
+.kpi b{display:block;font:700 30px/1.1 Georgia,serif;color:var(--terra-d)}
+.kpi span{font-size:14px;color:var(--ink2)}
+.pas{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+@media(max-width:700px){.pas{grid-template-columns:1fr}}
+.pas .p{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;position:relative}
+.pas .p i{display:flex;width:34px;height:34px;border-radius:50%;background:var(--terra);color:#fff;font-style:normal;font-weight:700;align-items:center;justify-content:center;margin-bottom:10px}
+.pas .p b{display:block;color:var(--brun);margin-bottom:4px}
+.pas .p span{font-size:14.5px;color:var(--ink2)}
+.familles{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin-top:8px}
+details.fam{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:0;overflow:hidden}
+details.fam summary{list-style:none;cursor:pointer;padding:16px 18px;display:flex;gap:12px;align-items:center}
+details.fam summary::-webkit-details-marker{display:none}
+details.fam summary .ic{font-size:24px;flex:none}
+details.fam summary b{display:block;color:var(--brun);font-size:16px}
+details.fam summary small{color:var(--mut);font-size:13px}
+details.fam summary:after{content:"+";margin-left:auto;font:700 22px/1 Georgia,serif;color:var(--terra)}
+details.fam[open] summary:after{content:"–"}
+details.fam[open] summary{background:var(--terra-l)}
+details.fam .corps{padding:6px 18px 16px;border-top:1px solid var(--line)}
+details.fam .corps ul{list-style:none;margin:0}
+details.fam .corps li{padding:8px 0;border-bottom:1px dashed var(--line);font-size:14.5px}
+details.fam .corps li:last-child{border-bottom:0}
+details.fam .corps li b{color:var(--ink)}
+details.fam .corps li span{display:block;color:var(--ink2);font-size:13.5px;margin-top:2px}
+.prixbox{display:grid;grid-template-columns:1.1fr 1fr;gap:16px;align-items:stretch}
+@media(max-width:700px){.prixbox{grid-template-columns:1fr}}
+.prixbox .card{margin:0}
+.prix .n{font-size:46px}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:0;margin:8px 0}
+.faq summary{cursor:pointer;padding:13px 16px;font-weight:700;color:var(--brun);list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq details p{padding:0 16px 14px;margin:0;font-size:15px;color:var(--ink2)}
+ul.non.court li{margin:6px 0;font-size:15px}
+table.tarifs{width:100%;border-collapse:collapse;margin:18px 0 6px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+table.tarifs th,table.tarifs td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--line);font-size:15px}
+table.tarifs th{background:var(--terra-l);color:var(--brun);font-size:13px;letter-spacing:.04em;text-transform:uppercase}
+table.tarifs td.n{font:700 22px/1 Georgia,serif;color:var(--terra-d);white-space:nowrap}
+table.tarifs td.m{color:var(--ink2);font-size:14px}
+table.tarifs tr:last-child td{border-bottom:0}
+table.tarifs tr.you td{background:#fff8f4}
+.inclus{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:12px}
+.inclus div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14px;color:var(--ink2)}
+.inclus div b{display:block;color:var(--ink);margin-bottom:2px}
+</style>
 </head>
 <body>
 
 <header>
   <div class="wrap">
-    <a href="/"><img src="/logo-apc.svg" alt="APC — Assistance Petites Copropriétés"></a>
+    <a href="https://apcgestion.fr/"><img src="/logo-apc.svg" alt="APC — Assistance Petites Copropriétés"></a>
     <nav>
       <a href="#comment">Comment ça marche</a>
-      <a href="#prix">Tarifs</a>
-      <a href="/secretariat">Secrétariat seul</a>
-      <a href="#limites">Ce que nous ne faisons pas</a>
-      <a href="/demande">Nous écrire</a>
+      <a href="#fonctions">Ce qu'il fait</a>
+      <a href="#prix">Prix</a>
+      <a href="#limites">Limites</a>
+      <a href="https://apcgestion.fr/demande">Nous écrire</a>
     </nav>
   </div>
 </header>
@@ -33,42 +80,104 @@
 
 <section class="hero">
   <div class="wrap">
-    <h1>Votre copropriété, ses comptes et son assemblée — préparés par un logiciel, validés par vous.</h1>
-    <p class="lead">Vous êtes syndic bénévole d'une copropriété de 6 à 20 lots. Chaque année, il faut saisir les écritures, produire les <strong>cinq annexes réglementaires</strong>, le budget prévisionnel et le dossier de convocation. C'est long, c'est technique, et une erreur fait recaler l'approbation des comptes en assemblée.</p>
-    <p class="lead">APC édite <strong>JARVIS</strong>, un logiciel conçu pour ce travail précis. Il prépare, il contrôle, il signale ce qui ne tombe pas juste. <strong>Vous relisez et vous validez sous votre propre identifiant : vous restez le syndic.</strong></p>
+    <h1>Le logiciel qui fait le travail du syndic. Vous restez le syndic.</h1>
+    <p class="lead">Vous gérez vous-même votre copropriété. Le logiciel enregistre vos pièces, calcule et sort vos documents — comptes, appels de fonds, convocation, annexes — et suit les contrats et les obligations légales. <strong>Vous envoyez vos papiers par mail, vous validez d'un OK : c'est vous qui tenez les comptes, il fait le travail de saisie et de sortie.</strong></p>
+    <div class="kpis">
+      <div class="kpi"><b>37</b><span>tâches du syndic couvertes, chacune vérifiée une par une</span></div>
+      <div class="kpi"><b>149 €</b><span>par an pour toute la copropriété jusqu'à 30 lots — <a href="#prix">le tarif selon la taille</a></span></div>
+      <div class="kpi"><b>0</b><span>logiciel à apprendre : votre boîte mail suffit</span></div>
+    </div>
     <div class="cta">
-      <a class="btn" href="/demande">Décrire ma situation</a>
-      <p class="sous">Réponse écrite sous 48 heures ouvrées · Sans engagement · Ni téléphone, ni rendez-vous</p>
+      <a class="btn" href="https://apcgestion.fr/demande">Essayer sur ma copropriété</a>
+      <p class="sous">Reprise de vos comptes offerte · Sans engagement · Vos données restent les vôtres</p>
+    </div>
+  </div>
+</section>
+
+<section class="pilote">
+  <div class="wrap">
+    <div class="card terra" style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between">
+      <div style="flex:1 1 380px">
+        <h3 style="margin:0 0 6px">Cinq copropriétés pilotes — le logiciel offert jusqu'à votre prochaine assemblée</h3>
+        <p style="margin:0" class="small">Vous gérez une copropriété de moins de 30 lots et vous voulez essayer sans risque : les cinq premières copropriétés inscrites utilisent APC gratuitement jusqu'à leur prochaine assemblée générale. En échange, un point de trente minutes toutes les deux semaines pour me dire ce qui vous manque. Reprise des comptes comprise, aucun engagement ensuite.</p>
+      </div>
+      <div style="flex:0 0 auto"><a class="btn" href="https://apcgestion.fr/demande">Je réserve une place pilote</a></div>
     </div>
   </div>
 </section>
 
 <section id="comment">
   <div class="wrap">
-    <h2>Comment ça marche</h2>
-    <ol class="etapes">
-      <li><b>Vous décrivez votre situation par écrit</b>Un formulaire, quelques minutes. Combien de lots, où vous en êtes, ce qui coince. Vous recevez un numéro de dossier immédiatement.</li>
-      <li><b>Vous recevez une réponse détaillée sous 48 heures ouvrées</b>Ce qui est faisable, à quel prix, en combien de temps. Par écrit, pour que vous puissiez la relire et la montrer à votre conseil syndical.</li>
-      <li><b>Vous déposez vos documents dans votre espace</b>Règlement de copropriété, tantièmes, derniers comptes approuvés, relevés bancaires, factures. Vous les déposez quand vous voulez, il n'y a personne à joindre.</li>
-      <li><b>Le logiciel prépare, et signale ce qui cloche</b>Écritures, répartition par tantièmes, cinq annexes, budget prévisionnel, appels de fonds, dossier de convocation. Les incohérences sont remontées, pas dissimulées.</li>
-      <li><b>Vous relisez, vous corrigez, vous validez</b>Chaque document reste un projet tant que vous ne l'avez pas validé sous votre identifiant. Rien ne part en votre nom sans votre accord.</li>
-      <li><b>Vous êtes dépanné par écrit, toute l'année</b>Une question, un cas particulier, un point de règlement : vous écrivez, on vous répond. Sans supplément, dans l'abonnement.</li>
-    </ol>
+    <h2>Comment ça marche — en trois gestes</h2>
+    <div class="pas">
+      <div class="p"><i>1</i><b>Vous envoyez</b><span>Une facture, un relevé, un PV : vous le photographiez ou le scannez et vous l'envoyez à l'adresse mail de votre copropriété. Depuis votre téléphone, dix secondes.</span></div>
+      <div class="p"><i>2</i><b>Le logiciel lit et vous répond</b><span>Dans la minute, vous recevez « voici ce que j'ai compris » : fournisseur, montant, date, compte proposé. Rien n'est enregistré sans votre accord.</span></div>
+      <div class="p"><i>3</i><b>Vous répondez OK</b><span>C'est enregistré, et le document est publié dans l'espace en ligne de la copropriété. Chaque lundi, un mail vous dit ce qui vous attend.</span></div>
+    </div>
   </div>
 </section>
 
-<section id="ecrit">
+<section id="fonctions">
   <div class="wrap">
-    <h2>Pourquoi tout se passe par écrit</h2>
-    <div class="card terra">
-      <p style="margin-top:0">Ce n'est pas une contrainte que nous vous imposons : c'est ce qui rend le prix possible, et c'est <strong>à votre avantage</strong>.</p>
-      <ul class="oui">
-        <li><strong>Une trace de tout.</strong> Une réponse écrite se relit, se transmet au conseil syndical, se ressort deux ans plus tard. Un coup de téléphone ne laisse rien.</li>
-        <li><strong>Une réponse réfléchie.</strong> Une question de répartition de charges mérite mieux qu'une improvisation entre deux appels.</li>
-        <li><strong>Vous écrivez quand vous voulez.</strong> Le dimanche soir, à 6 h du matin. Vous n'attendez personne et personne ne vous rappelle.</li>
-        <li><strong>Un prix qui tient.</strong> Pas de standard, pas de déplacement, pas d'agence : c'est ce qui permet de facturer quelques dizaines d'euros par mois là où un syndic professionnel en demande plusieurs centaines par lot et par an.</li>
-      </ul>
-      <p style="margin-bottom:0">Le délai est annoncé et tenu : <strong>48 heures ouvrées</strong>. Vous savez toujours quand vous aurez votre réponse.</p>
+    <h2>Ce qu'il fait — les 37 tâches d'un syndic</h2>
+    <p class="mut small">Cliquez sur une famille pour voir le détail. Chaque tâche a été éprouvée une par une, avec les textes de loi cités article et alinéa.</p>
+    <div class="familles">
+
+      <details class="fam"><summary><span class="ic">📒</span><span><b>Les comptes</b><small>9 tâches</small></span></summary><div class="corps"><ul>
+        <li><b>Reprise de vos comptes</b><span>Vous envoyez la dernière balance et les documents de l'ancien syndic : ils sont repris tels quels, sans rien réinventer. Offerte.</span></li>
+        <li><b>Factures fournisseurs</b><span>Vous envoyez la facture, le logiciel la lit et vous propose l'écriture ; vous répondez OK. Le paiement reste le vôtre : le logiciel vous prépare le virement à faire depuis votre banque, il ne touche pas au compte.</span></li>
+        <li><b>Budget voté et appels de fonds</b><span>Le budget voté en assemblée est découpé en quatre appels ; au début de chaque trimestre, vous recevez les avis d'appel de fonds de chaque copropriétaire, prêts à envoyer.</span></li>
+        <li><b>Relevé de banque et rapprochement</b><span>Vous nous envoyez le relevé de la banque (le logiciel n'a aucun accès au compte). Chaque ligne est rapprochée d'une facture payée ou d'un paiement reçu ; ce qui ne colle pas vous est listé : le rapprochement bancaire est prêt.</span></li>
+        <li><b>Régularisation des charges</b><span>À la fin de l'exercice, ce que chacun a vraiment dépensé contre ce qu'il a versé, par clé de répartition, au centime. Et la même chose pour chaque opération à part — travaux votés, dépenses spéciales — quand elle se termine.</span></li>
+        <li><b>Clôture de l'exercice</b><span>Les cinq annexes comptables obligatoires, prêtes pour l'assemblée.</span></li>
+        <li><b>Fonds de travaux</b><span>La cotisation légale est calculée et appelée avec les charges ; le compte séparé, c'est vous qui l'ouvrez à votre banque — le logiciel en suit le solde.</span></li>
+        <li><b>Appels pour travaux votés</b><span>Quand l'assemblée vote des travaux payables en plusieurs fois, le logiciel calcule la part de chacun et prépare les avis à chaque date prévue.</span></li>
+        <li><b>Compte de chaque copropriétaire</b><span>Ce qu'il doit, ce qu'il a versé, à jour à tout moment.</span></li>
+      </ul></div></details>
+
+      <details class="fam"><summary><span class="ic">🗳️</span><span><b>L'assemblée générale</b><small>6 tâches</small></span></summary><div class="corps"><ul>
+        <li><b>La convocation</b><span>Vous nous dites la date et vos questions à faire voter (travaux, sujets particuliers). Le logiciel ajoute d'office les résolutions obligatoires — comptes, budget, votre mandat, le conseil syndical — joint les pièces exigées par la loi, vérifie le délai de 21 jours et vous rend la convocation prête à envoyer à chacun.</span></li>
+        <li><b>La feuille de présence et les pouvoirs</b><span>Vous envoyez la feuille signée et les pouvoirs après la réunion (une photo suffit). Le logiciel compte les présents, les représentés, vérifie qu'une personne ne dépasse pas le nombre de pouvoirs autorisé, et calcule si l'assemblée pouvait valablement voter.</span></li>
+        <li><b>Les votes</b><span>Pour chaque résolution, il applique la bonne règle de majorité — ce n'est pas la même pour approuver les comptes ou pour voter un ravalement — et vous dit si c'est adopté ou rejeté. Le vote par correspondance est pris en compte.</span></li>
+        <li><b>Le procès-verbal</b><span>Rédigé à partir des votes, numéroté, rangé dans le registre des assemblées. Vous le relisez, vous le signez.</span></li>
+        <li><b>L'envoi du procès-verbal</b><span>Le logiciel vous prépare la liste de ceux qui doivent le recevoir en recommandé — les absents et ceux qui ont voté contre — et suit le délai de deux mois pendant lequel ils peuvent contester.</span></li>
+        <li><b>Après l'assemblée</b><span>Chaque décision votée devient une chose à faire, suivie jusqu'au bout ; l'affichage pour les occupants est préparé.</span></li>
+      </ul></div></details>
+
+      <details class="fam"><summary><span class="ic">🏢</span><span><b>L'immeuble</b><small>7 tâches</small></span></summary><div class="corps"><ul>
+        <li><b>Le carnet d'entretien</b><span>Le document obligatoire qui dit quand la toiture a été refaite, quel contrat couvre la chaudière, quand la prochaine visite est due. Vous envoyez vos contrats et vos factures de travaux : le carnet se remplit tout seul et vous prévient des échéances.</span></li>
+        <li><b>Les contrats et les compteurs</b><span>Ascenseur, chauffage, ménage, eau : chaque contrat est rangé avec sa date de fin. Vous êtes prévenu à temps pour renouveler ou remettre en concurrence. Vous envoyez les relevés de compteurs, ils servent à la répartition.</span></li>
+        <li><b>L'assurance et les sinistres</b><span>L'attestation d'assurance de l'immeuble est suivie, vous êtes alerté avant l'échéance. En cas de dégât, le logiciel vous prépare la déclaration dans les délais imposés (deux jours ouvrés pour un vol, cinq pour le reste) et suit l'indemnité jusqu'à son encaissement.</span></li>
+        <li><b>Les diagnostics et le plan de travaux</b><span>Diagnostic de performance énergétique, diagnostic technique global, plan pluriannuel de travaux : lesquels sont obligatoires pour votre immeuble, lesquels manquent, et leur date.</span></li>
+        <li><b>Les travaux urgents et les devis</b><span>Une fuite, une panne d'ascenseur : le logiciel vous dit ce que vous pouvez engager sans attendre l'assemblée et prépare l'information aux copropriétaires. Pour le reste, il vous rappelle à partir de quel montant il faut plusieurs devis.</span></li>
+        <li><b>Le personnel de l'immeuble</b><span>Si vous avez un gardien ou une femme de ménage : contrat, fiches de paie et déclarations sont rangés et leurs échéances suivies. La paie elle-même reste faite par votre prestataire.</span></li>
+        <li><b>Le tri des déchets</b><span>L'information annuelle aux occupants sur les consignes de tri, obligatoire depuis 2020 : le document est préparé chaque année, vous l'affichez.</span></li>
+      </ul></div></details>
+
+      <details class="fam"><summary><span class="ic">📮</span><span><b>Les obligations légales</b><small>6 tâches</small></span></summary><div class="corps"><ul>
+        <li><b>L'immatriculation au registre national</b><span>Toute copropriété doit être inscrite au registre national des copropriétés et ses chiffres mis à jour chaque année après l'assemblée. Le logiciel prépare le dossier avec les bons chiffres ; vous le déposez sur le site du registre, avec votre identifiant.</span></li>
+        <li><b>La fiche synthétique</b><span>La fiche d'identité de la copropriété (lots, budget, procédures en cours) que tout copropriétaire peut réclamer et qu'il faut remettre sous un mois : elle est toujours prête.</span></li>
+        <li><b>L'espace en ligne des copropriétaires</b><span>Obligatoire pour les copropriétés avec syndic professionnel, précieux pour les autres : chaque copropriétaire retrouve les comptes, les procès-verbaux, les contrats. Trois niveaux : ce que tout le monde voit, ce que voit le conseil syndical, ce que chacun voit de son propre compte.</span></li>
+        <li><b>Les archives et la passation</b><span>Tout ce qui doit être conservé l'est, classé par année. Le jour où un autre syndic prend la suite, le bordereau de ce qui lui est remis est prêt.</span></li>
+        <li><b>L'alerte impayés</b><span>Quand les impayés dépassent le seuil fixé par la loi (un quart du budget), le conseil syndical doit être prévenu : le logiciel le détecte et prépare le courrier.</span></li>
+        <li><b>Les arrêtés de police</b><span>Sécurité, salubrité, péril : si la mairie prend un arrêté sur l'immeuble, les occupants doivent en être informés — le document est préparé.</span></li>
+      </ul></div></details>
+
+      <details class="fam"><summary><span class="ic">⚖️</span><span><b>Impayés et ventes</b><small>5 tâches</small></span></summary><div class="corps"><ul>
+        <li><b>Les relances et la mise en demeure</b><span>Un copropriétaire n'a pas payé son appel de fonds. Trente jours après l'échéance, le logiciel vous prépare une première relance simple ; s'il ne paie toujours pas, une mise en demeure en recommandé, avec le rappel de la loi et le décompte exact de ce qu'il doit. Les frais de ces courriers sont mis sur son compte à lui, pas sur celui des autres. Vous relisez, vous envoyez.</span></li>
+        <li><b>Le recouvrement</b><span>Si la mise en demeure ne suffit pas : proposition d'échéancier, saisine du conciliateur de justice, et si vous devez aller devant le juge, le dossier complet pour l'avocat — décompte, appels, relances, procès-verbaux.</span></li>
+        <li><b>La vente d'un lot</b><span>Le notaire vous demande un pré-état daté puis un état daté : le logiciel les remplit à partir des comptes, sinon c'est une journée de travail. Il prépare aussi l'avis de mutation et, si le vendeur doit encore de l'argent, l'opposition sur le prix de vente.</span></li>
+        <li><b>La répartition entre vendeur et acheteur</b><span>Qui paie quoi au jour de la vente — charges courantes, travaux votés, fonds de travaux — selon la loi et selon ce qu'ils ont convenu.</span></li>
+        <li><b>L'emprunt collectif</b><span>Quand la copropriété emprunte pour des travaux, seuls ceux qui ont choisi d'y participer remboursent : leurs quotes-parts et leurs échéances sont calculées et suivies.</span></li>
+      </ul></div></details>
+
+      <details class="fam"><summary><span class="ic">🤝</span><span><b>Vous et les copropriétaires</b><small>4 tâches</small></span></summary><div class="corps"><ul>
+        <li><b>Le conseil syndical</b><span>Il doit être consulté sur les dépenses importantes et peut demander toutes les pièces : le logiciel lui ouvre les documents et les relevés bancaires dans l'espace en ligne, et garde la trace de ce qui lui a été transmis.</span></li>
+        <li><b>Les demandes des copropriétaires</b><span>Une question, une demande de justificatif avant l'assemblée : l'accusé de réception part tout seul, la réponse est préparée, le délai est suivi.</span></li>
+        <li><b>Votre mandat de syndic</b><span>Sa durée, sa date de fin, le vote de renouvellement à ne pas oublier, et le jour venu la passation au suivant.</span></li>
+        <li><b>Votre mail du lundi</b><span>Chaque lundi matin : ce qui a été enregistré la semaine passée, ce qui vous attend, ce qui arrive à échéance. Rien à chercher.</span></li>
+      </ul></div></details>
+
     </div>
   </div>
 </section>
@@ -76,51 +185,36 @@
 <section id="prix">
   <div class="wrap">
     <h2>Ce que ça coûte</h2>
-
-    <div class="card terra">
-      <p class="mut small" style="margin-top:0;text-transform:uppercase;letter-spacing:.5px;font-weight:700">Offre fondateurs — 20 premières copropriétés, jusqu'au 31 décembre 2026</p>
-      <div class="prix"><span class="n">6 €</span><span class="u">par lot et par mois</span><span class="barre">10 €</span></div>
-      <p class="small mut" style="margin-top:0">Minimum 29 € par mois. <strong>Ce tarif est bloqué trois ans</strong> — il n'augmentera pas.</p>
-      <p>Pour une copropriété de <strong>11 lots</strong>, cela fait <strong>66 € par mois</strong>, soit 792 € par an pour l'immeuble entier. À comparer aux 200 à 400 € <em>par lot et par an</em> d'un syndic professionnel sur une petite copropriété.</p>
-      <ul class="oui">
-        <li><strong>La reprise de votre exercice en cours est offerte.</strong> Le logiciel la prépare, nous la contrôlons, vous la validez. Vous ne payez rien tant que vous n'avez pas vu le résultat sur vos propres comptes.</li>
-        <li><strong>Sans engagement, résiliable à tout moment</strong>, sans préavis ni frais. Les mois non consommés vous sont remboursés.</li>
-        <li><strong>La clôture d'un exercice est comprise</strong> pour les exercices couverts par l'abonnement.</li>
-        <li><strong>Facturation trimestrielle</strong>, calée sur vos appels de fonds.</li>
-        <li><strong>Livraison garantie sous 15 jours</strong> après réception de vos pièces, sinon le trimestre suivant est offert.</li>
-      </ul>
-    </div>
-
-    <h3>Vous préférez essayer sur un seul dossier ?</h3>
-    <p>La mission « <strong>Dossier d'assemblée prêt à valider</strong> » est ponctuelle et sans suite obligatoire : convocation, ordre du jour, annexes, budget, décomptes individuels. Elle tient dans le budget déjà voté par votre assemblée — vous n'avez donc pas besoin d'un nouveau vote pour la commander.</p>
-    <table>
-      <tr><th>Taille de la copropriété</th><th class="num">Prix</th></tr>
-      <tr><td>Jusqu'à 6 lots</td><td class="num"><strong>190 €</strong></td></tr>
-      <tr><td>De 7 à 15 lots</td><td class="num"><strong>290 €</strong></td></tr>
-      <tr><td>De 16 à 30 lots</td><td class="num"><strong>390 €</strong></td></tr>
+    <p class="mut small">Un seul tarif par copropriété et par an, toutes les 37 tâches comprises. Pas d'option, pas de frais de mise en route : la reprise de vos comptes est offerte.</p>
+    <table class="tarifs">
+      <thead><tr><th>Taille de la copropriété</th><th>Par an</th><th>Ce que ça représente</th></tr></thead>
+      <tbody>
+        <tr class="you"><td><strong>Jusqu'à 30 lots</strong><br><span class="m">la petite copropriété gérée par un bénévole</span></td><td class="n">149 €</td><td class="m">environ 5 € par lot — le prix d'un timbre par mois et par copropriétaire</td></tr>
+        <tr><td><strong>31 à 60 lots</strong></td><td class="n">249 €</td><td class="m">environ 4 € par lot</td></tr>
+        <tr><td><strong>61 à 100 lots</strong></td><td class="n">399 €</td><td class="m">environ 4 € par lot</td></tr>
+        <tr><td><strong>Plus de 100 lots</strong>, ou plusieurs copropriétés</td><td class="n">sur devis</td><td class="m">écrivez-nous, réponse sous 48 heures</td></tr>
+      </tbody>
     </table>
-    <p class="small">Si vous prenez un abonnement dans les 60 jours, <strong>ce montant est déduit de votre premier trimestre</strong>. La mission ne vous aura donc rien coûté de plus.</p>
-
-    <h3>Vous ne voulez que la partie administrative ?</h3>
-    <p>Courriers, convocations, procès-verbaux et relances, sans la partie comptes : <a href="/secretariat"><strong>le secrétariat de copropriété, à 4 € par lot et par mois</strong></a>.</p>
-
-    <p class="small mut">Prix nets. TVA non applicable, article 293 B du code général des impôts.</p>
+    <p class="small mut">TVA non applicable, art. 293 B du CGI. Sans engagement : vous partez quand vous voulez, vos données vous sont rendues.</p>
+    <div class="inclus">
+      <div><b>Compris dans le prix</b>Les 37 tâches, l'adresse mail de votre copropriété, l'espace en ligne des copropriétaires, la reprise de vos comptes.</div>
+      <div><b>Pour comparer</b>Un syndic professionnel facture 150 à 250 € <em>par lot</em> et par an : 4 500 à 7 500 € pour 30 lots. APC ne vend pas la gestion — il vend l'outil pour que vous la fassiez.</div>
+      <div><b>Copropriétés pilotes</b>Les cinq premières inscrites : <strong>gratuit jusqu'à votre prochaine assemblée</strong> — <a href="https://apcgestion.fr/demande">réserver une place</a>.</div>
+    </div>
+    <div class="cta" style="padding-top:18px"><a class="btn" href="https://apcgestion.fr/demande">Demander mon adresse</a></div>
   </div>
 </section>
 
 <section id="limites">
   <div class="wrap">
-    <h2>Ce que nous ne faisons pas — dit franchement</h2>
+    <h2>Ce que nous ne faisons pas</h2>
     <div class="card warn">
-      <p style="margin-top:0">Mieux vaut le savoir avant qu'après. Ces limites sont écrites de la même façon dans le contrat.</p>
-      <ul class="non">
-        <li><strong>Nous ne sommes pas votre syndic et ne le devenons jamais.</strong> Vous conservez votre mandat, vos pouvoirs et vos responsabilités.</li>
-        <li><strong>Nous n'arrêtons pas vos comptes à votre place.</strong> Le logiciel prépare ; l'arrêté des comptes est un acte qui vous appartient et que vous seul pouvez poser.</li>
-        <li><strong>Nous ne sommes ni experts-comptables, ni avocats.</strong> Pour un litige, une expertise ou un contrôle fiscal, il vous faut un professionnel inscrit.</li>
-        <li><strong>Aucun téléphone, aucun rendez-vous, aucune visite.</strong> Tout se traite par écrit, en différé.</li>
-        <li><strong>Nous ne venons jamais en assemblée générale</strong>, ni pour la tenir, ni pour l'animer, ni pour la rédiger sur place.</li>
-        <li><strong>Nous ne touchons jamais aux fonds de la copropriété.</strong> Aucun accès à vos comptes bancaires, aucun encaissement, aucun paiement. Le compte séparé reste sous votre seule signature.</li>
-        <li><strong>Nous ne signons rien en votre nom</strong> et ne contractons avec aucun de vos fournisseurs.</li>
+      <ul class="non court">
+        <li><strong>Nous ne sommes pas votre syndic.</strong> Vous gardez le mandat, les pouvoirs, la responsabilité.</li>
+        <li><strong>Nous ne tenons pas vos comptes à votre place.</strong> Le logiciel enregistre et sort les documents ; chaque écriture est proposée et c'est vous qui la validez : les comptes restent les vôtres, comme la loi le veut.</li>
+        <li><strong>Nous ne touchons jamais à l'argent.</strong> Aucun accès bancaire, aucun paiement, aucun encaissement.</li>
+        <li><strong>Ni expert-comptable, ni avocat.</strong> Pour un litige ou une expertise, il vous faut un professionnel inscrit.</li>
+        <li><strong>Tout se passe par écrit.</strong> Pas de téléphone, pas de visite, pas d'assemblée tenue à votre place.</li>
       </ul>
     </div>
   </div>
@@ -128,40 +222,30 @@
 
 <section id="qui">
   <div class="wrap">
-    <h2>Qui est derrière APC</h2>
-    <p>APC est l'entreprise de <strong>Franck Bigand</strong>. Directeur d'agence immobilière et syndic de copropriété pendant vingt ans, il a été le syndic de <strong>72 copropriétés</strong>, de 5 à 300 lots, et en a tenu les comptes à ce titre.</p>
-    <p>Ce métier, il l'a mis dans un logiciel plutôt que de le refaire à la main pour chaque immeuble. C'est ce qui permet de servir de petites copropriétés que les cabinets désertent, à un prix qu'elles peuvent payer — et de vous laisser, à vous, le rôle du syndic.</p>
+    <h2>Qui est derrière</h2>
+    <p>Je m'appelle <strong>Franck Bigand</strong>. J'ai été syndic professionnel pendant vingt ans : 72 copropriétés, de 5 à 300 lots. J'ai vu de près ce qui use un syndic bénévole — les comptes qu'on repousse, l'assemblée qu'on prépare la veille, les délais légaux qu'on découvre trop tard. Et j'ai vu les petites copropriétés que les cabinets ne veulent plus, ou facturent comme des grandes.</p>
+    <p>Plutôt que de refaire ce travail à la main pour quelques immeubles, j'ai mis vingt ans de métier dans un logiciel. Il fait la saisie, les calculs et les documents ; vous gardez la décision et la signature. Je ne suis pas votre syndic, je ne suis pas expert-comptable : je vous donne l'outil pour vous gérer vous-mêmes, proprement, et je réponds par écrit quand vous coincez.</p>
   </div>
 </section>
 
-<section id="questions">
+<section id="questions" class="faq">
   <div class="wrap">
     <h2>Questions fréquentes</h2>
-
-    <h3>Faut-il un vote de l'assemblée pour souscrire ?</h3>
-    <p>Pour la mission ponctuelle « Dossier d'assemblée », non : elle relève des frais de gestion courante déjà couverts par le budget voté. Pour l'abonnement annuel, cela dépend de votre budget et de votre règlement — le plus simple est de le faire porter au budget prévisionnel de l'assemblée suivante. Nous vous indiquons par écrit la formulation à inscrire.</p>
-
-    <h3>Mes comptes sont en retard de deux ans. C'est trop tard ?</h3>
-    <p>Non, c'est même le cas le plus fréquent. Les exercices antérieurs non soldés et les à-nouveaux introuvables sont précisément ce que la reprise traite.</p>
-
-    <h3>Je ne connais rien à la comptabilité. C'est un problème ?</h3>
-    <p>Non. Le logiciel est fait pour quelqu'un qui n'en a jamais fait : il propose, il explique, et il refuse de laisser passer une répartition qui ne tombe pas juste. Vous validez ce que vous comprenez, et vous demandez par écrit pour le reste.</p>
-
-    <h3>Et si je veux partir ?</h3>
-    <p>Vous partez, sans préavis ni frais, et les mois non consommés vous sont remboursés. Vos données vous appartiennent : vous récupérez l'ensemble de vos écritures et documents dans un format lisible.</p>
-
-    <h3>Où sont hébergées les données de ma copropriété ?</h3>
-    <p>Dans l'Union européenne. Un contrat de sous-traitance conforme à l'article 28 du RGPD est signé avec chaque syndicat de copropriétaires client.</p>
+    <details><summary>Faut-il un vote de l'assemblée pour souscrire ?</summary><p>Pour un outil de gestion à ce prix, non : il relève des frais de gestion courante du budget voté. Le plus propre reste de l'inscrire au budget de l'assemblée suivante ; nous vous donnons la formulation.</p></details>
+    <details><summary>Mes comptes ont deux ans de retard.</summary><p>C'est le cas le plus fréquent, et c'est précisément ce que la reprise offerte traite : balance, à-nouveaux, exercices non soldés.</p></details>
+    <details><summary>Je ne connais rien à la comptabilité.</summary><p>Vous envoyez vos papiers, le logiciel les lit, propose l'écriture et vous répondez OK — c'est votre validation qui fait l'écriture. Il refuse ce qui ne tombe pas juste et vous l'explique en français.</p></details>
+    <details><summary>Et si je veux partir ?</summary><p>Vous partez quand vous voulez, sans frais, et vous récupérez toutes vos écritures et documents dans un format lisible.</p></details>
+    <details><summary>Où sont mes données ?</summary><p>Dans l'Union européenne. Un contrat de sous-traitance conforme à l'article 28 du RGPD est signé avec chaque syndicat client.</p></details>
   </div>
 </section>
 
 <section>
   <div class="wrap">
     <div class="cta">
-      <h2 style="margin-top:0">Décrivez votre situation</h2>
-      <p class="lead" style="margin-bottom:18px">Quelques minutes, par écrit. Vous aurez une réponse détaillée sous 48 heures ouvrées — et vous ne serez jamais rappelé.</p>
-      <a class="btn" href="/demande">Écrire à APC</a>
-      <p class="sous">Ou <a href="/checklist">télécharger gratuitement la checklist des 22 points à vérifier avant votre assemblée</a>.</p>
+      <h2 style="margin-top:0">Essayez sur votre copropriété</h2>
+      <p class="lead" style="margin-bottom:18px">Décrivez-la en quelques lignes. Vous recevez votre adresse mail de dépôt et votre espace en ligne sous 48 heures ouvrées.</p>
+      <a class="btn" href="https://apcgestion.fr/demande">Écrire à APC</a>
+      <p class="sous">Ou <a href="https://apcgestion.fr/checklist">téléchargez la checklist des 22 points à vérifier avant votre assemblée</a>.</p>
     </div>
   </div>
 </section>
@@ -179,22 +263,21 @@
       </div>
       <div>
         <h4>Nous écrire</h4>
-        <p><a href="/demande">Formulaire de demande</a> — le seul point d'entrée.</p>
-        <p>Nous travaillons exclusivement par écrit : nous n'avons pas de ligne téléphonique et ne prenons pas de rendez-vous.</p>
-        <p>Réponse sous 48 heures ouvrées.</p>
+        <p><a href="https://apcgestion.fr/demande">Formulaire de demande</a> — le seul point d'entrée.</p>
+        <p>Nous travaillons exclusivement par écrit. Réponse sous 48 heures ouvrées.</p>
       </div>
       <div>
         <h4>Vos droits</h4>
-        <p><a href="/opposition">Ne plus recevoir de courrier d'APC</a></p>
-        <p><a href="/checklist">Checklist gratuite avant assemblée</a></p>
+        <p><a href="https://apcgestion.fr/opposition">Ne plus recevoir de courrier d'APC</a></p>
+        <p><a href="https://apcgestion.fr/checklist">Checklist gratuite avant assemblée</a></p>
         <p class="small">Données personnelles : accès, rectification, opposition et effacement sur simple demande écrite.</p>
       </div>
     </div>
     <div class="legal">
-      <p><strong>Mentions légales.</strong> Éditeur et directeur de la publication : Franck Bigand, 7 lieu-dit Les Martins, 89330 Verlin, France. Hébergement du site : GitHub, Inc. (service GitHub Pages), 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis — pages.github.com. Hébergement des données applicatives : Supabase, région Union européenne.</p>
-      <p><strong>Médiation de la consommation.</strong> Conformément à l'article L.612-1 du code de la consommation, le client consommateur peut recourir gratuitement au médiateur de la consommation dont relève APC : <span data-a-completer>[nom et coordonnées du médiateur à compléter]</span>.</p>
-      <p><strong>Données personnelles.</strong> Les informations transmises via le formulaire servent uniquement à traiter votre demande. Elles sont conservées trois ans à compter du dernier contact, hébergées dans l'Union européenne, et ne sont ni vendues ni cédées. Vous disposez d'un droit d'accès, de rectification, d'opposition, d'effacement et de portabilité, ainsi que du droit d'introduire une réclamation auprès de la CNIL.</p>
-      <p><strong>APC n'est ni un cabinet d'expertise comptable, ni un syndic professionnel</strong>, et n'exerce aucune activité soumise à la loi du 2 janvier 1970. APC édite un logiciel et accompagne son utilisation ; le syndic reste seul auteur et responsable des comptes du syndicat des copropriétaires.</p>
+      <p><strong>Mentions légales.</strong> Éditeur et directeur de la publication : Franck Bigand, 7 lieu-dit Les Martins, 89330 Verlin, France. Hébergement du site : GitHub, Inc. (GitHub Pages), 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis. Hébergement des données applicatives : Supabase, région Union européenne.</p>
+      <p><strong>Réclamations.</strong> APC s'adresse aux syndicats de copropriétaires. Toute réclamation se fait par écrit via le formulaire de demande ; réponse sous 48 heures ouvrées. Si vous contractez en qualité de consommateur, vous pouvez recourir gratuitement à un médiateur de la consommation (article L.612-1 du code de la consommation) : les coordonnées du médiateur désigné vous sont communiquées sur simple demande.</p>
+      <p><strong>Données personnelles.</strong> Les informations transmises servent uniquement à traiter votre demande. Elles sont conservées trois ans à compter du dernier contact, hébergées dans l'Union européenne, et ne sont ni vendues ni cédées. Droits d'accès, de rectification, d'opposition, d'effacement et de portabilité ; réclamation possible auprès de la CNIL.</p>
+      <p><strong>APC n'est ni un cabinet d'expertise comptable, ni un syndic professionnel</strong>, et n'exerce aucune activité soumise à la loi du 2 janvier 1970. APC édite un logiciel ; le syndic reste seul auteur et responsable des comptes du syndicat des copropriétaires.</p>
     </div>
   </div>
 </footer>
