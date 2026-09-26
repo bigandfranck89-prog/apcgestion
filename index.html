@@ -59,6 +59,20 @@ table.tarifs tr.you td{background:#fff8f4}
 .inclus{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:12px}
 .inclus div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14px;color:var(--ink2)}
 .inclus div b{display:block;color:var(--ink);margin-bottom:2px}
+.prixuni{margin:6px 0 14px}
+.prixuni .gros{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.prixuni .n{font:700 64px/1 Georgia,serif;color:var(--terra-d)}
+.prixuni .u{font-size:20px;color:var(--brun);font-weight:700}
+.prixuni .lead{margin:8px 0 0;max-width:640px}
+.calc{margin:16px 0}
+.calc label{margin-bottom:10px}
+.calc-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:17px}
+.calc-row input{width:96px;padding:10px 12px;font:700 20px inherit;font-family:inherit;text-align:center;border:1.5px solid var(--terra);border-radius:10px}
+.calc-row .fleche{color:var(--terra);font-size:24px}
+.calc-row b{font:700 30px/1 Georgia,serif;color:var(--terra-d)}
+.attente{display:none;margin-top:18px;text-align:left}
+.attente.on{display:block}
+.attente b{display:block;margin-bottom:4px}
 </style>
 </head>
 <body>
@@ -92,6 +106,7 @@ table.tarifs tr.you td{background:#fff8f4}
       <a class="btn" href="https://apcgestion.fr/demande">Essayer sur ma copropriété</a>
       <p class="sous">Reprise de vos comptes offerte · Sans engagement · Vos données restent les vôtres</p>
     </div>
+    <div class="card warn attente" id="attente" role="status"><b>Beaucoup de demandes en ce moment.</b> Pour garder notre qualité de service, les nouvelles copropriétés sont inscrites sur liste d'attente : nous revenons vers vous sous un à deux mois, dans l'ordre d'arrivée. Vous pouvez déjà nous décrire votre situation.</div>
   </div>
 </section>
 
@@ -173,23 +188,25 @@ table.tarifs tr.you td{background:#fff8f4}
 
 <section id="prix">
   <div class="wrap">
-    <h2>Ce que ça coûte</h2>
-    <p class="mut small"><strong>3 € par lot et par mois</strong>, toutes les 37 tâches comprises, facturé une fois par an. Pas d'option, pas de frais de mise en route : la reprise de vos comptes est offerte. Minimum 240 € par an, pour les copropriétés de 6 lots ou moins.</p>
-    <table class="tarifs">
-      <thead><tr><th>Taille de la copropriété</th><th>Par an</th><th>Ce que ça représente</th></tr></thead>
-      <tbody>
-        <tr><td><strong>6 lots ou moins</strong><br><span class="m">la très petite copropriété</span></td><td class="n">240 €</td><td class="m">le minimum : 20 € par mois pour toute la copropriété</td></tr>
-        <tr><td><strong>15 lots</strong></td><td class="n">540 €</td><td class="m">3 € par lot et par mois — le prix d'un café par copropriétaire</td></tr>
-        <tr class="you"><td><strong>30 lots</strong><br><span class="m">la copropriété type gérée par un bénévole</span></td><td class="n">1 080 €</td><td class="m">36 € par lot et par an ; un syndic professionnel demande 150 à 250 € par lot</td></tr>
-        <tr><td><strong>60 lots</strong></td><td class="n">2 160 €</td><td class="m">toujours 3 € par lot et par mois, sans palier ni surprise</td></tr>
-        <tr><td><strong>100 lots et plus</strong>, ou plusieurs copropriétés</td><td class="n">3 600 € et +</td><td class="m">même règle, sans plafond ; pour plusieurs copropriétés, écrivez-nous</td></tr>
-      </tbody>
-    </table>
-    <p class="small mut">Facturé une fois par an, en début de période, payable par virement (en deux fois au-delà de 1 000 €). Sans engagement : vous pouvez arrêter à tout moment, les mois entiers non commencés vous sont remboursés et vos données vous sont rendues. TVA non applicable, art. 293 B du CGI.</p>
+    <h2>Ce que ça coûte — un seul tarif</h2>
+    <div class="prixuni">
+      <div class="gros"><span class="n">3 €</span><span class="u">par lot et par mois</span></div>
+      <p class="lead">Toutes les 37 tâches comprises, la reprise de vos comptes offerte, sans engagement. Facturé une fois par an. À partir de 20 € par mois pour les très petites copropriétés.</p>
+    </div>
+    <div class="card calc">
+      <label for="lots-calc">Combien pour ma copropriété ?</label>
+      <div class="calc-row">
+        <input type="number" id="lots-calc" min="1" max="999" value="20" inputmode="numeric" aria-describedby="calc-comp"> <span>lots</span>
+        <span class="fleche" aria-hidden="true">→</span>
+        <b id="calc-an">720 €</b> <span>par an</span> <span class="mut">(<span id="calc-mois">60 €</span> par mois)</span>
+      </div>
+      <p class="small mut" id="calc-comp">Un syndic professionnel demanderait 3 000 à 5 000 € par an pour la même copropriété.</p>
+    </div>
+    <p class="small mut">Facturé une fois par an, en début de période, payable par virement (en deux fois au-delà de 1 000 €). Vous arrêtez quand vous voulez : les mois entiers non commencés vous sont remboursés et vos données vous sont rendues. TVA non applicable, art. 293 B du CGI.</p>
     <div class="inclus">
       <div><b>Compris dans le prix</b>Les 37 tâches, l'adresse mail de votre copropriété, l'espace en ligne des copropriétaires, la reprise de vos comptes.</div>
-      <div><b>Pour comparer</b>Un syndic professionnel facture 150 à 250 € <em>par lot</em> et par an : 4 500 à 7 500 € pour 30 lots. APC en demande 36 € par lot — et fait le travail pour que vous restiez le syndic.</div>
       <div><b>Sans engagement</b>Vous arrêtez quand vous voulez : les mois entiers non commencés sont remboursés et vos écritures et documents vous sont rendus.</div>
+      <div><b>Plusieurs copropriétés ?</b>Même tarif, sans palier ni surprise : 3 € par lot et par mois, quel que soit le nombre d'immeubles.</div>
     </div>
     <div class="cta" style="padding-top:18px"><a class="btn" href="https://apcgestion.fr/demande">Essayer sur ma copropriété</a></div>
   </div>
@@ -241,6 +258,26 @@ table.tarifs tr.you td{background:#fff8f4}
 </section>
 
 </main>
+
+<script>
+(function(){
+  var inp = document.getElementById("lots-calc"), an = document.getElementById("calc-an"), mois = document.getElementById("calc-mois"), comp = document.getElementById("calc-comp");
+  function eur(n){ return n.toLocaleString("fr-FR") + " €"; }
+  function calc(){
+    var lots = Math.max(1, Math.min(999, parseInt(inp.value, 10) || 1));
+    var m = Math.max(20, lots * 3);
+    mois.textContent = eur(m); an.textContent = eur(m * 12);
+    comp.textContent = "Un syndic professionnel demanderait " + eur(lots * 150) + " à " + eur(lots * 250) + " par an pour la même copropriété.";
+  }
+  inp.addEventListener("input", calc); calc();
+  fetch("/etat.json?" + Date.now()).then(function(r){ return r.json(); }).then(function(e){
+    if (e && e.mode === "attente") {
+      var a = document.getElementById("attente"); a.classList.add("on");
+      if (e.message) { a.innerHTML = "<b>" + e.titre + "</b> " + e.message; }
+    }
+  }).catch(function(){});
+})();
+</script>
 
 <footer>
   <div class="wrap">
