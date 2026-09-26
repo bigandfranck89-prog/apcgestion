@@ -59,6 +59,20 @@ table.tarifs tr.you td{background:#fff8f4}
 .inclus{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:12px}
 .inclus div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:14px;color:var(--ink2)}
 .inclus div b{display:block;color:var(--ink);margin-bottom:2px}
+.prixuni{margin:6px 0 14px}
+.prixuni .gros{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.prixuni .n{font:700 64px/1 Georgia,serif;color:var(--terra-d)}
+.prixuni .u{font-size:20px;color:var(--brun);font-weight:700}
+.prixuni .lead{margin:8px 0 0;max-width:640px}
+.calc{margin:16px 0}
+.calc label{margin-bottom:10px}
+.calc-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:17px}
+.calc-row input{width:96px;padding:10px 12px;font:700 20px inherit;font-family:inherit;text-align:center;border:1.5px solid var(--terra);border-radius:10px}
+.calc-row .fleche{color:var(--terra);font-size:24px}
+.calc-row b{font:700 30px/1 Georgia,serif;color:var(--terra-d)}
+.attente{display:none;margin-top:18px;text-align:left}
+.attente.on{display:block}
+.attente b{display:block;margin-bottom:4px}
 </style>
 </head>
 <body>
@@ -80,8 +94,9 @@ table.tarifs tr.you td{background:#fff8f4}
 
 <section class="hero">
   <div class="wrap">
+    <img class="hero-logo" src="/logo-apc.svg" alt="APC — Assistance Petites Copropriétés — Le coup de main qui change tout">
     <h1>Le logiciel qui fait le travail du syndic. Vous restez le syndic.</h1>
-    <p class="lead">Vous gérez vous-même votre copropriété. Le logiciel enregistre vos pièces, calcule et sort vos documents — comptes, appels de fonds, convocation, annexes — et suit les contrats et les obligations légales. <strong>Vous envoyez vos papiers par mail, vous validez d'un OK : c'est vous qui tenez les comptes, il fait le travail de saisie et de sortie.</strong></p>
+    <p class="lead">Vous gérez vous-même votre copropriété. Le logiciel enregistre vos pièces, fait les calculs et prépare vos documents — comptes, appels de fonds, convocation, annexes — et veille sur les contrats et les obligations légales. <strong>Vous envoyez vos papiers par mail, vous validez d'un OK : vous restez celui qui tient les comptes, lui se charge de la saisie et des documents.</strong></p>
     <div class="kpis">
       <div class="kpi"><b>37</b><span>tâches du syndic couvertes, chacune vérifiée une par une</span></div>
       <div class="kpi"><b>3 €</b><span>par lot et par mois, tout compris, facturé à l'année — <a href="#prix">le détail selon la taille</a></span></div>
@@ -91,18 +106,7 @@ table.tarifs tr.you td{background:#fff8f4}
       <a class="btn" href="https://apcgestion.fr/demande">Essayer sur ma copropriété</a>
       <p class="sous">Reprise de vos comptes offerte · Sans engagement · Vos données restent les vôtres</p>
     </div>
-  </div>
-</section>
-
-<section class="pilote">
-  <div class="wrap">
-    <div class="card terra" style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between">
-      <div style="flex:1 1 380px">
-        <h3 style="margin:0 0 6px">Cinq copropriétés pilotes — le logiciel offert jusqu'à votre prochaine assemblée</h3>
-        <p style="margin:0" class="small">Vous gérez une copropriété de moins de 30 lots et vous voulez essayer sans risque : les cinq premières copropriétés inscrites utilisent APC gratuitement jusqu'à leur prochaine assemblée générale. En échange, un point de trente minutes toutes les deux semaines pour me dire ce qui vous manque. Reprise des comptes comprise, aucun engagement ensuite.</p>
-      </div>
-      <div style="flex:0 0 auto"><a class="btn" href="https://apcgestion.fr/demande">Je réserve une place pilote</a></div>
-    </div>
+    <div class="card warn attente" id="attente" role="status"><b>Beaucoup de demandes en ce moment.</b> Pour garder notre qualité de service, les nouvelles copropriétés sont inscrites sur liste d'attente : nous revenons vers vous sous un à deux mois, dans l'ordre d'arrivée. Vous pouvez déjà nous décrire votre situation.</div>
   </div>
 </section>
 
@@ -120,17 +124,17 @@ table.tarifs tr.you td{background:#fff8f4}
 <section id="fonctions">
   <div class="wrap">
     <h2>Ce qu'il fait — les 37 tâches d'un syndic</h2>
-    <p class="mut small">Cliquez sur une famille pour voir le détail. Chaque tâche a été éprouvée une par une, avec les textes de loi cités article et alinéa.</p>
+    <p class="mut small">Cliquez sur une famille pour voir le détail. Chaque tâche a été éprouvée une par une, avec le texte de loi qui s'applique, cité article et alinéa.</p>
     <div class="familles">
 
       <details class="fam"><summary><span class="ic">📒</span><span><b>Les comptes</b><small>9 tâches</small></span></summary><div class="corps"><ul>
-        <li><b>Reprise de vos comptes</b><span>Vous envoyez la dernière balance et les documents de l'ancien syndic : ils sont repris tels quels, sans rien réinventer. Offerte.</span></li>
-        <li><b>Factures fournisseurs</b><span>Vous envoyez la facture, le logiciel la lit et vous propose l'écriture ; vous répondez OK. Le paiement reste le vôtre : le logiciel vous prépare le virement à faire depuis votre banque, il ne touche pas au compte.</span></li>
+        <li><b>Reprise de vos comptes</b><span>Vous envoyez la dernière balance et les documents de l'ancien syndic : ils sont repris tels quels, sans rien réinventer. Cette reprise est offerte.</span></li>
+        <li><b>Factures fournisseurs</b><span>Vous envoyez la facture, le logiciel la lit et vous propose l'écriture ; vous répondez OK. C'est vous qui payez : le logiciel vous prépare le virement à faire depuis votre banque, il ne touche jamais au compte.</span></li>
         <li><b>Budget voté et appels de fonds</b><span>Le budget voté en assemblée est découpé en quatre appels ; au début de chaque trimestre, vous recevez les avis d'appel de fonds de chaque copropriétaire, prêts à envoyer.</span></li>
-        <li><b>Relevé de banque et rapprochement</b><span>Vous nous envoyez le relevé de la banque (le logiciel n'a aucun accès au compte). Chaque ligne est rapprochée d'une facture payée ou d'un paiement reçu ; ce qui ne colle pas vous est listé : le rapprochement bancaire est prêt.</span></li>
-        <li><b>Régularisation des charges</b><span>À la fin de l'exercice, ce que chacun a vraiment dépensé contre ce qu'il a versé, par clé de répartition, au centime. Et la même chose pour chaque opération à part — travaux votés, dépenses spéciales — quand elle se termine.</span></li>
+        <li><b>Relevé de banque et rapprochement</b><span>Vous envoyez votre relevé de banque (le logiciel n'a aucun accès au compte). Chaque ligne est rapprochée d'une facture payée ou d'un paiement reçu ; ce qui ne colle pas vous est signalé. Le rapprochement bancaire est fait.</span></li>
+        <li><b>Régularisation des charges</b><span>À la fin de l'exercice, le logiciel compare ce que chacun doit réellement et ce qu'il a versé, clé par clé, au centime. Il fait de même pour chaque opération à part — travaux votés, dépenses exceptionnelles — quand elle se termine.</span></li>
         <li><b>Clôture de l'exercice</b><span>Les cinq annexes comptables obligatoires, prêtes pour l'assemblée.</span></li>
-        <li><b>Fonds de travaux</b><span>La cotisation légale est calculée et appelée avec les charges ; le compte séparé, c'est vous qui l'ouvrez à votre banque — le logiciel en suit le solde.</span></li>
+        <li><b>Fonds de travaux</b><span>La cotisation obligatoire est calculée et appelée avec les charges. Le compte séparé, c'est vous qui l'ouvrez à votre banque ; le logiciel en suit le solde.</span></li>
         <li><b>Appels pour travaux votés</b><span>Quand l'assemblée vote des travaux payables en plusieurs fois, le logiciel calcule la part de chacun et prépare les avis à chaque date prévue.</span></li>
         <li><b>Compte de chaque copropriétaire</b><span>Ce qu'il doit, ce qu'il a versé, à jour à tout moment.</span></li>
       </ul></div></details>
@@ -147,10 +151,10 @@ table.tarifs tr.you td{background:#fff8f4}
       <details class="fam"><summary><span class="ic">🏢</span><span><b>L'immeuble</b><small>7 tâches</small></span></summary><div class="corps"><ul>
         <li><b>Le carnet d'entretien</b><span>Le document obligatoire qui dit quand la toiture a été refaite, quel contrat couvre la chaudière, quand la prochaine visite est due. Vous envoyez vos contrats et vos factures de travaux : le carnet se remplit tout seul et vous prévient des échéances.</span></li>
         <li><b>Les contrats et les compteurs</b><span>Ascenseur, chauffage, ménage, eau : chaque contrat est rangé avec sa date de fin. Vous êtes prévenu à temps pour renouveler ou remettre en concurrence. Vous envoyez les relevés de compteurs, ils servent à la répartition.</span></li>
-        <li><b>L'assurance et les sinistres</b><span>L'attestation d'assurance de l'immeuble est suivie, vous êtes alerté avant l'échéance. En cas de dégât, le logiciel vous prépare la déclaration dans les délais imposés (deux jours ouvrés pour un vol, cinq pour le reste) et suit l'indemnité jusqu'à son encaissement.</span></li>
+        <li><b>L'assurance et les sinistres</b><span>L'attestation d'assurance de l'immeuble est suivie, vous êtes alerté avant l'échéance. En cas de dégât, le logiciel vous prépare la déclaration dans les délais imposés (deux jours ouvrés pour un vol, cinq jours ouvrés pour la plupart des autres sinistres) et suit l'indemnité jusqu'à son encaissement.</span></li>
         <li><b>Les diagnostics et le plan de travaux</b><span>Diagnostic de performance énergétique, diagnostic technique global, plan pluriannuel de travaux : lesquels sont obligatoires pour votre immeuble, lesquels manquent, et leur date.</span></li>
         <li><b>Les travaux urgents et les devis</b><span>Une fuite, une panne d'ascenseur : le logiciel vous dit ce que vous pouvez engager sans attendre l'assemblée et prépare l'information aux copropriétaires. Pour le reste, il vous rappelle à partir de quel montant il faut plusieurs devis.</span></li>
-        <li><b>Le personnel de l'immeuble</b><span>Si vous avez un gardien ou une femme de ménage : contrat, fiches de paie et déclarations sont rangés et leurs échéances suivies. La paie elle-même reste faite par votre prestataire.</span></li>
+        <li><b>Le personnel de l'immeuble</b><span>Si vous employez un gardien ou un employé d'immeuble : contrat, fiches de paie et déclarations sont rangés et leurs échéances suivies. La paie elle-même reste faite par votre prestataire.</span></li>
         <li><b>Le tri des déchets</b><span>L'information annuelle aux occupants sur les consignes de tri, obligatoire depuis 2020 : le document est préparé chaque année, vous l'affichez.</span></li>
       </ul></div></details>
 
@@ -159,7 +163,7 @@ table.tarifs tr.you td{background:#fff8f4}
         <li><b>La fiche synthétique</b><span>La fiche d'identité de la copropriété (lots, budget, procédures en cours) que tout copropriétaire peut réclamer et qu'il faut remettre sous un mois : elle est toujours prête.</span></li>
         <li><b>L'espace en ligne des copropriétaires</b><span>Obligatoire pour les copropriétés avec syndic professionnel, précieux pour les autres : chaque copropriétaire retrouve les comptes, les procès-verbaux, les contrats. Trois niveaux : ce que tout le monde voit, ce que voit le conseil syndical, ce que chacun voit de son propre compte.</span></li>
         <li><b>Les archives et la passation</b><span>Tout ce qui doit être conservé l'est, classé par année. Le jour où un autre syndic prend la suite, le bordereau de ce qui lui est remis est prêt.</span></li>
-        <li><b>L'alerte impayés</b><span>Quand les impayés dépassent le seuil fixé par la loi (un quart du budget), le conseil syndical doit être prévenu : le logiciel le détecte et prépare le courrier.</span></li>
+        <li><b>L'alerte impayés</b><span>Quand les impayés atteignent le seuil fixé par la loi (un quart des sommes dues à la clôture), le conseil syndical doit en être informé : le logiciel le détecte et prépare le courrier.</span></li>
         <li><b>Les arrêtés de police</b><span>Sécurité, salubrité, péril : si la mairie prend un arrêté sur l'immeuble, les occupants doivent en être informés — le document est préparé.</span></li>
       </ul></div></details>
 
@@ -184,25 +188,27 @@ table.tarifs tr.you td{background:#fff8f4}
 
 <section id="prix">
   <div class="wrap">
-    <h2>Ce que ça coûte</h2>
-    <p class="mut small"><strong>3 € par lot et par mois</strong>, toutes les 37 tâches comprises, facturé une fois par an. Pas d'option, pas de frais de mise en route : la reprise de vos comptes est offerte. Minimum 240 € par an, pour les copropriétés de 6 lots ou moins.</p>
-    <table class="tarifs">
-      <thead><tr><th>Taille de la copropriété</th><th>Par an</th><th>Ce que ça représente</th></tr></thead>
-      <tbody>
-        <tr><td><strong>6 lots ou moins</strong><br><span class="m">la très petite copropriété</span></td><td class="n">240 €</td><td class="m">le minimum : 20 € par mois pour toute la copropriété</td></tr>
-        <tr><td><strong>15 lots</strong></td><td class="n">540 €</td><td class="m">3 € par lot et par mois — le prix d'un café par copropriétaire</td></tr>
-        <tr class="you"><td><strong>30 lots</strong><br><span class="m">la copropriété type gérée par un bénévole</span></td><td class="n">1 080 €</td><td class="m">36 € par lot et par an ; un syndic professionnel demande 150 à 250 € par lot</td></tr>
-        <tr><td><strong>60 lots</strong></td><td class="n">2 160 €</td><td class="m">toujours 3 € par lot et par mois, sans palier ni surprise</td></tr>
-        <tr><td><strong>100 lots et plus</strong>, ou plusieurs copropriétés</td><td class="n">3 600 € et +</td><td class="m">même règle, sans plafond ; pour plusieurs copropriétés, écrivez-nous</td></tr>
-      </tbody>
-    </table>
-    <p class="small mut">Facturé une fois par an, en début de période, payable par virement (en deux fois au-delà de 1 000 €). Sans engagement : vous pouvez arrêter à tout moment, les mois entiers non commencés vous sont remboursés et vos données vous sont rendues. TVA non applicable, art. 293 B du CGI.</p>
+    <h2>Ce que ça coûte — un seul tarif</h2>
+    <div class="prixuni">
+      <div class="gros"><span class="n">3 €</span><span class="u">par lot et par mois</span></div>
+      <p class="lead">Toutes les 37 tâches comprises, la reprise de vos comptes offerte, sans engagement. Facturé une fois par an. À partir de 20 € par mois pour les très petites copropriétés.</p>
+    </div>
+    <div class="card calc">
+      <label for="lots-calc">Combien pour ma copropriété ?</label>
+      <div class="calc-row">
+        <input type="number" id="lots-calc" min="1" max="999" value="20" inputmode="numeric" aria-describedby="calc-comp"> <span>lots</span>
+        <span class="fleche" aria-hidden="true">→</span>
+        <b id="calc-an">720 €</b> <span>par an</span> <span class="mut">(<span id="calc-mois">60 €</span> par mois)</span>
+      </div>
+      <p class="small mut" id="calc-comp">Un syndic professionnel demanderait 3 000 à 5 000 € par an pour la même copropriété.</p>
+    </div>
+    <p class="small mut">Facturé une fois par an, en début de période, payable par virement (en deux fois au-delà de 1 000 €). Vous arrêtez quand vous voulez : les mois entiers non commencés vous sont remboursés et vos données vous sont rendues. TVA non applicable, art. 293 B du CGI.</p>
     <div class="inclus">
       <div><b>Compris dans le prix</b>Les 37 tâches, l'adresse mail de votre copropriété, l'espace en ligne des copropriétaires, la reprise de vos comptes.</div>
-      <div><b>Pour comparer</b>Un syndic professionnel facture 150 à 250 € <em>par lot</em> et par an : 4 500 à 7 500 € pour 30 lots. APC en demande 36 par lot — et fait le travail pour que vous restiez le syndic.</div>
-      <div><b>Copropriétés pilotes</b>Les cinq premières inscrites : <strong>gratuit jusqu'à votre prochaine assemblée</strong> — <a href="https://apcgestion.fr/demande">réserver une place</a>.</div>
+      <div><b>Sans engagement</b>Vous arrêtez quand vous voulez : les mois entiers non commencés sont remboursés et vos écritures et documents vous sont rendus.</div>
+      <div><b>Plusieurs copropriétés ?</b>Même tarif, sans palier ni surprise : 3 € par lot et par mois, quel que soit le nombre d'immeubles.</div>
     </div>
-    <div class="cta" style="padding-top:18px"><a class="btn" href="https://apcgestion.fr/demande">Demander mon adresse</a></div>
+    <div class="cta" style="padding-top:18px"><a class="btn" href="https://apcgestion.fr/demande">Essayer sur ma copropriété</a></div>
   </div>
 </section>
 
@@ -225,7 +231,7 @@ table.tarifs tr.you td{background:#fff8f4}
   <div class="wrap">
     <h2>Qui est derrière</h2>
     <p>Je m'appelle <strong>Franck Bigand</strong>. J'ai été syndic professionnel pendant vingt ans : 72 copropriétés, de 5 à 300 lots. J'ai vu de près ce qui use un syndic bénévole — les comptes qu'on repousse, l'assemblée qu'on prépare la veille, les délais légaux qu'on découvre trop tard. Et j'ai vu les petites copropriétés que les cabinets ne veulent plus, ou facturent comme des grandes.</p>
-    <p>Plutôt que de refaire ce travail à la main pour quelques immeubles, j'ai mis vingt ans de métier dans un logiciel. Il fait la saisie, les calculs et les documents ; vous gardez la décision et la signature. Je ne suis pas votre syndic, je ne suis pas expert-comptable : je vous donne l'outil pour vous gérer vous-mêmes, proprement, et je réponds par écrit quand vous coincez.</p>
+    <p>Plutôt que de refaire ce travail à la main pour quelques immeubles, j'ai mis vingt ans de métier dans un logiciel. Il fait la saisie, les calculs et les documents ; vous gardez la décision et la signature. Je ne suis pas votre syndic, je ne suis pas expert-comptable : je vous donne l'outil pour vous gérer vous-mêmes, proprement, et je vous réponds par écrit quand vous avez besoin d'un coup de main.</p>
   </div>
 </section>
 
@@ -233,7 +239,7 @@ table.tarifs tr.you td{background:#fff8f4}
   <div class="wrap">
     <h2>Questions fréquentes</h2>
     <details><summary>Faut-il un vote de l'assemblée pour souscrire ?</summary><p>Pour un outil de gestion à ce prix, non : il relève des frais de gestion courante du budget voté. Le plus propre reste de l'inscrire au budget de l'assemblée suivante ; nous vous donnons la formulation.</p></details>
-    <details><summary>Mes comptes ont deux ans de retard.</summary><p>C'est le cas le plus fréquent, et c'est précisément ce que la reprise offerte traite : balance, à-nouveaux, exercices non soldés.</p></details>
+    <details><summary>Mes comptes ont deux ans de retard.</summary><p>C'est le cas le plus fréquent, et c'est exactement ce que la reprise offerte règle : la dernière balance, les reports d'un exercice à l'autre, les exercices jamais clôturés.</p></details>
     <details><summary>Je ne connais rien à la comptabilité.</summary><p>Vous envoyez vos papiers, le logiciel les lit, propose l'écriture et vous répondez OK — c'est votre validation qui fait l'écriture. Il refuse ce qui ne tombe pas juste et vous l'explique en français.</p></details>
     <details><summary>Et si je veux partir ?</summary><p>Vous partez quand vous voulez, sans frais, et vous récupérez toutes vos écritures et documents dans un format lisible.</p></details>
     <details><summary>Où sont mes données ?</summary><p>Dans l'Union européenne. Un contrat de sous-traitance conforme à l'article 28 du RGPD est signé avec chaque syndicat client.</p></details>
@@ -252,6 +258,26 @@ table.tarifs tr.you td{background:#fff8f4}
 </section>
 
 </main>
+
+<script>
+(function(){
+  var inp = document.getElementById("lots-calc"), an = document.getElementById("calc-an"), mois = document.getElementById("calc-mois"), comp = document.getElementById("calc-comp");
+  function eur(n){ return n.toLocaleString("fr-FR") + " €"; }
+  function calc(){
+    var lots = Math.max(1, Math.min(999, parseInt(inp.value, 10) || 1));
+    var m = Math.max(20, lots * 3);
+    mois.textContent = eur(m); an.textContent = eur(m * 12);
+    comp.textContent = "Un syndic professionnel demanderait " + eur(lots * 150) + " à " + eur(lots * 250) + " par an pour la même copropriété.";
+  }
+  inp.addEventListener("input", calc); calc();
+  fetch("/etat.json?" + Date.now()).then(function(r){ return r.json(); }).then(function(e){
+    if (e && e.mode === "attente") {
+      var a = document.getElementById("attente"); a.classList.add("on");
+      if (e.message) { a.innerHTML = "<b>" + e.titre + "</b> " + e.message; }
+    }
+  }).catch(function(){});
+})();
+</script>
 
 <footer>
   <div class="wrap">
