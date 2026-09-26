@@ -25,6 +25,7 @@
     <div id="formulaire">
       <h1>Décrivez votre situation</h1>
       <p class="lead">Prenez le temps qu'il faut : plus votre message est précis, plus ma réponse sera précise. Vous recevrez un numéro de dossier immédiatement, et une réponse détaillée <strong>sous 48 heures ouvrées</strong>.</p>
+      <div class="card warn small" id="attente" style="display:none" role="status"><strong>Liste d'attente.</strong> Beaucoup de demandes en ce moment : pour garder notre qualité de service, les nouvelles copropriétés sont inscrites sur liste d'attente, dans l'ordre d'arrivée. Décrivez quand même votre situation : nous revenons vers vous sous un à deux mois.</div>
       <div class="card terra small">
         <strong>Tout se passe par écrit</strong> — APC n'a pas de ligne téléphonique et ne prend pas de rendez-vous. Chaque échange vous laisse une trace, et vous avez le temps de relire.
       </div>
@@ -157,9 +158,12 @@
   var err = document.getElementById("erreur"), att = document.getElementById("patiente");
   var input = document.getElementById("fichier"), depot = document.getElementById("depot"), liste = document.getElementById("liste");
   var msg = document.getElementById("message"), cpt = document.getElementById("cpt");
-  var choisis = [];
+  var choisis = [], attente = false;
 
   msg.addEventListener("input", function(){ cpt.textContent = msg.value.length; });
+  fetch("/etat.json?" + Date.now()).then(function(r){ return r.json(); }).then(function(e){
+    if (e && e.mode === "attente") { attente = true; document.getElementById("attente").style.display = "block"; btn.textContent = "M'inscrire sur la liste d'attente"; }
+  }).catch(function(){});
 
   function montre(el, texte){ el.textContent = texte; el.classList.add("on"); }
   function cache(el){ el.classList.remove("on"); }
@@ -253,7 +257,7 @@
           p_copropriete: document.getElementById("copro").value.trim() || null,
           p_nb_lots: parseInt(document.getElementById("lots").value, 10) || null,
           p_code_postal: document.getElementById("cp").value.trim() || null,
-          p_urgence: urg, p_fichiers: chemins, p_origine: "site:" + ref
+          p_urgence: urg, p_fichiers: chemins, p_origine: "site:" + ref + (attente ? ":attente" : "")
         })
       });
     }).then(function(r){
