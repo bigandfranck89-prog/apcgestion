@@ -16,7 +16,10 @@ body{background:var(--bg);color:var(--ink);
 /* En-tête */
 header{background:var(--card);border-bottom:1px solid var(--line);padding:14px 0;position:sticky;top:0;z-index:50}
 header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-header img{height:54px;width:auto;display:block}
+header img{height:66px;width:auto;display:block}
+@media(max-width:600px){header img{height:56px}}
+.hero-logo{height:124px;width:auto;display:block;margin:0 0 20px}
+@media(max-width:600px){.hero-logo{height:92px;margin-bottom:14px}}
 nav{display:flex;gap:18px;flex-wrap:wrap}
 nav a{color:var(--ink2);text-decoration:none;font-size:15px;font-weight:600}
 nav a:hover,nav a:focus{color:var(--terra-d);text-decoration:underline}
