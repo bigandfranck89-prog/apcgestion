@@ -136,4 +136,16 @@ footer p{margin:6px 0;line-height:1.6}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
   outline:3px solid var(--terra-d);outline-offset:2px}
+/* v3 (27/09/2026) : liens aux couleurs du site, pied de page lisible, menu d'une ligne sur téléphone */
+main a:not(.btn){color:var(--terra-d)}
+main a:not(.btn):hover{color:var(--brun)}
+footer strong{color:#fff}
+@media(max-width:600px){
+  nav{gap:14px;flex-wrap:nowrap;overflow-x:auto;width:100%;padding-bottom:2px;scrollbar-width:none}
+  nav::-webkit-scrollbar{display:none}
+  nav a{white-space:nowrap;font-size:14.5px}
+  header{padding:8px 0}
+  header img{height:46px}
+  header .wrap{gap:8px}
+}
 @media print{header,footer,.cta,.btn{display:none}body{background:#fff}}

@@ -88,6 +88,114 @@ table.tarifs tr.you td{background:#fff8f4}
 .attente{display:none;margin-top:18px;text-align:left}
 .attente.on{display:block}
 .attente b{display:block;margin-bottom:4px}
+
+/* ——— v3 (27/09/2026) : page plus vivante — visuel, couleurs, vidéos ——— */
+.wrap{max-width:1000px}
+.hero .lead,#comment .intro,#fonctions .mut,.prixuni .lead{max-width:680px}
+nav a.nav-cta{background:var(--terra);color:#fff;padding:7px 16px;border-radius:22px;text-decoration:none}
+nav a.nav-cta:hover,nav a.nav-cta:focus{background:var(--terra-d);color:#fff;text-decoration:none}
+/* héros */
+.hero{padding:40px 0 30px;background:radial-gradient(760px 420px at 88% 18%,rgba(217,107,65,.16),transparent 62%),radial-gradient(640px 380px at 0% 105%,rgba(246,221,203,.75),transparent 62%),var(--bg)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr;gap:26px}}
+.kicker{display:inline-block;background:var(--terra-l);color:var(--brun);font-weight:700;font-size:13.5px;letter-spacing:.02em;padding:6px 14px;border-radius:20px;margin:0 0 14px}
+.hero h1{font-size:clamp(29px,4.6vw,44px)}
+.cta-g{text-align:left;padding:10px 0 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.cta-g .sous{flex-basis:100%;margin-top:4px}
+@media(max-width:860px){.cta-g{justify-content:center;text-align:center}}
+/* téléphone d'exemple */
+.hero-visuel{display:flex;justify-content:center}
+.phone{width:300px;max-width:100%;background:#2b2320;border-radius:36px;padding:11px;box-shadow:0 34px 60px -24px rgba(140,60,32,.55),0 0 0 1px rgba(0,0,0,.04);transform:rotate(1.5deg)}
+.ecran{background:#fffaf5;border-radius:26px;overflow:hidden;padding-bottom:12px}
+.ecran .haut{background:linear-gradient(135deg,var(--terra),var(--terra-d));color:#fff;padding:16px 16px 13px}
+.ecran .haut b{display:block;font-size:14.5px}
+.ecran .haut small{font-size:12px;opacity:.9}
+.bulle{max-width:86%;padding:9px 12px;border-radius:15px;font-size:13.2px;line-height:1.42;margin:10px 12px 0;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.bulle.moi{margin-left:auto;background:var(--terra);color:#fff;border-bottom-right-radius:5px}
+.bulle.apc{background:#fff;border:1px solid var(--line);color:var(--ink);border-bottom-left-radius:5px}
+.bulle.apc b{color:var(--brun)}
+.bulle .pj{display:flex;align-items:center;gap:8px}
+.bulle .pj i{display:inline-block;width:28px;height:34px;border-radius:5px;background:#fff;position:relative;flex:none}
+.bulle .pj i:after{content:"";position:absolute;left:6px;right:6px;top:8px;height:2px;background:var(--terra-l);box-shadow:0 6px 0 var(--terra-l),0 12px 0 var(--terra-l)}
+.bulle.ok{background:var(--ok-bg);border-color:#bfe3cc;color:var(--ok);font-weight:700}
+.legende{text-align:center;font-size:12.5px;color:var(--mut);margin:12px 0 0}
+@media(prefers-reduced-motion:no-preference){
+  .ecran .bulle{opacity:0;animation:bulle .5s ease forwards}
+  .ecran .bulle:nth-child(2){animation-delay:.3s}.ecran .bulle:nth-child(3){animation-delay:1.1s}
+  .ecran .bulle:nth-child(4){animation-delay:1.9s}.ecran .bulle:nth-child(5){animation-delay:2.6s}
+  @keyframes bulle{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+}
+.kpis{margin-top:30px}
+.kpi{border-top:4px solid var(--terra);box-shadow:0 6px 18px -12px rgba(140,60,32,.35)}
+.kpi b{font-size:34px}
+/* bandeau de confiance */
+.confiance{padding:18px 0;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.confiance ul{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:860px){.confiance ul{grid-template-columns:1fr 1fr}}
+@media(max-width:420px){.confiance ul{grid-template-columns:1fr}}
+.confiance li{display:flex;gap:12px;align-items:center}
+.confiance .ico,.pas .p .ico{flex:none;width:44px;height:44px;border-radius:50%;background:var(--terra-l);display:flex;align-items:center;justify-content:center}
+.confiance svg,.pas svg{width:22px;height:22px;stroke:var(--terra-d);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.confiance b{display:block;font-size:14.5px;color:var(--brun);line-height:1.3}
+.confiance small{display:block;font-size:13px;color:var(--ink2);line-height:1.35}
+/* sections en bandes */
+.bande{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+section h2{position:relative}
+/* comment ça marche */
+.pas{gap:22px}
+.pas .p{border-top:4px solid var(--terra);box-shadow:0 8px 20px -14px rgba(140,60,32,.35)}
+.pas .p .tete{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.pas .p .tete i{margin:0}
+@media(min-width:701px){.pas .p:not(:last-child):after{content:"";position:absolute;right:-19px;top:50%;width:16px;height:16px;border-top:3px solid var(--terra);border-right:3px solid var(--terra);transform:translateY(-50%) rotate(45deg);opacity:.55}}
+/* vidéos */
+.videos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+@media(max-width:860px){.videos{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.videos{grid-template-columns:1fr}}
+a.vid{display:block;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transition:transform .15s,box-shadow .15s}
+a.vid:hover,a.vid:focus{transform:translateY(-3px);box-shadow:0 14px 26px -16px rgba(140,60,32,.5)}
+.vig{display:block;position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,#fffaf5 0%,var(--terra-l) 100%);border-left:6px solid var(--terra);padding:14px 16px}
+.vig .t{display:block;font:700 18px/1.25 Georgia,serif;color:var(--brun);max-width:78%}
+.vig .play{position:absolute;right:14px;bottom:14px;width:50px;height:50px;border-radius:50%;background:var(--terra);box-shadow:0 6px 14px -6px rgba(140,60,32,.7)}
+.vig .play:after{content:"";position:absolute;left:20px;top:15px;border-style:solid;border-width:10px 0 10px 16px;border-color:transparent transparent transparent #fff}
+.vig .d{position:absolute;left:16px;bottom:14px;background:rgba(43,35,32,.82);color:#fff;font-size:12.5px;font-weight:700;padding:3px 8px;border-radius:6px}
+a.vid .s{display:block;padding:11px 14px 13px;font-size:14.5px;color:var(--ink2)}
+a.vid .s b{color:var(--ink)}
+/* familles */
+details.fam summary .ic{width:46px;height:46px;border-radius:50%;background:var(--terra-l);display:flex;align-items:center;justify-content:center;font-size:22px}
+details.fam{transition:box-shadow .15s}
+details.fam:hover{box-shadow:0 10px 22px -16px rgba(140,60,32,.5)}
+/* prix */
+.prixuni{background:linear-gradient(135deg,var(--terra) 0%,var(--terra-d) 100%);color:#fff;border-radius:18px;padding:24px 26px;box-shadow:0 18px 34px -22px rgba(140,60,32,.8)}
+.prixuni .n{color:#fff}
+.prixuni .u{color:#ffe9dd}
+.prixuni .lead{color:#fff3ec}
+/* qui */
+.qui-grid{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:start}
+@media(max-width:640px){.qui-grid{grid-template-columns:1fr}}
+.avatar{width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,var(--terra),var(--brun));color:#fff;display:flex;align-items:center;justify-content:center;font:700 34px/1 Georgia,serif;box-shadow:0 10px 22px -12px rgba(140,60,32,.7)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+.chips span{background:var(--terra-l);color:var(--brun);font-weight:700;font-size:13.5px;padding:6px 12px;border-radius:18px}
+/* questions */
+.faq summary{position:relative;padding-right:40px}
+.faq summary:after{content:"+";position:absolute;right:16px;top:50%;transform:translateY(-50%);font:700 22px/1 Georgia,serif;color:var(--terra)}
+.faq details[open] summary:after{content:"–"}
+/* appel final */
+.final{background:linear-gradient(135deg,var(--terra) 0%,var(--brun) 100%);color:#fff;margin-top:20px}
+.final h2{color:#fff}
+.final .lead{color:#fff3ec;margin-left:auto;margin-right:auto}
+.final .btn{background:#fff;color:var(--brun)}
+.final .btn:hover,.final .btn:focus{background:var(--terra-l)}
+.final .sous,.final .sous a{color:#fde6da}
+footer{margin-top:0}
+/* téléphone : vignettes plus basses, bouton « Nous écrire » en tête du menu */
+@media(max-width:520px){.vig{aspect-ratio:auto;min-height:118px}.vig .t{max-width:72%}}
+@media(max-width:640px){.avatar{width:72px;height:72px;font-size:26px}}
+@media(max-width:600px){nav a.nav-cta{order:-1}}
+/* apparition douce */
+@media(prefers-reduced-motion:no-preference){
+  .js .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+  .js .reveal.vu{opacity:1;transform:none}
+}
 </style>
 </head>
 <body>
@@ -100,7 +208,7 @@ table.tarifs tr.you td{background:#fff8f4}
       <a href="#fonctions">Ce qu'il fait</a>
       <a href="#prix">Prix</a>
       <a href="#limites">Limites</a>
-      <a href="https://apcgestion.fr/demande">Nous écrire</a>
+      <a class="nav-cta" href="https://apcgestion.fr/demande">Nous écrire</a>
     </nav>
   </div>
 </header>
@@ -108,41 +216,87 @@ table.tarifs tr.you td{background:#fff8f4}
 <main>
 
 <section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-txt">
+      <p class="kicker">Pour les syndics bénévoles des petites copropriétés</p>
+      <h1>Le logiciel qui fait le travail du syndic. Vous restez le syndic.</h1>
+      <p class="lead">Vous gérez vous-même votre copropriété. Le logiciel enregistre vos pièces, fait les calculs et prépare vos documents — comptes, appels de fonds, convocation, annexes — et veille sur les contrats et les obligations légales. <strong>Vous envoyez vos papiers par mail, vous validez d'un OK : vous restez celui qui tient les comptes, lui se charge de la saisie et des documents.</strong></p>
+      <div class="cta cta-g">
+        <a class="btn" href="https://apcgestion.fr/demande">Essayer sur ma copropriété</a>
+        <a class="btn ghost" href="#videos">Voir les vidéos</a>
+        <p class="sous">Reprise de vos comptes offerte · Sans engagement · Vos données restent les vôtres</p>
+      </div>
+    </div>
+    <div class="hero-visuel">
+      <div>
+        <div class="phone" role="img" aria-label="Exemple d'échange : vous envoyez la photo d'une facture à l'adresse de votre copropriété, le logiciel répond ce qu'il a compris, vous répondez OK, c'est enregistré.">
+          <div class="ecran" aria-hidden="true">
+            <div class="haut"><b>Copropriété Les Tilleuls</b><small>votre adresse de dépôt</small></div>
+            <div class="bulle moi"><span class="pj"><i></i><span>Photo de la facture d'entretien des espaces verts</span></span></div>
+            <div class="bulle apc"><b>Voici ce que j'ai compris :</b><br>entretien des espaces verts, 180,00 €, du 12 septembre, réparti sur les charges générales. Je l'enregistre ?</div>
+            <div class="bulle moi">OK</div>
+            <div class="bulle apc ok">✓ C'est enregistré. Le document est dans l'espace en ligne.</div>
+          </div>
+        </div>
+        <p class="legende">Exemple d'échange, depuis votre téléphone</p>
+      </div>
+    </div>
+  </div>
   <div class="wrap">
-    <img class="hero-logo" src="/logo-apc.svg" alt="APC — Assistance Petites Copropriétés — Le coup de main qui change tout">
-    <h1>Le logiciel qui fait le travail du syndic. Vous restez le syndic.</h1>
-    <p class="lead">Vous gérez vous-même votre copropriété. Le logiciel enregistre vos pièces, fait les calculs et prépare vos documents — comptes, appels de fonds, convocation, annexes — et veille sur les contrats et les obligations légales. <strong>Vous envoyez vos papiers par mail, vous validez d'un OK : vous restez celui qui tient les comptes, lui se charge de la saisie et des documents.</strong></p>
     <div class="kpis">
       <div class="kpi"><b>37</b><span>tâches du syndic couvertes, chacune vérifiée une par une</span></div>
       <div class="kpi"><b>3 €</b><span>par lot et par mois, tout compris, facturé à l'année — <a href="#prix">le détail selon la taille</a></span></div>
       <div class="kpi"><b>0</b><span>logiciel à apprendre : votre boîte mail suffit</span></div>
     </div>
-    <div class="cta">
-      <a class="btn" href="https://apcgestion.fr/demande">Essayer sur ma copropriété</a>
-      <p class="sous">Reprise de vos comptes offerte · Sans engagement · Vos données restent les vôtres</p>
-    </div>
     <div class="card warn attente" id="attente" role="status"><b>Beaucoup de demandes en ce moment.</b> Pour garder notre qualité de service, les nouvelles copropriétés sont inscrites sur liste d'attente : nous revenons vers vous sous un à deux mois, dans l'ordre d'arrivée. Vous pouvez déjà nous décrire votre situation.</div>
   </div>
 </section>
 
-<section id="comment">
+<section class="confiance" aria-label="Nos engagements">
+  <div class="wrap">
+    <ul>
+      <li><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span><b>Tout par écrit</b><small>réponse sous 48 h ouvrées</small></span></li>
+      <li><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><span><b>Aucun accès à votre banque</b><small>vous payez vous-même vos factures</small></span></li>
+      <li><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><span><b>Données en Europe</b><small>hébergées dans l'Union européenne</small></span></li>
+      <li><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 3-6.2"/><path d="M4 4v4h4"/></svg></span><span><b>Sans engagement</b><small>vous partez quand vous voulez, avec vos données</small></span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="comment" class="bande">
   <div class="wrap">
     <h2>Comment ça marche — en trois gestes</h2>
     <div class="pas">
-      <div class="p"><i>1</i><b>Vous envoyez</b><span>Une facture, un relevé, un PV : vous le photographiez ou le scannez et vous l'envoyez à l'adresse mail de votre copropriété. Depuis votre téléphone, dix secondes.</span></div>
-      <div class="p"><i>2</i><b>Le logiciel lit et vous répond</b><span>Dans la minute, vous recevez « voici ce que j'ai compris » : fournisseur, montant, date, compte proposé. Rien n'est enregistré sans votre accord.</span></div>
-      <div class="p"><i>3</i><b>Vous répondez OK</b><span>C'est enregistré, et le document est publié dans l'espace en ligne de la copropriété. Chaque lundi, un mail vous dit ce qui vous attend.</span></div>
+      <div class="p reveal"><div class="tete"><i>1</i><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h3l2-2h6l2 2h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg></span></div><b>Vous envoyez</b><span>Une facture, un relevé, un PV : vous le photographiez ou le scannez et vous l'envoyez à l'adresse mail de votre copropriété. Depuis votre téléphone, dix secondes.</span></div>
+      <div class="p reveal"><div class="tete"><i>2</i><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l3 3v15H6z"/><path d="M9 10h6M9 14h6M9 18h3"/></svg></span></div><b>Le logiciel lit et vous répond</b><span>Dans la minute, vous recevez « voici ce que j'ai compris » : fournisseur, montant, date, compte proposé. Rien n'est enregistré sans votre accord.</span></div>
+      <div class="p reveal"><div class="tete"><i>3</i><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l3 3 5-6"/></svg></span></div><b>Vous répondez OK</b><span>C'est enregistré, et le document est publié dans l'espace en ligne de la copropriété. Chaque lundi, un mail vous dit ce qui vous attend.</span></div>
     </div>
   </div>
 </section>
 
-<section id="fonctions">
+<section id="videos">
+  <div class="wrap">
+    <h2>L'essentiel du syndic bénévole, en vidéo</h2>
+    <p class="mut small">Six vidéos de deux minutes, chaque règle avec son texte de loi. Gratuites, sans inscription.</p>
+    <div class="videos">
+      <a class="vid reveal" href="https://youtu.be/47o_LcNh2hU" target="_blank" rel="noopener"><span class="vig"><span class="t">Convocation d'assemblée générale</span><span class="d">2:25</span><span class="play" aria-hidden="true"></span></span><span class="s"><b>Les 5 règles à ne pas rater</b> — vidéo sur YouTube</span></a>
+      <a class="vid reveal" href="https://youtu.be/LvibnUWwsXc" target="_blank" rel="noopener"><span class="vig"><span class="t">Appels de fonds</span><span class="d">2:07</span><span class="play" aria-hidden="true"></span></span><span class="s"><b>Comment ça marche</b> — vidéo sur YouTube</span></a>
+      <a class="vid reveal" href="https://youtu.be/iIGandNxJqQ" target="_blank" rel="noopener"><span class="vig"><span class="t">Les 5 annexes comptables</span><span class="d">2:04</span><span class="play" aria-hidden="true"></span></span><span class="s"><b>Expliquées simplement</b> — vidéo sur YouTube</span></a>
+      <a class="vid reveal" href="https://youtu.be/3iVY2HZjM6E" target="_blank" rel="noopener"><span class="vig"><span class="t">Charges impayées</span><span class="d">2:08</span><span class="play" aria-hidden="true"></span></span><span class="s"><b>La procédure, étape par étape</b> — vidéo sur YouTube</span></a>
+      <a class="vid reveal" href="https://youtu.be/Qujqoq4myj4" target="_blank" rel="noopener"><span class="vig"><span class="t">Registre national des copropriétés</span><span class="d">1:46</span><span class="play" aria-hidden="true"></span></span><span class="s"><b>Ce qu'il faut mettre à jour</b> — vidéo sur YouTube</span></a>
+      <a class="vid reveal" href="https://youtu.be/AO1csxFUzh4" target="_blank" rel="noopener"><span class="vig"><span class="t">Carnet d'entretien</span><span class="d">1:58</span><span class="play" aria-hidden="true"></span></span><span class="s"><b>Ce qu'il doit contenir</b> — vidéo sur YouTube</span></a>
+    </div>
+    <p class="small mut" style="text-align:center;margin-top:14px">Toute la série sur la chaîne <a href="https://www.youtube.com/playlist?list=PLZsFAjmTBs_U" target="_blank" rel="noopener">Syndic bénévole — l'essentiel en 3 minutes</a>.</p>
+  </div>
+</section>
+
+<section id="fonctions" class="bande">
   <div class="wrap">
     <h2>Ce qu'il fait — les 37 tâches d'un syndic</h2>
     <p class="mut small">Cliquez sur une famille pour voir le détail. Chaque tâche a été éprouvée une par une, avec le texte de loi qui s'applique, cité article et alinéa.</p>
     <div class="familles">
 
-      <details class="fam"><summary><span class="ic">📒</span><span><b>Les comptes</b><small>9 tâches</small></span></summary><div class="corps"><ul>
+      <details class="fam reveal"><summary><span class="ic">📒</span><span><b>Les comptes</b><small>9 tâches</small></span></summary><div class="corps"><ul>
         <li><b>Reprise de vos comptes</b><span>Vous envoyez la dernière balance et les documents de l'ancien syndic : ils sont repris tels quels, sans rien réinventer. Cette reprise est offerte.</span></li>
         <li><b>Factures fournisseurs</b><span>Vous envoyez la facture, le logiciel la lit et vous propose l'écriture ; vous répondez OK. C'est vous qui payez : le logiciel vous prépare le virement à faire depuis votre banque, il ne touche jamais au compte.</span></li>
         <li><b>Budget voté et appels de fonds</b><span>Le budget voté en assemblée est découpé en quatre appels ; au début de chaque trimestre, vous recevez les avis d'appel de fonds de chaque copropriétaire, prêts à envoyer.</span></li>
@@ -154,7 +308,7 @@ table.tarifs tr.you td{background:#fff8f4}
         <li><b>Compte de chaque copropriétaire</b><span>Ce qu'il doit, ce qu'il a versé, à jour à tout moment.</span></li>
       </ul></div></details>
 
-      <details class="fam"><summary><span class="ic">🗳️</span><span><b>L'assemblée générale</b><small>6 tâches</small></span></summary><div class="corps"><ul>
+      <details class="fam reveal"><summary><span class="ic">🗳️</span><span><b>L'assemblée générale</b><small>6 tâches</small></span></summary><div class="corps"><ul>
         <li><b>La convocation</b><span>Vous nous dites la date et vos questions à faire voter (travaux, sujets particuliers). Le logiciel ajoute d'office les résolutions obligatoires — comptes, budget, votre mandat, le conseil syndical — joint les pièces exigées par la loi, vérifie le délai de 21 jours et vous rend la convocation prête à envoyer à chacun.</span></li>
         <li><b>La feuille de présence et les pouvoirs</b><span>Vous envoyez la feuille signée et les pouvoirs après la réunion (une photo suffit). Le logiciel compte les présents, les représentés, vérifie qu'une personne ne dépasse pas le nombre de pouvoirs autorisé, et calcule si l'assemblée pouvait valablement voter.</span></li>
         <li><b>Les votes</b><span>Pour chaque résolution, il applique la bonne règle de majorité — ce n'est pas la même pour approuver les comptes ou pour voter un ravalement — et vous dit si c'est adopté ou rejeté. Le vote par correspondance est pris en compte.</span></li>
@@ -163,7 +317,7 @@ table.tarifs tr.you td{background:#fff8f4}
         <li><b>Après l'assemblée</b><span>Chaque décision votée devient une chose à faire, suivie jusqu'au bout ; l'affichage pour les occupants est préparé.</span></li>
       </ul></div></details>
 
-      <details class="fam"><summary><span class="ic">🏢</span><span><b>L'immeuble</b><small>7 tâches</small></span></summary><div class="corps"><ul>
+      <details class="fam reveal"><summary><span class="ic">🏢</span><span><b>L'immeuble</b><small>7 tâches</small></span></summary><div class="corps"><ul>
         <li><b>Le carnet d'entretien</b><span>Le document obligatoire qui dit quand la toiture a été refaite, quel contrat couvre la chaudière, quand la prochaine visite est due. Vous envoyez vos contrats et vos factures de travaux : le carnet se remplit tout seul et vous prévient des échéances.</span></li>
         <li><b>Les contrats et les compteurs</b><span>Ascenseur, chauffage, ménage, eau : chaque contrat est rangé avec sa date de fin. Vous êtes prévenu à temps pour renouveler ou remettre en concurrence. Vous envoyez les relevés de compteurs, ils servent à la répartition.</span></li>
         <li><b>L'assurance et les sinistres</b><span>L'attestation d'assurance de l'immeuble est suivie, vous êtes alerté avant l'échéance. En cas de dégât, le logiciel vous prépare la déclaration dans les délais imposés (deux jours ouvrés pour un vol, cinq jours ouvrés pour la plupart des autres sinistres) et suit l'indemnité jusqu'à son encaissement.</span></li>
@@ -173,7 +327,7 @@ table.tarifs tr.you td{background:#fff8f4}
         <li><b>Le tri des déchets</b><span>L'information annuelle aux occupants sur les consignes de tri, obligatoire depuis 2020 : le document est préparé chaque année, vous l'affichez.</span></li>
       </ul></div></details>
 
-      <details class="fam"><summary><span class="ic">📮</span><span><b>Les obligations légales</b><small>6 tâches</small></span></summary><div class="corps"><ul>
+      <details class="fam reveal"><summary><span class="ic">📮</span><span><b>Les obligations légales</b><small>6 tâches</small></span></summary><div class="corps"><ul>
         <li><b>L'immatriculation au registre national</b><span>Toute copropriété doit être inscrite au registre national des copropriétés et ses chiffres mis à jour chaque année après l'assemblée. Le logiciel prépare le dossier avec les bons chiffres ; vous le déposez sur le site du registre, avec votre identifiant.</span></li>
         <li><b>La fiche synthétique</b><span>La fiche d'identité de la copropriété (lots, budget, procédures en cours) que tout copropriétaire peut réclamer et qu'il faut remettre sous quinze jours : elle est toujours prête.</span></li>
         <li><b>L'espace en ligne des copropriétaires</b><span>Obligatoire pour les copropriétés avec syndic professionnel, précieux pour les autres : chaque copropriétaire retrouve les comptes, les procès-verbaux, les contrats. Trois niveaux : ce que tout le monde voit, ce que voit le conseil syndical, ce que chacun voit de son propre compte.</span></li>
@@ -182,7 +336,7 @@ table.tarifs tr.you td{background:#fff8f4}
         <li><b>Les arrêtés de police</b><span>Sécurité, salubrité, péril : si la mairie prend un arrêté sur l'immeuble, les occupants doivent en être informés — le document est préparé.</span></li>
       </ul></div></details>
 
-      <details class="fam"><summary><span class="ic">⚖️</span><span><b>Impayés et ventes</b><small>5 tâches</small></span></summary><div class="corps"><ul>
+      <details class="fam reveal"><summary><span class="ic">⚖️</span><span><b>Impayés et ventes</b><small>5 tâches</small></span></summary><div class="corps"><ul>
         <li><b>Les relances et la mise en demeure</b><span>Un copropriétaire n'a pas payé son appel de fonds. Trente jours après l'échéance, le logiciel vous prépare une première relance simple ; s'il ne paie toujours pas, une mise en demeure en recommandé, avec le rappel de la loi et le décompte exact de ce qu'il doit. Les frais de ces courriers sont mis sur son compte à lui, pas sur celui des autres. Vous relisez, vous envoyez.</span></li>
         <li><b>Le recouvrement</b><span>Si la mise en demeure ne suffit pas : proposition d'échéancier, saisine du conciliateur de justice, et si vous devez aller devant le juge, le dossier complet pour l'avocat — décompte, appels, relances, procès-verbaux.</span></li>
         <li><b>La vente d'un lot</b><span>Le notaire vous demande un pré-état daté puis un état daté : le logiciel les remplit à partir des comptes, sinon c'est une journée de travail. Il prépare aussi l'avis de mutation et, si le vendeur doit encore de l'argent, l'opposition sur le prix de vente.</span></li>
@@ -190,7 +344,7 @@ table.tarifs tr.you td{background:#fff8f4}
         <li><b>L'emprunt collectif</b><span>Quand la copropriété emprunte pour des travaux, seuls ceux qui ont choisi d'y participer remboursent : leurs quotes-parts et leurs échéances sont calculées et suivies.</span></li>
       </ul></div></details>
 
-      <details class="fam"><summary><span class="ic">🤝</span><span><b>Vous et les copropriétaires</b><small>4 tâches</small></span></summary><div class="corps"><ul>
+      <details class="fam reveal"><summary><span class="ic">🤝</span><span><b>Vous et les copropriétaires</b><small>4 tâches</small></span></summary><div class="corps"><ul>
         <li><b>Le conseil syndical</b><span>Il doit être consulté sur les dépenses importantes et peut demander toutes les pièces : le logiciel lui ouvre les documents et les relevés bancaires dans l'espace en ligne, et garde la trace de ce qui lui a été transmis.</span></li>
         <li><b>Les demandes des copropriétaires</b><span>Une question, une demande de justificatif avant l'assemblée : l'accusé de réception part tout seul, la réponse est préparée, le délai est suivi.</span></li>
         <li><b>Votre mandat de syndic</b><span>Sa durée, sa date de fin, le vote de renouvellement à ne pas oublier, et le jour venu la passation au suivant.</span></li>
@@ -242,11 +396,17 @@ table.tarifs tr.you td{background:#fff8f4}
   </div>
 </section>
 
-<section id="qui">
+<section id="qui" class="bande">
   <div class="wrap">
     <h2>Qui est derrière</h2>
-    <p>Je m'appelle <strong>Franck Bigand</strong>. J'ai été syndic professionnel pendant vingt ans : 72 copropriétés, de 5 à 300 lots. J'ai vu de près ce qui use un syndic bénévole — les comptes qu'on repousse, l'assemblée qu'on prépare la veille, les délais légaux qu'on découvre trop tard. Et j'ai vu les petites copropriétés que les cabinets ne veulent plus, ou facturent comme des grandes.</p>
-    <p>Plutôt que de refaire ce travail à la main pour quelques immeubles, j'ai mis vingt ans de métier dans un logiciel. Il fait la saisie, les calculs et les documents ; vous gardez la décision et la signature. Je ne suis pas votre syndic, je ne suis pas expert-comptable : je vous donne l'outil pour vous gérer vous-mêmes, proprement, et je vous réponds par écrit quand vous avez besoin d'un coup de main.</p>
+    <div class="qui-grid">
+      <div class="avatar" aria-hidden="true">FB</div>
+      <div>
+        <div class="chips"><span>20 ans de syndic professionnel</span><span>72 copropriétés, de 5 à 300 lots</span><span>Verlin, dans l'Yonne</span></div>
+        <p>Je m'appelle <strong>Franck Bigand</strong>. J'ai été syndic professionnel pendant vingt ans : 72 copropriétés, de 5 à 300 lots. J'ai vu de près ce qui use un syndic bénévole — les comptes qu'on repousse, l'assemblée qu'on prépare la veille, les délais légaux qu'on découvre trop tard. Et j'ai vu les petites copropriétés que les cabinets ne veulent plus, ou facturent comme des grandes.</p>
+        <p>Plutôt que de refaire ce travail à la main pour quelques immeubles, j'ai mis vingt ans de métier dans un logiciel. Il fait la saisie, les calculs et les documents ; vous gardez la décision et la signature. Je ne suis pas votre syndic, je ne suis pas expert-comptable : je vous donne l'outil pour vous gérer vous-mêmes, proprement, et je vous réponds par écrit quand vous avez besoin d'un coup de main.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -261,7 +421,7 @@ table.tarifs tr.you td{background:#fff8f4}
   </div>
 </section>
 
-<section>
+<section class="final">
   <div class="wrap">
     <div class="cta">
       <h2 style="margin-top:0">Essayez sur votre copropriété</h2>
@@ -291,6 +451,12 @@ table.tarifs tr.you td{background:#fff8f4}
       if (e.message) { a.innerHTML = "<b>" + e.titre + "</b> " + e.message; }
     }
   }).catch(function(){});
+})();
+(function(){
+  if (!('IntersectionObserver' in window)) return;
+  document.documentElement.classList.add('js');
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('vu'); io.unobserve(e.target); } }); }, {rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
 })();
 </script>
 
