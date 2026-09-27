@@ -35,7 +35,7 @@ p{margin:12px 0}
 strong{color:var(--brun)}
 
 /* Blocs */
-section{padding:34px 0}
+section{padding:34px 0;scroll-margin-top:96px}
 .hero{padding:52px 0 34px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;margin:16px 0}
 .card.terra{border-left:4px solid var(--terra)}
