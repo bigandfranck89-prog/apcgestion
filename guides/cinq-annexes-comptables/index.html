@@ -37,6 +37,12 @@
   .autres a:hover,.autres a:focus{background:var(--terra-l)}
   .sources ul{font-size:14.5px;color:var(--ink2)}
   @media print{header,footer,.cta-art,.autres,.fil{display:none!important}body{background:#fff}}
+  .vidbloc{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);border-left:4px solid var(--terra);border-radius:var(--r);padding:10px;margin:4px 0 22px;text-decoration:none;color:var(--ink)}
+  .vidbloc:hover,.vidbloc:focus{background:var(--terra-l)}
+  .vidbloc img{width:168px;max-width:42%;height:auto;aspect-ratio:16/9;border-radius:8px;display:block;flex:none}
+  .vidbloc b{display:block;color:var(--brun)}
+  .vidbloc span{font-size:15px;line-height:1.45}
+  @media print{.vidbloc{display:none!important}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Les cinq annexes comptables de copropriété, sans jargon", "description": "Annexes 1 à 5 de la copropriété : ce que montre chacune, comment la lire, quoi vérifier avant l'assemblée. Guide clair, textes à l'appui, pour syndic bénévole.", "inLanguage": "fr", "datePublished": "2026-09-27", "dateModified": "2026-09-27", "author": {"@type": "Person", "name": "Franck Bigand"}, "publisher": {"@type": "Organization", "name": "APC — Assistance Petites Copropriétés", "logo": {"@type": "ImageObject", "url": "https://apcgestion.fr/logo-apc.svg"}}, "mainEntityOfPage": "https://apcgestion.fr/guides/cinq-annexes-comptables/", "image": "https://apcgestion.fr/og-apc.png"}</script>
 </head>
@@ -45,7 +51,7 @@
 <header>
   <div class="wrap">
     <a href="/"><img src="/logo-apc.svg" alt="APC — Assistance Petites Copropriétés"></a>
-    <nav><a href="/">Accueil</a><a href="/guides/">Guides</a><a href="/demande">Nous écrire</a></nav>
+    <nav><a href="/">Accueil</a><a href="/guides/">Guides</a><a href="/videos/">Vidéos</a><a href="/demande">Nous écrire</a></nav>
   </div>
 </header>
 
@@ -57,6 +63,8 @@
     <h1>Les cinq annexes comptables de copropriété, sans jargon</h1>
     <p class="lead">Chaque année, pour faire approuver les comptes en assemblée, cinq tableaux sont présentés aux copropriétaires : les annexes comptables. Quand on gère son immeuble bénévolement, ils ont l'air intimidants. Voici, annexe par annexe, ce qu'ils montrent, comment les lire et ce qu'il faut vérifier.</p>
     <p class="maj">Mis à jour le 27 septembre 2026 · chaque règle avec sa référence</p>
+
+    <a class="vidbloc" href="/videos/cinq-annexes-comptables/"><img src="/videos/img/cinq-annexes-comptables.png" alt="" width="1280" height="720" loading="lazy"><span><b>▶ Voir la vidéo · 2 min 03 s</b>Les 5 annexes comptables de la copropriété, expliquées simplement — avec le texte complet et les sous-titres.</span></a>
 
     <h2>Pourquoi ces cinq tableaux ?</h2>
     <p>Chaque année, les comptes de la copropriété sont clôturés au dernier jour de l'exercice, l'année de comptes de douze mois (décret n° 2005-240 du 14 mars 2005, article 5). Ils sont présentés dans cinq tableaux dont les modèles, obligatoires, sont annexés à ce décret : les « annexes comptables » (décret de 2005, article 8).</p>
@@ -165,7 +173,7 @@
 <footer>
   <div class="wrap">
     <p><strong>APC — Assistance Petites Copropriétés</strong> · Franck Bigand · 7 lieu-dit Les Martins, 89330 Verlin · SIREN 519 339 170</p>
-    <p class="small"><a href="/">Accueil</a> · <a href="/guides/">Guides</a> · <a href="/checklist">Checklist avant assemblée</a> · <a href="/demande">Nous écrire</a> · <a href="/opposition">Ne plus recevoir de courrier</a></p>
+    <p class="small"><a href="/">Accueil</a> · <a href="/guides/">Guides</a> · <a href="/videos/">Vidéos</a> · <a href="/checklist">Checklist avant assemblée</a> · <a href="/demande">Nous écrire</a> · <a href="/opposition">Ne plus recevoir de courrier</a></p>
     <p class="small">APC édite un logiciel pour les syndics bénévoles ; le syndic reste seul auteur et responsable des comptes du syndicat. Ces guides donnent des repères généraux : en cas de doute, le texte officiel fait foi.</p>
   </div>
 </footer>
