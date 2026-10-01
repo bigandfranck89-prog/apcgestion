@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Espace en ligne de la copropriété — APC</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="/logo-apc.svg" type="image/svg+xml">
+<style>
+  body{margin:0;font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+       background:#f4f6f8;color:#1a2330}
+  .boot{max-width:520px;margin:0 auto;padding:70px 22px;text-align:center}
+  .boot h1{font-size:20px;margin:0 0 10px;color:#1d3557}
+  .boot p{color:#5a6672;font-size:15px;margin:8px 0}
+</style>
+</head>
+<body>
+<div class="boot" id="boot" role="status" aria-live="polite">
+  <h1>Ouverture de votre espace…</h1>
+  <p>Un instant : nous chargeons les documents de votre copropriété.</p>
+  <noscript><p>Cette page a besoin de JavaScript pour s'afficher. Activez-le dans votre navigateur, puis rechargez la page.</p></noscript>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  // L'espace en ligne est fabriqué par la fonction « extranet » de la base. Supabase la sert en texte brut
+  // sur son propre domaine : cette page la lit et l'affiche, sous l'adresse du site. Le lien personnel
+  // (?token=…) est transmis tel quel ; rien n'est gardé en mémoire dans le navigateur.
+  var FN = "https://bmvytqfddrfgcgokoxfn.supabase.co/functions/v1/extranet";
+
+  function dire(titre, texte){
+    var boot = document.getElementById("boot");
+    if (!boot) { boot = document.createElement("div"); boot.className = "boot"; boot.id = "boot"; document.body.innerHTML = ""; document.body.appendChild(boot); }
+    boot.innerHTML = "";
+    var h = document.createElement("h1"); h.textContent = titre;
+    var p = document.createElement("p");  p.textContent = texte;
+    boot.appendChild(h); boot.appendChild(p);
+  }
+
+  var q = location.search || "";
+  if (!/[?&]token=[^&]+/.test(q)) {
+    dire("Lien incomplet", "Cet espace s'ouvre avec le lien personnel que vous avez reçu par mail. Ouvrez ce lien tel quel, sans le modifier.");
+    return;
+  }
+
+  fetch(FN + q, { cache: "no-store", credentials: "omit", referrerPolicy: "no-referrer" })
+    .then(function(r){ if (!r.ok) throw new Error("reseau"); return r.text(); })
+    .then(function(html){
+      var doc = new DOMParser().parseFromString(html, "text/html");
+      if (!doc.body || !doc.body.children.length) throw new Error("vide");
+
+      // Téléchargement d'un document : la fonction renvoie une page qui saute vers le fichier.
+      var saut = null;
+      doc.querySelectorAll("meta").forEach(function(m){
+        if ((m.getAttribute("http-equiv") || "").toLowerCase() === "refresh") {
+          var t = /url=(.+)$/i.exec(m.getAttribute("content") || "");
+          if (t && /^https:\/\//.test(t[1])) saut = t[1];
+          m.remove();
+        }
+      });
+
+      document.head.querySelectorAll("style").forEach(function(s){ s.remove(); });
+      doc.querySelectorAll("style").forEach(function(s){ document.head.appendChild(s.cloneNode(true)); });
+      document.title = doc.title || "Espace en ligne de la copropriété";
+      document.body.innerHTML = doc.body.innerHTML;
+      window.scrollTo(0, 0);
+      if (saut) location.replace(saut);
+    })
+    .catch(function(){
+      dire("Espace momentanément indisponible", "La page n'a pas pu être chargée. Vérifiez votre connexion à internet, puis réessayez dans quelques minutes.");
+    });
+})();
+</script>
+</body>
+</html>
