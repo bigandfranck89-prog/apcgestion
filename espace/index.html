@@ -28,7 +28,17 @@
   // L'espace en ligne est fabriqué par la fonction « extranet » de la base. Supabase la sert en texte brut
   // sur son propre domaine : cette page la lit et l'affiche, sous l'adresse du site. Le lien personnel
   // (?token=…) est transmis tel quel ; rien n'est gardé en mémoire dans le navigateur.
+  // Même règle pour les documents publiés : ce sont des fichiers HTML, que l'entrepôt de fichiers sert lui
+  // aussi en texte brut. Ils sont donc lus puis montrés ici, dans un cadre où aucun script ne peut tourner.
   var FN = "https://bmvytqfddrfgcgokoxfn.supabase.co/functions/v1/extranet";
+  var STYLE_VUE =
+    "body{margin:0;background:#f4f6f8;color:#1a2330;font-family:system-ui,Segoe UI,Roboto,sans-serif}" +
+    ".barre{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;" +
+    "background:#1d3557;color:#fff;padding:12px 16px}" +
+    ".barre a{color:#fff;font-weight:600;text-decoration:none}" +
+    ".barre button{font:inherit;font-weight:600;color:#1d3557;background:#fff;border:0;border-radius:8px;" +
+    "padding:8px 14px;cursor:pointer}" +
+    ".cadre{display:block;width:100%;min-height:70vh;border:0;background:#fff}";
 
   function dire(titre, texte){
     var boot = document.getElementById("boot");
@@ -37,6 +47,45 @@
     var h = document.createElement("h1"); h.textContent = titre;
     var p = document.createElement("p");  p.textContent = texte;
     boot.appendChild(h); boot.appendChild(p);
+  }
+
+  function poserStyles(textes){
+    document.head.querySelectorAll("style").forEach(function(s){ s.remove(); });
+    textes.forEach(function(t){ var s = document.createElement("style"); s.textContent = t; document.head.appendChild(s); });
+  }
+
+  function accueil(){
+    var jeton = new URLSearchParams(location.search).get("token") || "";
+    return "?token=" + encodeURIComponent(jeton);
+  }
+
+  // Un document publié au format HTML : barre (retour, impression) + cadre sans script.
+  function montrerDocument(html){
+    var lu = new DOMParser().parseFromString(html, "text/html");
+    poserStyles([STYLE_VUE]);
+    document.title = lu.title || "Document de la copropriété";
+    document.body.innerHTML = "";
+
+    var barre = document.createElement("div"); barre.className = "barre";
+    var retour = document.createElement("a"); retour.href = accueil(); retour.textContent = "← Retour à l'accueil";
+    var imprimer = document.createElement("button"); imprimer.type = "button"; imprimer.textContent = "Imprimer ou enregistrer en PDF";
+    barre.appendChild(retour); barre.appendChild(imprimer);
+
+    var cadre = document.createElement("iframe");
+    cadre.className = "cadre";
+    cadre.title = document.title;
+    cadre.setAttribute("sandbox", "allow-same-origin allow-modals");   // jamais « allow-scripts »
+    cadre.addEventListener("load", function(){
+      try { cadre.style.height = (cadre.contentDocument.documentElement.scrollHeight + 24) + "px"; } catch(e){}
+    });
+    cadre.srcdoc = html;
+    imprimer.addEventListener("click", function(){
+      try { cadre.contentWindow.focus(); cadre.contentWindow.print(); } catch(e){ window.print(); }
+    });
+
+    document.body.appendChild(barre);
+    document.body.appendChild(cadre);
+    window.scrollTo(0, 0);
   }
 
   var q = location.search || "";
@@ -51,7 +100,7 @@
       var doc = new DOMParser().parseFromString(html, "text/html");
       if (!doc.body || !doc.body.children.length) throw new Error("vide");
 
-      // Téléchargement d'un document : la fonction renvoie une page qui saute vers le fichier.
+      // Ouverture d'un document : la fonction renvoie une page qui saute vers le fichier.
       var saut = null;
       doc.querySelectorAll("meta").forEach(function(m){
         if ((m.getAttribute("http-equiv") || "").toLowerCase() === "refresh") {
@@ -61,12 +110,25 @@
         }
       });
 
-      document.head.querySelectorAll("style").forEach(function(s){ s.remove(); });
-      doc.querySelectorAll("style").forEach(function(s){ document.head.appendChild(s.cloneNode(true)); });
+      if (saut) {
+        var chemin = "";
+        try { chemin = new URL(saut).pathname.toLowerCase(); } catch(e){}
+        if (/\.html?$/.test(chemin)) {
+          // Fichier HTML : on le lit et on le montre ici (ouvert directement, il s'afficherait en texte brut).
+          return fetch(saut, { credentials: "omit", referrerPolicy: "no-referrer" })
+            .then(function(r){ if (!r.ok) throw new Error("fichier"); return r.text(); })
+            .then(montrerDocument);
+        }
+        location.replace(saut);   // PDF, image… : le navigateur sait les afficher
+        return;
+      }
+
+      var styles = [];
+      doc.querySelectorAll("style").forEach(function(s){ styles.push(s.textContent); });
+      poserStyles(styles);
       document.title = doc.title || "Espace en ligne de la copropriété";
       document.body.innerHTML = doc.body.innerHTML;
       window.scrollTo(0, 0);
-      if (saut) location.replace(saut);
     })
     .catch(function(){
       dire("Espace momentanément indisponible", "La page n'a pas pu être chargée. Vérifiez votre connexion à internet, puis réessayez dans quelques minutes.");
