@@ -3,5 +3,6 @@ Allow: /
 Disallow: /demande
 Disallow: /opposition
 Disallow: /boite
+Disallow: /espace
 
 Sitemap: https://apcgestion.fr/sitemap.xml
