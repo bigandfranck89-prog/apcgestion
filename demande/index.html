@@ -8,6 +8,7 @@
 <meta name="robots" content="noindex">
 <link rel="stylesheet" href="/style.css">
 <link rel="icon" href="/logo-apc.svg" type="image/svg+xml">
+<script src="/src.js"></script>
 </head>
 <body>
 
@@ -229,6 +230,7 @@
     var type = f.querySelector('input[name=type]:checked').value;
     var urg  = f.querySelector('input[name=urgence]:checked').value;
     var ref  = "web-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2,7);
+    var apcSrc = ""; try { apcSrc = sessionStorage.getItem("apc_src") || ""; } catch (e) {}
     var chemins = [], envoyes = 0, rates = 0;
 
     function envoiFichier(i){
@@ -257,7 +259,7 @@
           p_copropriete: document.getElementById("copro").value.trim() || null,
           p_nb_lots: parseInt(document.getElementById("lots").value, 10) || null,
           p_code_postal: document.getElementById("cp").value.trim() || null,
-          p_urgence: urg, p_fichiers: chemins, p_origine: "site:" + ref + (attente ? ":attente" : "")
+          p_urgence: urg, p_fichiers: chemins, p_origine: "site:" + (apcSrc ? apcSrc + ":" : "") + ref + (attente ? ":attente" : "")
         })
       });
     }).then(function(r){
