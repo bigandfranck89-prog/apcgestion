@@ -25,7 +25,7 @@
 
     <div id="formulaire">
       <h1>Décrivez votre situation</h1>
-      <p class="lead">Prenez le temps qu'il faut : plus votre message est précis, plus ma réponse sera précise. Vous recevrez un numéro de dossier immédiatement, et une réponse détaillée <strong>sous 48 heures ouvrées</strong>.</p>
+      <p class="lead">Prenez le temps qu'il faut : plus votre message est précis, plus la réponse sera précise. Vous recevrez un numéro de dossier immédiatement, et une réponse détaillée <strong>sous 48 heures ouvrées</strong>.</p>
       <div class="card warn small" id="attente" style="display:none" role="status"><strong>Liste d'attente.</strong> Beaucoup de demandes en ce moment : pour garder notre qualité de service, les nouvelles copropriétés sont inscrites sur liste d'attente, dans l'ordre d'arrivée. Décrivez quand même votre situation : nous revenons vers vous sous un à deux mois.</div>
       <div class="card terra small">
         <strong>Tout se passe par écrit</strong> — APC n'a pas de ligne téléphonique et ne prend pas de rendez-vous. Chaque échange vous laisse une trace, et vous avez le temps de relire.
@@ -34,13 +34,13 @@
       <form id="f" novalidate>
 
         <div class="champ">
-          <label>Que puis-je faire pour vous ?</label>
+          <label>Que pouvons-nous faire pour vous ?</label>
           <div class="radios">
             <label><input type="radio" name="type" value="decouvrir" checked> <span><b>Essayer APC sur ma copropriété</b><br><span class="aide">Je veux savoir ce que ça donnerait chez nous, et le prix exact</span></span></label>
             <label><input type="radio" name="type" value="reprise"> <span><b>Reprendre mes comptes</b><br><span class="aide">Exercice en retard, comptes laissés en désordre par l'ancien syndic</span></span></label>
             <label><input type="radio" name="type" value="question"> <span><b>Poser une question</b><br><span class="aide">Un point précis de copropriété, de comptes ou de règlement</span></span></label>
             <label><input type="radio" name="type" value="partenaire"> <span><b>Proposer un partenariat</b><br><span class="aide">Association, notaire, agence, éditeur…</span></span></label>
-            <label><input type="radio" name="type" value="autre"> <span><b>Autre chose</b><br><span class="aide">Dites-moi simplement quoi</span></span></label>
+            <label><input type="radio" name="type" value="autre"> <span><b>Autre chose</b><br><span class="aide">Dites-nous simplement quoi</span></span></label>
           </div>
         </div>
 
@@ -52,7 +52,7 @@
           <div class="champ">
             <label for="email">Votre adresse email</label>
             <input type="email" id="email" name="email" autocomplete="email" required maxlength="180">
-            <p class="aide">C'est là que je vous répondrai.</p>
+            <p class="aide">C'est là que vous recevrez la réponse.</p>
           </div>
         </div>
 
@@ -65,7 +65,7 @@
           <div class="champ">
             <label for="lots">Nombre de lots principaux <span class="opt">— facultatif</span></label>
             <input type="number" id="lots" name="lots" min="1" max="9999" inputmode="numeric" placeholder="Ex. : 11">
-            <p class="aide">Appartements, commerces et bureaux ; les caves et les parkings ne comptent pas. Cela me permet de vous donner un prix exact.</p>
+            <p class="aide">Appartements, commerces et bureaux ; les caves et les parkings ne comptent pas. Cela permet de vous donner un prix exact.</p>
           </div>
           <div class="champ">
             <label for="cp">Code postal <span class="opt">— facultatif</span></label>
@@ -222,7 +222,7 @@
     var email = document.getElementById("email").value.trim();
     var texte = msg.value.trim();
     if (nom.length < 2)  { montre(err, "Merci d'indiquer votre nom."); document.getElementById("nom").focus(); return; }
-    if (!/^[^@\s]+@[^@\s]+\.[a-zA-Z]{2,}$/.test(email)) { montre(err, "Cette adresse email ne semble pas valide — c'est par là que je vous répondrai."); document.getElementById("email").focus(); return; }
+    if (!/^[^@\s]+@[^@\s]+\.[a-zA-Z]{2,}$/.test(email)) { montre(err, "Cette adresse email ne semble pas valide — c'est par là que vous recevrez la réponse."); document.getElementById("email").focus(); return; }
     if (texte.length < 10) { montre(err, "Décrivez votre situation en quelques mots, même brièvement."); msg.focus(); return; }
     if (!document.getElementById("rgpd").checked) { montre(err, "Merci de cocher la case d'accord sur l'utilisation de vos informations."); return; }
 
@@ -269,11 +269,11 @@
       if (!res.ok) {
         var m = (res.d && (res.d.message || res.d.hint)) || "";
         var lisible = "Votre demande n'a pas pu être enregistrée. ";
-        if (/trop_de_demandes/.test(m))      lisible += "Vous avez déjà envoyé plusieurs demandes dans l'heure : elles me sont bien parvenues, inutile de recommencer.";
+        if (/trop_de_demandes/.test(m))      lisible += "Vous avez déjà envoyé plusieurs demandes dans l'heure : elles sont bien arrivées, inutile de recommencer.";
         else if (/email_invalide/.test(m))   lisible += "L'adresse email n'est pas valide.";
         else if (/message_trop_court/.test(m)) lisible += "Le message est trop court.";
         else if (/message_trop_long/.test(m))  lisible += "Le message dépasse 5000 caractères.";
-        else lisible += "Réessayez dans un instant. Si cela se reproduit, notez l'heure : je pourrai retrouver la trace de l'incident.";
+        else lisible += "Réessayez dans un instant. Si cela se reproduit, notez l'heure : nous pourrons retrouver la trace de l'incident.";
         montre(err, lisible);
         btn.disabled = false;
         return;
