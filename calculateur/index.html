@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Combien vous coûte votre syndic ? Le calculateur des petites copropriétés</title>
+<meta name="description" content="Entrez le nombre de lots de votre copropriété et les honoraires de votre syndic professionnel : voyez en 10 secondes ce que coûterait une gestion par un syndic bénévole équipé du logiciel APC.">
+<link rel="canonical" href="https://apcgestion.fr/calculateur/">
+<meta property="og:title" content="Combien vous coûte votre syndic ? Faites le calcul en 10 secondes">
+<meta property="og:description" content="Petite copropriété : comparez les honoraires de votre syndic professionnel avec une gestion par un syndic bénévole outillé.">
+<meta property="og:image" content="https://apcgestion.fr/og-apc.png">
+<meta property="og:url" content="https://apcgestion.fr/calculateur/">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" href="/logo-apc.svg" type="image/svg+xml">
+<style>
+  .calc{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 18px;margin:18px 0}
+  .calc .ligne{display:flex;flex-wrap:wrap;gap:14px}
+  .calc .ligne .champ{flex:1 1 220px;margin:0}
+  .calc input[type=number]{font-size:22px;font-weight:700;max-width:220px}
+  .res{display:none;margin-top:20px}
+  .res.on{display:block}
+  .tuiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:12px 0}
+  .tuile{border-radius:14px;padding:16px;background:var(--terra-l)}
+  .tuile .v{font-size:32px;font-weight:800;color:var(--brun);line-height:1.1}
+  .tuile .l{font-size:14.5px;color:var(--ink2);margin-top:4px}
+  .tuile.eco{background:var(--ok-bg);border:1px solid var(--ok)}
+  .tuile.eco .v{color:var(--ok)}
+  .barres{margin:14px 0 4px}
+  .barre{display:flex;align-items:center;gap:10px;margin:8px 0}
+  .barre b{width:150px;flex:none;font-size:15px}
+  .barre span{height:26px;border-radius:7px;min-width:4px;display:flex;align-items:center;padding:0 9px;color:#fff;font-size:14px;font-weight:700;white-space:nowrap}
+  .barre .pro{background:#8a7f74}.barre .apc{background:var(--terra)}
+  .note{font-size:13.5px;color:var(--ink2)}
+  @media print{header,footer,#bloc-email,.noprint{display:none!important}body{background:#fff}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="/"><img src="/logo-apc.svg" alt="APC — Assistance Petites Copropriétés"></a>
+    <nav><a href="/">Accueil</a><a href="/guides/">Guides</a><a href="/videos/">Vidéos</a><a href="/demande">Nous écrire</a></nav>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="wrap">
+    <h1>Combien vous coûte vraiment votre syndic ?</h1>
+    <p class="lead">Deux chiffres, dix secondes. Vous voyez ce que paie votre copropriété aujourd'hui, et ce qu'elle paierait si l'un de vous devenait syndic bénévole, avec un logiciel qui prépare les documents à sa place.</p>
+
+    <div class="calc">
+      <div class="ligne">
+        <div class="champ">
+          <label for="lots">Nombre de lots principaux</label>
+          <input type="number" id="lots" min="1" max="999" value="6" inputmode="numeric">
+          <span class="opt">Appartements, commerces, bureaux. Les caves et parkings ne comptent pas.</span>
+        </div>
+        <div class="champ">
+          <label for="hono">Honoraires actuels de votre syndic, par an (€)</label>
+          <input type="number" id="hono" min="0" max="999999" placeholder="ex. 1 800" inputmode="numeric">
+          <span class="opt">Sur le contrat de syndic ou le budget voté : ligne « honoraires » (forfait annuel). Laissez vide si vous n'avez pas de syndic.</span>
+        </div>
+      </div>
+      <div class="cta noprint" style="padding-top:14px"><button class="btn" id="calculer">Faire le calcul</button></div>
+
+      <div class="res" id="res" aria-live="polite">
+        <div class="tuiles">
+          <div class="tuile"><div class="v" id="v-apc">—</div><div class="l">par an avec APC, pour toute la copropriété</div></div>
+          <div class="tuile"><div class="v" id="v-lot">—</div><div class="l">par mois et par lot principal</div></div>
+          <div class="tuile eco" id="t-eco"><div class="v" id="v-eco">—</div><div class="l" id="l-eco">d'économie chaque année</div></div>
+        </div>
+        <div class="barres" id="barres">
+          <div class="barre"><b>Syndic professionnel</b><span class="pro" id="b-pro"></span></div>
+          <div class="barre"><b>Syndic bénévole + APC</b><span class="apc" id="b-apc"></span></div>
+        </div>
+        <p class="note" id="phrase"></p>
+        <p class="note">Le calcul ne compte que les honoraires de base. Il ne compte pas les frais facturés à part par un syndic professionnel (état daté, relances, travaux…), ni les autres charges, qui restent les mêmes. Avec APC, le syndic bénévole reste le syndic : il valide chaque document et garde la signature. Le logiciel fait la saisie, les calculs et prépare les documents.</p>
+        <div class="cta noprint" style="display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn" href="/demande?src=calculateur">Essayer sur ma copropriété — premier mois offert</a>
+          <button class="btn ghost" onclick="window.print()">Imprimer ou enregistrer en PDF</button>
+        </div>
+      </div>
+    </div>
+
+    <h2>Comment est calculé le prix d'APC ?</h2>
+    <p>6 € par lot principal et par mois, tout compris, avec un minimum de 36 € par mois pour la copropriété. Le premier mois est offert, sans engagement : vous arrêtez quand vous voulez et vos documents vous sont rendus.</p>
+
+    <div id="bloc-email" class="card terra noprint">
+      <h3 style="margin-top:0">Recevoir nos fiches pratiques de syndic bénévole</h3>
+      <p>Assemblée générale, appels de fonds, impayés, registre : une fiche courte de temps en temps, chaque règle avec son texte de loi.</p>
+      <form id="f" novalidate>
+        <div class="champ" style="margin-top:6px">
+          <label for="email">Votre adresse email</label>
+          <input type="email" id="email" required maxlength="180" autocomplete="email">
+        </div>
+        <div class="champ">
+          <label class="coche">
+            <input type="checkbox" id="consent" required>
+            <span>J'accepte de recevoir par email les fiches pratiques et informations d'APC. Je peux me désinscrire à tout moment, et mon adresse ne sera ni vendue ni cédée.</span>
+          </label>
+        </div>
+        <div style="position:absolute;left:-9999px" aria-hidden="true">
+          <label for="site_web">Ne pas remplir</label><input type="text" id="site_web" tabindex="-1" autocomplete="off">
+        </div>
+        <div class="msg err" id="erreur" role="alert"></div>
+        <button type="submit" class="btn" id="envoyer">Je veux recevoir les fiches</button>
+      </form>
+      <div class="msg" id="ok" style="background:var(--ok-bg);border:1px solid var(--ok);color:var(--ok)" role="status">
+        <strong>C'est noté.</strong> Vous recevrez les prochaines fiches. Aucune autre utilisation ne sera faite de votre adresse.
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>APC — Assistance Petites Copropriétés</strong> · Franck Bigand · 7 lieu-dit Les Martins, 89330 Verlin · SIREN 519 339 170</p>
+    <p class="small"><a href="/">Accueil</a> · <a href="/guides/">Guides</a> · <a href="/videos/">Vidéos</a> · <a href="/demande">Nous écrire</a> · <a href="/opposition">Ne plus recevoir de courrier d'APC</a></p>
+    <p class="small">APC n'est pas un syndic professionnel : APC édite un logiciel ; le syndic reste seul auteur et responsable des comptes du syndicat des copropriétaires.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var euro = function(n){ return Math.round(n).toLocaleString("fr-FR") + " €"; };
+  var lotsI = document.getElementById("lots"), honoI = document.getElementById("hono");
+  function calcul(){
+    var lots = Math.max(1, Math.min(999, parseInt(lotsI.value, 10) || 0));
+    var hono = parseFloat(String(honoI.value).replace(",", ".")) || 0;
+    var mois = Math.max(6 * lots, 36), an = mois * 12;
+    document.getElementById("v-apc").textContent = euro(an);
+    document.getElementById("v-lot").textContent = (lots * 6 >= 36 ? "6 €" : (Math.round(36 / lots * 100) / 100).toLocaleString("fr-FR") + " €");
+    var tEco = document.getElementById("t-eco"), barres = document.getElementById("barres"), phrase = document.getElementById("phrase");
+    if (hono > 0) {
+      var eco = hono - an, pct = Math.round(eco / hono * 100);
+      tEco.style.display = "";
+      barres.style.display = "";
+      if (eco > 0) {
+        document.getElementById("v-eco").textContent = euro(eco);
+        document.getElementById("l-eco").textContent = "d'économie chaque année (" + pct + " % des honoraires)";
+        phrase.textContent = "Sur 5 ans, cela représente " + euro(eco * 5) + " gardés par la copropriété, soit environ " + euro(eco / lots) + " par lot et par an.";
+      } else {
+        document.getElementById("v-eco").textContent = "0 €";
+        document.getElementById("l-eco").textContent = "pas d'économie sur les honoraires de base";
+        phrase.textContent = "Vos honoraires sont déjà bas : APC reste utile pour le syndic bénévole qui veut des documents prêts sans tout faire à la main.";
+      }
+      var max = Math.max(hono, an);
+      var bp = document.getElementById("b-pro"), ba = document.getElementById("b-apc");
+      bp.style.width = Math.max(8, hono / max * 100) + "%"; bp.textContent = euro(hono);
+      ba.style.width = Math.max(8, an / max * 100) + "%"; ba.textContent = euro(an);
+    } else {
+      tEco.style.display = "none";
+      barres.style.display = "none";
+      phrase.textContent = "Pas de syndic aujourd'hui ? La loi impose d'en désigner un. Un copropriétaire élu syndic bénévole, avec APC, c'est " + euro(an) + " par an pour toute la copropriété.";
+    }
+    document.getElementById("res").classList.add("on");
+  }
+  document.getElementById("calculer").addEventListener("click", calcul);
+  [lotsI, honoI].forEach(function(i){ i.addEventListener("keydown", function(e){ if (e.key === "Enter") calcul(); }); });
+
+  var API = "https://bmvytqfddrfgcgokoxfn.supabase.co";
+  var CLE = "sb_publishable_tGwuRROW7-AjWdE8K8ZbFA_R8_V2LUU";
+  var f = document.getElementById("f"), btn = document.getElementById("envoyer");
+  var err = document.getElementById("erreur"), ok = document.getElementById("ok");
+  f.addEventListener("submit", function(e){
+    e.preventDefault();
+    err.classList.remove("on");
+    if (document.getElementById("site_web").value) return;
+    var email = document.getElementById("email").value.trim();
+    if (!/^[^@\s]+@[^@\s]+\.[a-zA-Z]{2,}$/.test(email)) {
+      err.textContent = "Cette adresse email ne semble pas valide."; err.classList.add("on"); return;
+    }
+    if (!document.getElementById("consent").checked) {
+      err.textContent = "Merci de cocher la case : sans votre accord explicite, nous n'avons pas le droit de vous écrire.";
+      err.classList.add("on"); return;
+    }
+    btn.disabled = true;
+    var src = "calculateur:" + (parseInt(lotsI.value, 10) || 0) + "lots:" + (parseInt(honoI.value, 10) || 0) + "eur";
+    fetch(API + "/rest/v1/rpc/apc_inscrire_checklist", {
+      method: "POST",
+      headers: { "apikey": CLE, "Authorization": "Bearer " + CLE, "Content-Type": "application/json" },
+      body: JSON.stringify({ p_email: email, p_nom: null, p_consentement: true, p_source: src })
+    }).then(function(r){
+      if (!r.ok) throw new Error("ko");
+      f.style.display = "none"; ok.classList.add("on");
+    }).catch(function(){
+      err.textContent = "L'enregistrement n'a pas abouti. Réessayez dans un instant.";
+      err.classList.add("on"); btn.disabled = false;
+    });
+  });
+})();
+</script>
+<script src="/visite.js" defer></script>
+</body>
+</html>
