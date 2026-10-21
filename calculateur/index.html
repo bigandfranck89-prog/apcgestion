@@ -27,11 +27,11 @@
   .tuile.eco{background:var(--ok-bg);border:1px solid var(--ok)}
   .tuile.eco .v{color:var(--ok)}
   .barres{margin:14px 0 4px}
-  .barres .barre{text-decoration:none;color:var(--ink);font-size:15px}
-  .barre{display:flex;align-items:center;gap:10px;margin:8px 0}
-  .barre b{width:150px;flex:none;font-size:15px}
-  .barre span{height:26px;border-radius:7px;min-width:4px;display:flex;align-items:center;padding:0 9px;color:#fff;font-size:14px;font-weight:700;white-space:nowrap}
-  .barre .pro{background:#8a7f74}.barre .apc{background:var(--terra)}
+  .barres .cmp{text-decoration:none;color:var(--ink);font-size:15px}
+  .cmp{display:flex;align-items:center;gap:10px;margin:8px 0}
+  .cmp b{width:150px;flex:none;font-size:15px}
+  .cmp span{height:26px;border-radius:7px;min-width:4px;display:flex;align-items:center;padding:0 9px;color:#fff;font-size:14px;font-weight:700;white-space:nowrap}
+  .cmp .pro{background:#8a7f74}.barre .apc{background:var(--terra)}
   .note{font-size:13.5px;color:var(--ink2)}
   @media print{header,footer,#bloc-email,.noprint{display:none!important}body{background:#fff}}
 </style>
@@ -73,8 +73,8 @@
           <div class="tuile eco" id="t-eco"><div class="v" id="v-eco">—</div><div class="l" id="l-eco">d'économie chaque année</div></div>
         </div>
         <div class="barres" id="barres">
-          <div class="barre"><b>Syndic professionnel</b><span class="pro" id="b-pro"></span></div>
-          <div class="barre"><b>Syndic bénévole + APC</b><span class="apc" id="b-apc"></span></div>
+          <div class="cmp"><b>Syndic professionnel</b><span class="pro" id="b-pro"></span></div>
+          <div class="cmp"><b>Syndic bénévole + APC</b><span class="apc" id="b-apc"></span></div>
         </div>
         <p class="note" id="phrase"></p>
         <p class="note">Le calcul ne compte que les honoraires de base. Il ne compte pas les frais facturés à part par un syndic professionnel (état daté, relances, travaux…), ni les autres charges, qui restent les mêmes. Avec APC, le syndic bénévole reste le syndic : il valide chaque document et garde la signature. Le logiciel fait la saisie, les calculs et prépare les documents.</p>
