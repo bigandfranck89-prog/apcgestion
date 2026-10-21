@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Passer en syndic bénévole : le kit gratuit (lettres et modèles prêts à imprimer)</title>
+<meta name="description" content="Kit gratuit pour passer en syndic bénévole : lettre au syndic professionnel ou convocation de l'assemblée par un copropriétaire, projet de résolution, feuille de présence, procès-verbal et les 5 étapes. Rempli en 3 minutes, prêt à imprimer.">
+<link rel="canonical" href="https://apcgestion.fr/passer-syndic-benevole/">
+<meta property="og:title" content="Passer en syndic bénévole : le kit gratuit">
+<meta property="og:description" content="Lettre au syndic, convocation, projet de résolution, feuille de présence, procès-verbal : vos documents prêts à imprimer en 3 minutes.">
+<meta property="og:image" content="https://apcgestion.fr/og-apc.png">
+<meta property="og:url" content="https://apcgestion.fr/passer-syndic-benevole/">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" href="/logo-apc.svg" type="image/svg+xml">
+<style>
+  .boite{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 18px;margin:18px 0}
+  .q{font:700 20px/1.35 Georgia,serif;color:var(--brun);margin:0 0 6px}
+  .choix{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:12px}
+  .choix button{font:inherit;text-align:left;background:#fff;border:2px solid var(--line);border-radius:14px;padding:16px;cursor:pointer;color:var(--ink)}
+  .choix button b{display:block;font-size:17px;color:var(--brun);margin-bottom:4px}
+  .choix button span{font-size:15px;color:var(--ink2)}
+  .choix button:hover,.choix button[aria-pressed=true]{border-color:var(--terra);background:var(--terra-l)}
+  .cas{display:none}.cas.on{display:block}
+  .etiq{display:inline-block;background:var(--terra);color:#fff;font-weight:700;font-size:13px;border-radius:20px;padding:3px 12px;margin-bottom:8px}
+  fieldset{border:none;margin:0;padding:0}
+  legend{font:700 18px Georgia,serif;color:var(--brun);margin:22px 0 4px}
+  .champ{margin:14px 0}
+  input[type=date],input[type=time]{width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:10px;background:#fff;font:16.5px inherit;font-family:inherit;color:var(--ink)}
+  .opt{display:block;font-weight:400;color:var(--mut);font-size:14px;margin-top:4px}
+  .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+  #zone-docs{display:none}
+  #zone-docs.on{display:block}
+  .liste-docs{margin:8px 0 14px 22px}
+  /* Aperçu des documents à l'écran */
+  .doc{background:#fff;border:1px solid var(--line);border-radius:6px;box-shadow:0 2px 10px rgba(80,40,20,.07);
+    padding:34px 36px;margin:18px 0;color:#1d1a18;font:14.5px/1.55 Georgia,"Times New Roman",serif}
+  .doc h3{font:700 17px/1.35 Georgia,serif;color:#1d1a18;margin:18px 0 8px;text-transform:none}
+  .doc h4{font:700 15px Georgia,serif;margin:14px 0 6px;color:#1d1a18}
+  .doc p{margin:8px 0}
+  .doc .titre-doc{font:700 19px/1.3 Georgia,serif;text-align:center;margin:4px 0 16px;color:#1d1a18}
+  .doc .exp{margin-bottom:18px}
+  .doc .dest{margin:0 0 18px 50%}
+  .doc .lieu{margin:0 0 16px 50%}
+  .doc .objet{font-weight:700;margin:14px 0}
+  .doc .sign{margin:30px 0 0 50%;min-height:80px}
+  .doc .cadre{border:1px solid #9b8d84;padding:10px 14px;margin:12px 0}
+  .doc .note-doc{font:13px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;color:#5c4f48;border-top:1px solid #ddd;margin-top:22px;padding-top:8px}
+  .doc .ligne-vide{display:inline-block;min-width:160px;border-bottom:1px dotted #777}
+  .doc ol,.doc ul{margin:6px 0 6px 24px}
+  .doc li{margin:4px 0}
+  .doc table{font:13px/1.35 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;margin:10px 0;border:1px solid #9b8d84}
+  .doc th,.doc td{border:1px solid #9b8d84;padding:7px 6px;height:30px}
+  .doc th{background:#f3ebe5;color:#1d1a18}
+  .tab-scroll{overflow-x:auto}
+  .doc strong{color:inherit}
+  .doc .cadre strong{color:#8c3c20}
+  .doc .ligne-vide{max-width:100%}
+  .doc .etapes5{counter-reset:k;list-style:none;margin:10px 0;padding:0}
+  .doc .etapes5 li{counter-increment:k;position:relative;padding-left:44px;margin:14px 0}
+  .doc .etapes5 li:before{content:counter(k);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;background:#d96b41;color:#fff;
+    font:700 15px/30px -apple-system,Arial,sans-serif;text-align:center}
+  .doc .etapes5 b{display:block}
+  .vote{display:flex;gap:6px 22px;flex-wrap:wrap;margin:4px 0 10px}
+  .vote span{white-space:nowrap}
+  .pied-legal{font-size:13.5px;color:var(--ink2);border-top:1px solid var(--line);margin-top:26px;padding-top:12px}
+  @media(max-width:600px){
+    .doc{padding:20px 16px;font-size:14px}
+    .doc .dest,.doc .lieu,.doc .sign{margin-left:0}
+    .boite{padding:16px 14px}
+  }
+  @page{size:A4;margin:14mm 16mm}
+  @media print{
+    header,footer,#parcours,.noprint,#bloc-email{display:none!important}
+    body{background:#fff;font-size:12pt}
+    main section{padding:0}
+    .wrap{max-width:none;padding:0}
+    #zone-docs{display:block}
+    .doc{border:none;box-shadow:none;border-radius:0;padding:0;margin:0;font-size:10.8pt;line-height:1.45;break-after:page;page-break-after:always}
+    .doc:last-child{break-after:auto;page-break-after:auto}
+    .doc .dest,.doc .lieu,.doc .sign{margin-left:50%}
+    .doc table{font-size:9.5pt}
+    .doc th,.doc td{height:26px}
+    .tab-scroll{overflow:visible}
+    .doc .sign{min-height:46px;margin-top:14px}
+    .doc .exp{margin-bottom:10px}
+    .doc .dest{margin-bottom:10px}
+    .q-pv{break-inside:avoid;page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="/"><img src="/logo-apc.svg" alt="APC — Assistance Petites Copropriétés"></a>
+    <nav><a href="/">Accueil</a><a href="/guides/">Guides</a><a href="/videos/">Vidéos</a><a href="/demande">Nous écrire</a></nav>
+  </div>
+</header>
+
+<main>
+<section id="parcours">
+  <div class="wrap">
+    <h1>Passer en syndic bénévole : le kit gratuit</h1>
+    <p class="lead">Une question, un formulaire de 3 minutes, et vos documents sont prêts à imprimer : la lettre ou la convocation qu'il faut, le projet de résolution, la feuille de présence, le procès-verbal. Rien n'est envoyé : tout est préparé sur votre écran.</p>
+
+    <div class="boite">
+      <p class="q">Votre immeuble a-t-il un syndic aujourd'hui ?</p>
+      <div class="choix" role="group" aria-label="Situation de la copropriété">
+        <button type="button" id="choix-a" aria-pressed="false"><b>Oui, un syndic professionnel</b><span>Vous voulez qu'un copropriétaire le remplace à la prochaine assemblée.</span></button>
+        <button type="button" id="choix-b" aria-pressed="false"><b>Non, pas de syndic</b><span>Personne n'est syndic (mandat terminé, syndic parti…) : un copropriétaire convoque l'assemblée.</span></button>
+      </div>
+    </div>
+
+    <form id="kit" class="boite" novalidate style="display:none">
+      <div class="cas" id="intro-a">
+        <span class="etiq">Cas A — vous avez un syndic professionnel</span>
+        <p>Un copropriétaire peut demander, à tout moment, qu'une question soit ajoutée à l'ordre du jour de l'assemblée. Le syndic doit l'inscrire : il ne juge pas si elle est opportune. Vous allez obtenir la <strong>lettre au syndic</strong> et le <strong>projet de résolution</strong> à joindre.</p>
+      </div>
+      <div class="cas" id="intro-b">
+        <span class="etiq">Cas B — la copropriété n'a pas de syndic</span>
+        <p>Quand la copropriété n'a plus de syndic, <strong>tout copropriétaire</strong> peut convoquer l'assemblée générale, uniquement pour désigner un syndic. Vous allez obtenir la <strong>convocation</strong>, un <strong>pouvoir</strong>, la <strong>feuille de présence</strong> et le <strong>procès-verbal</strong> à compléter.</p>
+      </div>
+
+      <fieldset>
+        <legend>L'immeuble</legend>
+        <div class="champ"><label for="imm-adr">Adresse de l'immeuble</label><input type="text" id="imm-adr" maxlength="200" placeholder="ex. 12 rue des Tilleuls, 89100 Sens" required></div>
+        <div class="deux">
+          <div class="champ"><label for="imm-nom">Nom de la copropriété <span class="opt">si vous le connaissez</span></label><input type="text" id="imm-nom" maxlength="120" placeholder="ex. Résidence Les Tilleuls"></div>
+          <div class="champ"><label for="imm-lots">Nombre de lots principaux</label><input type="number" id="imm-lots" min="2" max="200" inputmode="numeric" placeholder="ex. 8"><span class="opt">Appartements, commerces, bureaux.</span></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Vous, qui écrivez</legend>
+        <div class="deux">
+          <div class="champ"><label for="moi-nom">Votre nom et prénom</label><input type="text" id="moi-nom" maxlength="120" autocomplete="name" required></div>
+          <div class="champ"><label for="moi-adr">Votre adresse</label><input type="text" id="moi-adr" maxlength="200" autocomplete="street-address" required></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Le futur syndic bénévole</legend>
+        <div class="deux">
+          <div class="champ"><label for="cand">Nom du candidat <span class="opt">un copropriétaire ; ce peut être vous</span></label><input type="text" id="cand" maxlength="120" required></div>
+          <div class="champ"><label for="duree">Durée du mandat proposée</label>
+            <select id="duree"><option value="1">1 an</option><option value="2">2 ans</option><option value="3" selected>3 ans (le maximum)</option></select></div>
+        </div>
+      </fieldset>
+
+      <fieldset class="cas" id="champs-a">
+        <legend>Le syndic professionnel actuel</legend>
+        <div class="deux">
+          <div class="champ"><label for="pro-nom">Nom du cabinet</label><input type="text" id="pro-nom" maxlength="150"></div>
+          <div class="champ"><label for="pro-adr">Adresse du cabinet</label><input type="text" id="pro-adr" maxlength="200"></div>
+        </div>
+        <div class="champ"><label for="pro-fin">Date de fin du mandat actuel <span class="opt">facultatif — elle figure dans le contrat du syndic ou le dernier procès-verbal</span></label><input type="date" id="pro-fin"></div>
+      </fieldset>
+
+      <fieldset class="cas" id="champs-b">
+        <legend>L'assemblée que vous proposez</legend>
+        <div class="deux">
+          <div class="champ"><label for="ag-date">Date</label><input type="date" id="ag-date"><span class="opt">Au moins 21 jours après la réception des convocations : comptez un mois.</span></div>
+          <div class="champ"><label for="ag-heure">Heure</label><input type="time" id="ag-heure" value="18:30"></div>
+        </div>
+        <div class="champ"><label for="ag-lieu">Lieu</label><input type="text" id="ag-lieu" maxlength="200" placeholder="ex. hall de l'immeuble, salle municipale…"><span class="opt">En général dans la commune de l'immeuble.</span></div>
+      </fieldset>
+
+      <div class="msg err" id="erreur-kit" role="alert"></div>
+      <div class="actions">
+        <button type="submit" class="btn">Préparer mes documents</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section id="zone-docs" aria-live="polite">
+  <div class="wrap">
+    <div class="noprint">
+      <h2 style="margin-top:0">Vos documents sont prêts</h2>
+      <p id="liste-intro"></p>
+      <ul class="liste-docs" id="liste-docs"></ul>
+      <div class="actions">
+        <button type="button" class="btn" onclick="window.print()">Imprimer ou enregistrer en PDF</button>
+        <button type="button" class="btn ghost" id="modifier">Modifier mes réponses</button>
+      </div>
+      <p class="small mut" style="margin-top:10px">Astuce : dans la fenêtre d'impression, choisissez « Enregistrer au format PDF » pour garder un fichier. Chaque document tient sur sa propre page.</p>
+    </div>
+    <div id="docs"></div>
+
+    <div class="card terra noprint" style="margin-top:26px">
+      <h3 style="margin-top:0">Et une fois élu ?</h3>
+      <p><strong>Une fois élu, APC prépare vos documents de syndic bénévole — premier mois offert.</strong> Vous restez le syndic : le logiciel fait la saisie et les calculs, vous validez.</p>
+      <p class="cta" style="text-align:left;padding:4px 0 0"><a class="btn" href="/demande?src=kit">Essayer APC sur ma copropriété</a></p>
+    </div>
+
+    <div id="bloc-email" class="card terra noprint">
+      <h3 style="margin-top:0">Recevoir nos fiches pratiques de syndic bénévole</h3>
+      <p>Assemblée générale, appels de fonds, impayés, registre : une fiche courte de temps en temps, chaque règle avec son texte de loi.</p>
+      <form id="f" novalidate>
+        <div class="champ" style="margin-top:6px">
+          <label for="email">Votre adresse email</label>
+          <input type="email" id="email" required maxlength="180" autocomplete="email">
+        </div>
+        <div class="champ">
+          <label class="coche">
+            <input type="checkbox" id="consent" required>
+            <span>J'accepte de recevoir par email les fiches pratiques et informations d'APC. Je peux me désinscrire à tout moment, et mon adresse ne sera ni vendue ni cédée.</span>
+          </label>
+        </div>
+        <div style="position:absolute;left:-9999px" aria-hidden="true">
+          <label for="site_web">Ne pas remplir</label><input type="text" id="site_web" tabindex="-1" autocomplete="off">
+        </div>
+        <div class="msg err" id="erreur" role="alert"></div>
+        <button type="submit" class="btn" id="envoyer">Je veux recevoir les fiches</button>
+      </form>
+      <div class="msg" id="ok" style="background:var(--ok-bg);border:1px solid var(--ok);color:var(--ok)" role="status">
+        <strong>C'est noté.</strong> Vous recevrez les prochaines fiches. Aucune autre utilisation ne sera faite de votre adresse.
+      </div>
+    </div>
+
+    <p class="pied-legal noprint">Les textes cités : loi n° 65-557 du 10 juillet 1965 (art. 17, 17-2, 25, 42) et décret n° 67-223 du 17 mars 1967 (art. 9, 10, 14, 15, 17, 28), à consulter sur Légifrance.<br>
+    Modèles fournis à titre d'information ; vérifiez-les au regard de votre règlement de copropriété. APC édite un logiciel et n'est pas un syndic professionnel.</p>
+  </div>
+</section>
+
+<section class="noprint" id="pied-parcours">
+  <div class="wrap">
+    <div class="card">
+      <p style="margin-top:0"><strong>Une fois élu, APC prépare vos documents de syndic bénévole — premier mois offert.</strong></p>
+      <p style="margin-bottom:0"><a href="/demande?src=kit">Découvrir le logiciel et l'essayer sur ma copropriété →</a></p>
+    </div>
+    <p class="pied-legal">Modèles fournis à titre d'information ; vérifiez-les au regard de votre règlement de copropriété. APC édite un logiciel et n'est pas un syndic professionnel.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>APC — Assistance Petites Copropriétés</strong> · Franck Bigand · 7 lieu-dit Les Martins, 89330 Verlin · SIREN 519 339 170</p>
+    <p class="small"><a href="/">Accueil</a> · <a href="/guides/">Guides</a> · <a href="/videos/">Vidéos</a> · <a href="/demande">Nous écrire</a> · <a href="/opposition">Ne plus recevoir de courrier d'APC</a></p>
+    <p class="small">APC n'est pas un syndic professionnel : APC édite un logiciel ; le syndic reste seul auteur et responsable des comptes du syndicat des copropriétaires.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var $ = function(id){ return document.getElementById(id); };
+  var cas = null;
+
+  function h(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]; }); }
+  function val(id){ return ($(id).value || "").trim(); }
+  function vide(n){ return '<span class="ligne-vide" style="min-width:min(' + (n || 160) + 'px,100%)">&nbsp;</span>'; }
+  function ou(v, n){ return v ? h(v) : vide(n); }
+  function dateFr(iso){
+    if (!iso) return "";
+    var p = iso.split("-"); if (p.length !== 3) return "";
+    var d = new Date(+p[0], +p[1] - 1, +p[2]);
+    return d.toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+  }
+  function dateCourte(iso){
+    if (!iso) return "";
+    var p = iso.split("-"); if (p.length !== 3) return "";
+    return new Date(+p[0], +p[1] - 1, +p[2]).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
+  }
+  function aujourdhui(){ return new Date().toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" }); }
+  function heureFr(t){ if (!t) return ""; var p = t.split(":"); return parseInt(p[0], 10) + " h " + (p[1] || "00"); }
+  function dureeTxt(){ var d = parseInt($("duree").value, 10) || 3; return d === 1 ? "un (1) an" : (d === 2 ? "deux (2) ans" : "trois (3) ans"); }
+  function nomCopro(){
+    var n = val("imm-nom"), a = val("imm-adr");
+    return (n ? "« " + h(n) + " », " : "") + ou(a, 240);
+  }
+
+  function choisir(c){
+    cas = c;
+    $("choix-a").setAttribute("aria-pressed", c === "A");
+    $("choix-b").setAttribute("aria-pressed", c === "B");
+    $("intro-a").classList.toggle("on", c === "A");
+    $("champs-a").classList.toggle("on", c === "A");
+    $("intro-b").classList.toggle("on", c === "B");
+    $("champs-b").classList.toggle("on", c === "B");
+    $("kit").style.display = "";
+    $("erreur-kit").classList.remove("on");
+    $("kit").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  $("choix-a").addEventListener("click", function(){ choisir("A"); });
+  $("choix-b").addEventListener("click", function(){ choisir("B"); });
+
+  /* ---------- Documents ---------- */
+  function noteBas(){ return '<p class="note-doc">Modèle fourni à titre d\'information ; vérifiez-le au regard de votre règlement de copropriété. APC édite un logiciel et n\'est pas un syndic professionnel.</p>'; }
+
+  function texteResolution(dateEffet){
+    return '<p>L\'assemblée générale désigne <strong>' + ou(val("cand"), 200) + '</strong>, copropriétaire, en qualité de <strong>syndic non professionnel</strong> (syndic bénévole) du syndicat des copropriétaires de l\'immeuble ' + nomCopro() + ', pour une durée de <strong>' + dureeTxt() + '</strong> à compter du ' + (dateEffet ? h(dateEffet) : vide(150)) + '.</p>' +
+      '<p>Le mandat est exercé à titre bénévole, sans rémunération.</p>' +
+      '<p>Majorité requise : article 25 de la loi n° 65-557 du 10 juillet 1965 (majorité des voix de tous les copropriétaires).</p>';
+  }
+
+  function docLettreA(){
+    return '<article class="doc">' +
+      '<div class="exp">' + ou(val("moi-nom"), 200) + '<br>' + ou(val("moi-adr"), 260) + '<br>Copropriétaire</div>' +
+      '<div class="dest">' + ou(val("pro-nom"), 200) + '<br>' + ou(val("pro-adr"), 220) + '<br><em>Syndic de la copropriété</em></div>' +
+      '<p class="lieu">À ' + vide(130) + ', le ' + aujourdhui() + '</p>' +
+      '<p><em>Lettre recommandée avec demande d\'avis de réception (ou recommandé électronique)</em></p>' +
+      '<p class="objet">Objet : demande d\'inscription d\'une question à l\'ordre du jour de la prochaine assemblée générale — copropriété ' + nomCopro() + '</p>' +
+      '<p>Madame, Monsieur,</p>' +
+      '<p>En ma qualité de copropriétaire de l\'immeuble situé ' + ou(val("imm-adr"), 240) + ', et en application de l\'article 10 du décret n° 67-223 du 17 mars 1967, je vous demande d\'inscrire à l\'ordre du jour de la prochaine assemblée générale des copropriétaires la question suivante :</p>' +
+      '<p class="cadre"><strong>Désignation d\'un syndic non professionnel (syndic bénévole) : ' + ou(val("cand"), 200) + ', copropriétaire.</strong></p>' +
+      '<p>Vous trouverez ci-joint le projet de résolution correspondant, que je vous remercie de joindre à la convocation.</p>' +
+      '<p>Si ma demande vous parvient trop tard pour être inscrite à la prochaine assemblée, je vous remercie de l\'inscrire à l\'assemblée suivante, comme le prévoit le même article, et de m\'indiquer sa date.</p>' +
+      '<p>Je vous prie d\'agréer, Madame, Monsieur, mes salutations distinguées.</p>' +
+      '<div class="sign">' + ou(val("moi-nom"), 200) + '<br><br>Signature :</div>' +
+      '<p><strong>Pièce jointe :</strong> projet de résolution.</p>' +
+      noteBas() +
+      '</article>';
+  }
+
+  function docResolutionA(){
+    var fin = dateCourte(val("pro-fin"));
+    return '<article class="doc">' +
+      '<p class="titre-doc">Projet de résolution<br><span style="font-size:15px;font-weight:400">à joindre à la convocation de l\'assemblée générale</span></p>' +
+      '<p>Copropriété : ' + nomCopro() + '</p>' +
+      '<p>Question proposée par : ' + ou(val("moi-nom"), 200) + ', copropriétaire</p>' +
+      '<h3>Désignation d\'un syndic non professionnel (syndic bénévole)</h3>' +
+      texteResolution(fin ? "lendemain du " + fin + " (fin du mandat en cours)" : "") +
+      '<p class="note-doc"><strong>Comment se passe le vote.</strong> La décision est prise à la majorité des voix de tous les copropriétaires, présents, représentés ou absents. Si cette majorité n\'est pas atteinte mais que le projet a recueilli au moins le tiers de ces voix, l\'assemblée peut procéder immédiatement à un second vote à la majorité des voix des copropriétaires présents, représentés ou ayant voté par correspondance.<br>' +
+      'Durée : le mandat d\'un syndic non professionnel ne peut pas dépasser trois ans (article 28 du décret n° 67-223 du 17 mars 1967).<br>' +
+      'Modèle fourni à titre d\'information ; vérifiez-le au regard de votre règlement de copropriété. APC édite un logiciel et n\'est pas un syndic professionnel.</p>' +
+      '</article>';
+  }
+
+  function docConvocationB(){
+    var d = dateFr(val("ag-date")), t = heureFr(val("ag-heure"));
+    return '<article class="doc">' +
+      '<div class="exp">' + ou(val("moi-nom"), 200) + '<br>' + ou(val("moi-adr"), 260) + '<br>Copropriétaire</div>' +
+      '<div class="dest">À : ' + vide(200) + '<br>' + vide(220) + '<br><em>Copropriétaire</em></div>' +
+      '<p class="lieu">À ' + vide(130) + ', le ' + aujourdhui() + '</p>' +
+      '<p class="titre-doc">Convocation à l\'assemblée générale des copropriétaires</p>' +
+      '<p>Copropriété : ' + nomCopro() + '</p>' +
+      '<p>Madame, Monsieur,</p>' +
+      '<p>Notre copropriété n\'a plus de syndic. L\'article 17 de la loi n° 65-557 du 10 juillet 1965 permet alors à tout copropriétaire de convoquer l\'assemblée générale pour nommer un syndic. En ma qualité de copropriétaire, je vous convoque à l\'assemblée générale des copropriétaires qui se tiendra :</p>' +
+      '<p class="cadre">le <strong>' + (d ? h(d) : vide(200)) + '</strong> à <strong>' + (t ? h(t) : vide(70)) + '</strong><br>à : <strong>' + ou(val("ag-lieu"), 260) + '</strong></p>' +
+      '<h4>Ordre du jour</h4>' +
+      '<ol>' +
+        '<li>Désignation du président de séance (à la majorité simple).</li>' +
+        '<li>Désignation d\'un ou plusieurs scrutateurs (à la majorité simple).</li>' +
+        '<li>Désignation du secrétaire de séance (à la majorité simple).</li>' +
+        '<li>Désignation d\'un syndic non professionnel (syndic bénévole) : candidature de ' + ou(val("cand"), 200) + ', copropriétaire (majorité de l\'article 25 de la loi du 10 juillet 1965).<br><em>Projet de résolution :</em> ' + texteResolution("jour de l'assemblée").replace(/<\/?p>/g, " ") + '</li>' +
+      '</ol>' +
+      '<p>Si vous ne pouvez pas venir, vous pouvez donner pouvoir à la personne de votre choix (modèle joint). Une personne ne peut en principe pas recevoir plus de trois pouvoirs, sauf si ses voix et celles de ses mandants ne dépassent pas 10 % des voix de la copropriété.</p>' +
+      '<p>Toute autre candidature au poste de syndic peut m\'être adressée avant l\'assemblée.</p>' +
+      '<p>Je vous prie d\'agréer, Madame, Monsieur, mes salutations distinguées.</p>' +
+      '<div class="sign">' + ou(val("moi-nom"), 200) + '<br><br>Signature :</div>' +
+      '<p><strong>Pièces jointes :</strong> modèle de pouvoir ; formulaire de vote par correspondance (modèle officiel, disponible sur service-public.gouv.fr).</p>' +
+      noteBas() +
+      '</article>';
+  }
+
+  function docPouvoirB(){
+    var d = dateCourte(val("ag-date"));
+    return '<article class="doc">' +
+      '<p class="titre-doc">Pouvoir pour l\'assemblée générale</p>' +
+      '<p>Copropriété : ' + nomCopro() + '</p>' +
+      '<p>Assemblée générale du ' + (d ? h(d) : vide(150)) + '</p>' +
+      '<p>Je soussigné(e) ' + vide(260) + ',<br>copropriétaire du ou des lots n° ' + vide(160) + ',<br>demeurant ' + vide(300) + ',</p>' +
+      '<p>donne pouvoir à ' + vide(260) + ',<br>demeurant ' + vide(300) + ',</p>' +
+      '<p>de me représenter à l\'assemblée générale des copropriétaires ci-dessus, de prendre part en mon nom à toutes les délibérations et à tous les votes, et de signer la feuille de présence et tous documents.</p>' +
+      '<p>Consignes de vote (facultatif) : ' + vide(320) + '<br>' + vide(420) + '</p>' +
+      '<div class="sign">Fait à ' + vide(120) + ', le ' + vide(110) + '<br><br>Signature, précédée de la mention « Bon pour pouvoir » :</div>' +
+      '<p class="note-doc">Le pouvoir doit être écrit et signé. S\'il est laissé en blanc (sans nom de mandataire), il est confié au président du conseil syndical, ou à défaut de conseil syndical au président de séance, qui désigne le mandataire.<br>Modèle fourni à titre d\'information ; vérifiez-le au regard de votre règlement de copropriété. APC édite un logiciel et n\'est pas un syndic professionnel.</p>' +
+      '</article>';
+  }
+
+  function docPresenceB(){
+    var n = Math.max(6, Math.min(40, (parseInt(val("imm-lots"), 10) || 0) + 2));
+    var d = dateCourte(val("ag-date"));
+    var lignes = "";
+    for (var i = 0; i < n; i++) lignes += '<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>';
+    return '<article class="doc">' +
+      '<p class="titre-doc">Feuille de présence</p>' +
+      '<p>Copropriété : ' + nomCopro() + '<br>Assemblée générale du ' + (d ? h(d) : vide(150)) + ' — lieu : ' + ou(val("ag-lieu"), 200) + '</p>' +
+      '<div class="tab-scroll"><table><thead><tr><th style="width:21%">Copropriétaire<br>(nom, domicile)</th><th style="width:9%">Lots</th><th style="width:9%">Voix (tantièmes)</th><th style="width:16%">Présent / représenté / vote par corresp.</th><th style="width:21%">Mandataire<br>(nom, domicile)</th><th style="width:24%">Signature</th></tr></thead><tbody>' + lignes +
+      '<tr><td colspan="2"><strong>Total</strong></td><td></td><td colspan="3"></td></tr></tbody></table></div>' +
+      '<p>Certifiée exacte par le président de séance : ' + vide(200) + '&nbsp;&nbsp; Signature : ' + vide(140) + '</p>' +
+      '<p class="note-doc">La feuille de présence est obligatoire (article 14 du décret n° 67-223 du 17 mars 1967). Chaque copropriétaire ou mandataire la signe ; le président de séance la certifie exacte. Elle est jointe au procès-verbal.<br>Modèle fourni à titre d\'information ; vérifiez-le au regard de votre règlement de copropriété. APC édite un logiciel et n\'est pas un syndic professionnel.</p>' +
+      '</article>';
+  }
+
+  function blocVote(){
+    var c = '<span class="ligne-vide" style="min-width:56px">&nbsp;</span>';
+    return '<div class="vote"><span>Pour : ' + c + ' voix</span><span>Contre : ' + c + ' voix</span><span>Abstention : ' + c + ' voix</span></div>' +
+      '<p>Noms (et voix) des copropriétaires ayant voté contre ou s\'étant abstenus : ' + vide(200) + '</p>' +
+      '<p>Résolution : ☐ adoptée ☐ rejetée</p>';
+  }
+
+  function docPVB(){
+    var d = dateFr(val("ag-date")), t = heureFr(val("ag-heure"));
+    return '<article class="doc">' +
+      '<p class="titre-doc">Procès-verbal de l\'assemblée générale des copropriétaires</p>' +
+      '<p>Copropriété : ' + nomCopro() + '</p>' +
+      '<p>Le ' + (d ? h(d) : vide(200)) + ' à ' + (t ? h(t) : vide(70)) + ', les copropriétaires se sont réunis en assemblée générale (lieu : ' + ou(val("ag-lieu"), 220) + '), sur convocation adressée par ' + ou(val("moi-nom"), 200) + ', copropriétaire, la copropriété étant dépourvue de syndic (article 17 de la loi n° 65-557 du 10 juillet 1965).</p>' +
+      '<p>Il a été établi une feuille de présence, jointe au présent procès-verbal. Copropriétaires présents ou représentés : ' + vide(50) + ' sur ' + vide(50) + ', totalisant ' + vide(70) + ' voix sur ' + vide(70) + ' voix.</p>' +
+      '<div class="q-pv"><h4>1. Désignation du président de séance</h4><p>Est désigné(e) : ' + vide(220) + '</p>' + blocVote() + '</div>' +
+      '<div class="q-pv"><h4>2. Désignation du ou des scrutateurs</h4><p>Est désigné(e) : ' + vide(220) + '</p>' + blocVote() + '</div>' +
+      '<div class="q-pv"><h4>3. Désignation du secrétaire de séance</h4><p>Est désigné(e) : ' + vide(220) + '</p>' + blocVote() + '</div>' +
+      '<h4>4. Désignation d\'un syndic non professionnel (syndic bénévole)</h4>' + texteResolution("jour de l'assemblée") +
+      '<div class="q-pv"><p><em>Vote à la majorité de l\'article 25 (majorité des voix de tous les copropriétaires) :</em></p>' + blocVote() + '</div>' +
+      '<div class="q-pv"><p><em>Si la majorité de l\'article 25 n\'est pas atteinte mais que le projet a recueilli au moins le tiers des voix de tous les copropriétaires — second vote immédiat à la majorité des copropriétaires présents, représentés ou ayant voté par correspondance :</em></p>' + blocVote() + '</div>' +
+      '<p>Réserves formulées sur la régularité des décisions : ' + vide(260) + '</p>' +
+      '<p>L\'ordre du jour étant épuisé, la séance est levée à ' + vide(70) + '.</p>' +
+      '<div class="tab-scroll"><table><tr><th>Le président de séance</th><th>Le ou les scrutateurs</th><th>Le secrétaire</th></tr><tr><td style="height:70px"></td><td></td><td></td></tr></table></div>' +
+      '<p class="note-doc">Le procès-verbal est signé en fin de séance par le président, le secrétaire et le ou les scrutateurs (article 17 du décret n° 67-223 du 17 mars 1967). Le syndic désigné l\'envoie dans le mois aux copropriétaires opposants et défaillants ; ils ont deux mois à compter de cet envoi pour contester (article 42 de la loi du 10 juillet 1965).<br>Modèle fourni à titre d\'information ; vérifiez-le au regard de votre règlement de copropriété. APC édite un logiciel et n\'est pas un syndic professionnel.</p>' +
+      '</article>';
+  }
+
+  function docEtapes(){
+    var e2 = cas === "A"
+      ? '<li><b>Envoyez la demande au syndic actuel.</b>Lettre recommandée avec avis de réception (ou recommandé électronique) et projet de résolution joint. Le syndic doit inscrire la question à la prochaine assemblée ; si votre demande arrive trop tard, à la suivante.</li>'
+      : '<li><b>Convoquez l\'assemblée.</b>Quand il n\'y a plus de syndic, tout copropriétaire peut convoquer l\'assemblée pour en nommer un. Envoyez la convocation à chaque copropriétaire, avec un pouvoir et le formulaire de vote par correspondance.</li>';
+    var e3 = cas === "A"
+      ? '<li><b>Préparez l\'assemblée avec les copropriétaires.</b>Parlez-en avant : la décision demande la majorité des voix de tous les copropriétaires, absents compris. Ceux qui ne viennent pas peuvent donner un pouvoir ou voter par correspondance.</li>'
+      : '<li><b>Respectez le délai de 21 jours.</b>La convocation doit être reçue au moins 21 jours avant l\'assemblée (davantage si votre règlement le prévoit). Prenez un mois de marge et gardez les preuves d\'envoi.</li>';
+    return '<article class="doc">' +
+      '<p class="titre-doc">Les 5 étapes pour passer en syndic bénévole</p>' +
+      '<p>Copropriété : ' + nomCopro() + '</p>' +
+      '<ol class="etapes5">' +
+        '<li><b>Trouvez votre candidat.</b>Le syndic bénévole est un copropriétaire volontaire : ici, ' + ou(val("cand"), 180) + '. Le mandat dure au plus trois ans, et il est renouvelable.</li>' +
+        e2 + e3 +
+        '<li><b>Votez le jour de l\'assemblée.</b>On désigne d\'abord le président de séance, puis le secrétaire. Chacun signe la feuille de présence. Le syndic bénévole est élu à la majorité des voix de tous les copropriétaires. Le procès-verbal est signé à la fin de la séance.</li>' +
+        '<li><b>Prenez vos fonctions.</b>Envoyez le procès-verbal dans le mois aux copropriétaires opposants et absents. ' + (cas === "A" ? 'Demandez au syndic sortant les archives, les fonds et la situation de la copropriété. ' : 'Rassemblez les archives et les papiers de la copropriété. ') + 'Mettez à jour le registre national des copropriétés (registre-coproprietes.gouv.fr) et vérifiez que la copropriété a un compte bancaire à son nom.</li>' +
+      '</ol>' +
+      aVerifier() +
+      '<p class="cadre">Une fois élu, APC prépare vos documents de syndic bénévole — premier mois offert : <strong>apcgestion.fr/demande?src=kit</strong></p>' +
+      noteBas() +
+      '</article>';
+  }
+
+  function aVerifier(){
+    if (cas === "A") {
+      var fin = dateCourte(val("pro-fin"));
+      return '<div class="cadre"><strong>À vérifier avant l\'assemblée</strong><ul>' +
+        '<li>' + (fin ? 'Selon vos informations, le mandat de votre syndic actuel se termine le ' + h(fin) + '. ' : '') + 'Si son mandat court encore à la date de l\'assemblée, faites vérifier la fin du mandat en cours, et choisissez une date de prise de fonction du syndic bénévole qui la respecte.</li>' +
+        '<li>Envoi de la lettre : recommandé avec avis de réception, ou recommandé électronique (article 10 du décret n° 67-223 du 17 mars 1967). Gardez la preuve d\'envoi.</li></ul></div>';
+    }
+    return '<div class="cadre"><strong>À vérifier avant d\'envoyer la convocation</strong><ul>' +
+      '<li>Délai : la convocation doit être reçue au moins 21 jours avant l\'assemblée (article 9 du décret n° 67-223 du 17 mars 1967). Il part du lendemain de la première présentation de la lettre recommandée, ou de la date de remise contre émargement.</li>' +
+      '<li>Envoyez-la à chaque copropriétaire, à son adresse connue (en cas de doute : ancien procès-verbal, relevé de propriété).</li>' +
+      '<li>Si la copropriété n\'a pas de syndic parce qu\'une assemblée réunie pour en nommer un n\'a désigné personne, c\'est le président du tribunal judiciaire qui désigne le syndic, avec un avocat : ce modèle ne convient pas.</li></ul></div>';
+  }
+
+  var listes = {
+    A: ["La lettre au syndic professionnel (en recommandé)", "Le projet de résolution à joindre", "La fiche « Les 5 étapes pour passer en syndic bénévole »"],
+    B: ["La convocation de l'assemblée (une par copropriétaire)", "Le modèle de pouvoir", "La feuille de présence vierge", "Le procès-verbal à compléter le jour de l'assemblée", "La fiche « Les 5 étapes pour passer en syndic bénévole »"]
+  };
+
+  $("kit").addEventListener("submit", function(e){
+    e.preventDefault();
+    var err = $("erreur-kit"); err.classList.remove("on");
+    var manque = [];
+    if (!val("imm-adr")) manque.push("l'adresse de l'immeuble");
+    if (!val("moi-nom")) manque.push("votre nom");
+    if (!val("cand")) manque.push("le nom du candidat");
+    if (cas === "A" && !val("pro-nom")) manque.push("le nom du syndic actuel");
+    if (cas === "B" && !val("ag-date")) manque.push("la date de l'assemblée");
+    if (manque.length) {
+      err.textContent = "Il manque : " + manque.join(", ") + ". Les autres champs vides resteront en pointillés, à compléter à la main.";
+      err.classList.add("on"); return;
+    }
+    if (cas === "B") {
+      var p = val("ag-date").split("-"), dAg = new Date(+p[0], +p[1] - 1, +p[2]);
+      var jours = Math.round((dAg - new Date(new Date().toDateString())) / 86400000);
+      if (jours < 25) {
+        err.textContent = "Attention : l'assemblée est dans " + jours + " jour(s). La convocation doit être reçue au moins 21 jours avant : choisissez une date plus lointaine (un mois est conseillé).";
+        err.classList.add("on"); return;
+      }
+    }
+    var html = cas === "A"
+      ? docLettreA() + docResolutionA() + docEtapes()
+      : docConvocationB() + docPouvoirB() + docPresenceB() + docPVB() + docEtapes();
+    $("docs").innerHTML = html;
+    $("liste-intro").textContent = cas === "A" ? "Cas A — vous avez un syndic professionnel. Votre kit contient :" : "Cas B — la copropriété n'a pas de syndic. Votre kit contient :";
+    $("liste-docs").innerHTML = listes[cas].map(function(x){ return "<li>" + h(x) + "</li>"; }).join("");
+    $("zone-docs").classList.add("on");
+    $("pied-parcours").style.display = "none";
+    $("zone-docs").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+  $("modifier").addEventListener("click", function(){ $("kit").scrollIntoView({ behavior: "smooth", block: "start" }); });
+
+  /* ---------- Adresse email (seule donnée envoyée) ---------- */
+  var API = "https://bmvytqfddrfgcgokoxfn.supabase.co";
+  var CLE = "sb_publishable_tGwuRROW7-AjWdE8K8ZbFA_R8_V2LUU";
+  var f = $("f"), btn = $("envoyer"), errM = $("erreur"), ok = $("ok");
+  f.addEventListener("submit", function(e){
+    e.preventDefault();
+    errM.classList.remove("on");
+    if ($("site_web").value) return;
+    var email = $("email").value.trim();
+    if (!/^[^@\s]+@[^@\s]+\.[a-zA-Z]{2,}$/.test(email)) {
+      errM.textContent = "Cette adresse email ne semble pas valide."; errM.classList.add("on"); return;
+    }
+    if (!$("consent").checked) {
+      errM.textContent = "Merci de cocher la case : sans votre accord explicite, nous n'avons pas le droit de vous écrire.";
+      errM.classList.add("on"); return;
+    }
+    btn.disabled = true;
+    fetch(API + "/rest/v1/rpc/apc_inscrire_checklist", {
+      method: "POST",
+      headers: { "apikey": CLE, "Authorization": "Bearer " + CLE, "Content-Type": "application/json" },
+      body: JSON.stringify({ p_email: email, p_nom: null, p_consentement: true, p_source: "kit-passage:" + (cas || "?") })
+    }).then(function(r){
+      if (!r.ok) throw new Error("ko");
+      f.style.display = "none"; ok.classList.add("on");
+    }).catch(function(){
+      errM.textContent = "L'enregistrement n'a pas abouti. Réessayez dans un instant.";
+      errM.classList.add("on"); btn.disabled = false;
+    });
+  });
+})();
+</script>
+<script src="/visite.js" defer></script>
+</body>
+</html>
