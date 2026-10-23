@@ -95,8 +95,8 @@
     </div>
 
     <div id="bloc-email" class="card terra noprint">
-      <h3 style="margin-top:0">Recevoir les prochaines fiches</h3>
-      <p>Nous publions régulièrement des fiches pratiques de ce genre : reprendre des comptes laissés en désordre, calculer un appel de fonds, préparer un budget prévisionnel. Si vous voulez les recevoir, laissez votre adresse — et rien d'autre.</p>
+      <h3 style="margin-top:0">Recevoir la checklist par email</h3>
+      <p>Nous vous l'envoyons par email, puis trois mails courts sur trois semaines pour vous montrer comment le logiciel APC prépare ces étapes avec vous. Ensuite, nos prochaines fiches pratiques : reprendre des comptes laissés en désordre, calculer un appel de fonds, préparer un budget prévisionnel. Laissez votre adresse — et rien d'autre.</p>
 
       <form id="f" novalidate>
         <div class="deux">
@@ -112,18 +112,18 @@
         <div class="champ">
           <label class="coche">
             <input type="checkbox" id="consent" required>
-            <span>J'accepte de recevoir par email les fiches pratiques et informations d'APC. Je peux me désinscrire à tout moment, et mon adresse ne sera ni vendue ni cédée.</span>
+            <span>J'accepte de recevoir par email la checklist, puis trois mails courts d'APC sur trois semaines pour découvrir le logiciel, et ensuite les fiches pratiques d'APC. Je peux me désinscrire à tout moment, en un clic, et mon adresse ne sera ni vendue ni cédée.</span>
           </label>
         </div>
         <div style="position:absolute;left:-9999px" aria-hidden="true">
           <label for="site_web">Ne pas remplir</label><input type="text" id="site_web" tabindex="-1" autocomplete="off">
         </div>
         <div class="msg err" id="erreur" role="alert"></div>
-        <button type="submit" class="btn" id="envoyer">Je veux recevoir les fiches</button>
+        <button type="submit" class="btn" id="envoyer">Recevoir la checklist par email</button>
       </form>
 
       <div class="msg" id="ok" style="background:var(--ok-bg);border:1px solid var(--ok);color:var(--ok)" role="status">
-        <strong>C'est noté.</strong> Vous recevrez les prochaines fiches. Aucune autre utilisation ne sera faite de votre adresse.
+        <strong>C'est noté.</strong> Vous recevrez la checklist par email au plus tard le prochain jour ouvré. Un clic en bas de chaque mail suffit pour ne plus rien recevoir. Aucune autre utilisation ne sera faite de votre adresse.
       </div>
     </div>
 
@@ -169,7 +169,8 @@
       method: "POST",
       headers: { "apikey": CLE, "Authorization": "Bearer " + CLE, "Content-Type": "application/json" },
       body: JSON.stringify({ p_email: email, p_nom: document.getElementById("nom").value.trim() || null,
-                             p_consentement: true, p_source: "page-checklist" })
+                             p_consentement: true, p_source: "page-checklist",
+                             p_version_consentement: "v2" })
     }).then(function(r){
       if (!r.ok) throw new Error("ko");
       f.style.display = "none"; ok.classList.add("on");
