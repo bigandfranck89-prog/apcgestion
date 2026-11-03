@@ -190,7 +190,7 @@ footer{margin-top:0}
 /* téléphone : vignettes plus basses, bouton « Nous écrire » en tête du menu */
 @media(max-width:520px){.vig{aspect-ratio:auto;min-height:118px}.vig .t{max-width:72%}}
 @media(max-width:640px){.avatar{width:72px;height:72px;font-size:26px}}
-@media(max-width:600px){nav a.nav-cta{order:-1}}
+@media(max-width:600px){nav a.nav-cta{order:-2}nav a.nav-tel{order:-1}}
 /* apparition douce */
 @media(prefers-reduced-motion:no-preference){
   .js .reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
@@ -207,6 +207,11 @@ a.gd b{font:700 18px/1.3 Georgia,serif;color:var(--brun)}
 a.gd span{font-size:14.5px;color:var(--ink2)}
 a.gd em{margin-top:auto;padding-top:4px;font-style:normal;font-weight:700;font-size:14.5px;color:var(--terra-d)}
 a.gd.tout{background:linear-gradient(135deg,#fff 0%,var(--terra-l) 100%)}
+/* téléphone visible (03/11/2026) */
+nav a.nav-tel{font-weight:700;color:var(--terra-d);white-space:nowrap}
+.appel{font-size:17px;margin:4px 0 0}
+.appel a{font-weight:700;color:var(--terra-d);white-space:nowrap}
+.presse-vu{margin-top:10px;font-size:15px}
 </style>
 <script src="/src.js"></script>
 </head>
@@ -222,6 +227,7 @@ a.gd.tout{background:linear-gradient(135deg,#fff 0%,var(--terra-l) 100%)}
       <a href="#limites">Limites</a>
       <a href="#guides">Guides</a>
       <a href="#videos">Vidéos</a>
+      <a class="nav-tel" href="tel:+33630529986">☎ 06 30 52 99 86</a>
       <a class="nav-cta" href="https://apcgestion.fr/demande">Nous écrire</a>
     </nav>
   </div>
@@ -238,6 +244,7 @@ a.gd.tout{background:linear-gradient(135deg,#fff 0%,var(--terra-l) 100%)}
       <div class="cta cta-g">
         <a class="btn" href="https://apcgestion.fr/demande">Essayer sur ma copropriété</a>
         <a class="btn ghost" href="/calculateur/">Combien je peux économiser ?</a>
+        <p class="appel">Une question avant de vous lancer ? Appelez-moi : <a href="tel:+33630529986">06 30 52 99 86</a>. Si je ne décroche pas, laissez un message, je vous rappelle.</p>
         <p class="sous">Premier mois offert · Reprise de vos comptes offerte · Sans engagement</p>
         <p class="sous">Pas encore syndic bénévole ? <a href="/passer-syndic-benevole/">Le kit gratuit pour le devenir : lettres et modèles prêts à imprimer →</a></p>
       </div>
@@ -270,7 +277,7 @@ a.gd.tout{background:linear-gradient(135deg,#fff 0%,var(--terra-l) 100%)}
 <section class="confiance" aria-label="Nos engagements">
   <div class="wrap">
     <ul>
-      <li><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span><b>Tout par écrit</b><small>réponse sous 48 h ouvrées</small></span></li>
+      <li><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span><b>Une vraie personne</b><small>Franck, au <a href="tel:+33630529986">06 30 52 99 86</a></small></span></li>
       <li><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><span><b>Aucun accès à votre banque</b><small>vous payez vous-même vos factures</small></span></li>
       <li><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><span><b>Données en Europe</b><small>hébergées dans l'Union européenne</small></span></li>
       <li><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 3-6.2"/><path d="M4 4v4h4"/></svg></span><span><b>Sans engagement</b><small>vous partez quand vous voulez, avec vos données</small></span></li>
@@ -420,7 +427,7 @@ a.gd.tout{background:linear-gradient(135deg,#fff 0%,var(--terra-l) 100%)}
         <li><strong>Nous ne tenons pas vos comptes à votre place.</strong> Le logiciel enregistre et sort les documents ; chaque écriture est proposée et c'est vous qui la validez : les comptes restent les vôtres, comme la loi le veut.</li>
         <li><strong>Nous ne touchons jamais à l'argent.</strong> Aucun accès bancaire, aucun paiement, aucun encaissement.</li>
         <li><strong>Pas de conseil personnalisé.</strong> Pour un litige ou un avis sur votre cas, adressez-vous à un professionnel inscrit, comme un avocat.</li>
-        <li><strong>Tout se passe par écrit.</strong> Pas de téléphone, pas de visite, pas d'assemblée tenue à votre place.</li>
+        <li><strong>Pas d'assemblée tenue à votre place, pas de visite.</strong> Pour une question, appelez-moi ; le suivi se fait ensuite par écrit, pour que vous gardiez une trace de tout.</li>
       </ul>
     </div>
   </div>
@@ -435,6 +442,8 @@ a.gd.tout{background:linear-gradient(135deg,#fff 0%,var(--terra-l) 100%)}
         <div class="chips"><span>20 ans de syndic professionnel</span><span>72 copropriétés, de 5 à 300 lots</span><span>Verlin, dans l'Yonne</span></div>
         <p>Je m'appelle <strong>Franck Bigand</strong>. J'ai été syndic professionnel pendant vingt ans : 72 copropriétés, de 5 à 300 lots. J'ai vu de près ce qui use un syndic bénévole — les comptes qu'on repousse, l'assemblée qu'on prépare la veille, les délais légaux qu'on découvre trop tard. Et j'ai vu les petites copropriétés que les cabinets ne veulent plus, ou facturent comme des grandes.</p>
         <p>Plutôt que de refaire ce travail à la main pour quelques immeubles, j'ai mis vingt ans de métier dans un logiciel. Il fait la saisie, les calculs et les documents ; vous gardez la décision et la signature. Je ne suis pas votre syndic : je vous donne l'outil pour vous gérer vous-mêmes, proprement. Quand vous avez besoin d'un coup de main, vous recevez une réponse écrite sous 48 heures ouvrées.</p>
+        <p class="appel">Vous voulez en parler avant de vous lancer ? Appelez-moi au <a href="tel:+33630529986">06 30 52 99 86</a>.</p>
+        <p class="presse-vu">📰 Vu dans <em>L'Yonne républicaine</em> : <a href="https://www.lyonne.fr/france-monde/economie/un-icaunais-met-au-point-un-logiciel-pour-simplifier-la-vie-des-syndics-de-coproprietes-benevoles_15069437" target="_blank" rel="noopener">« Un Icaunais met au point un logiciel pour simplifier la vie des syndics de copropriétés bénévoles »</a> (26/10/2026)</p>
       </div>
     </div>
   </div>
@@ -502,9 +511,9 @@ a.gd.tout{background:linear-gradient(135deg,#fff 0%,var(--terra-l) 100%)}
         <p class="small">TVA non applicable, art. 293 B du CGI.</p>
       </div>
       <div>
-        <h4>Nous écrire</h4>
-        <p><a href="https://apcgestion.fr/demande">Formulaire de demande</a> — le seul point d'entrée.</p>
-        <p>Nous travaillons exclusivement par écrit. Réponse sous 48 heures ouvrées.</p>
+        <h4>Nous joindre</h4>
+        <p>Téléphone : <a href="tel:+33630529986">06 30 52 99 86</a> (Franck Bigand)</p>
+        <p><a href="https://apcgestion.fr/demande">Formulaire de demande</a> — réponse écrite sous 48 heures ouvrées.</p>
       </div>
       <div>
         <h4>Vos droits</h4>
