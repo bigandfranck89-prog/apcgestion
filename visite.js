@@ -62,7 +62,7 @@
         p_gclid: !!lire("gclid"),
         p_appareil: /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent || "") ? "mobile" : "ordinateur",
         p_session: session(),
-        p_evenement: evenement === "demande" ? "demande" : "vue"
+        p_evenement: (evenement === "demande" || evenement === "appel") ? evenement : "vue"
       };
       fetch(API + "/rest/v1/rpc/f_visite_noter", {
         method: "POST",
@@ -75,4 +75,11 @@
 
   window.apcVisite = noter;
   noter("vue");
+  /* Clic sur un numéro de téléphone (lien tel:) : compté une fois par clic, sans rien noter d'autre. */
+  try {
+    document.addEventListener("click", function (e) {
+      var a = e.target && e.target.closest ? e.target.closest('a[href^="tel:"]') : null;
+      if (a) noter("appel");
+    }, true);
+  } catch (e) {}
 })();
