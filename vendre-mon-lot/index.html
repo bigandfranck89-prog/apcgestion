@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vous vendez votre lot ? Le pré-état daté quand le syndic est bénévole — APC</title>
+<meta name="description" content="Vous vendez un appartement dans une petite copropriété sans syndic professionnel ? APC prépare le pré-état daté demandé par le notaire à partir de vos papiers : 49 €, payé à la livraison.">
+<link rel="canonical" href="https://apcgestion.fr/vendre-mon-lot/">
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" href="/logo-apc.svg" type="image/svg+xml">
+<script src="/src.js"></script>
+<style>
+  .prix{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin:18px 0}
+  .prix .card{text-align:center}
+  .prix .montant{font-size:34px;font-weight:800;color:var(--brun);margin:6px 0}
+  .etapes{counter-reset:e;list-style:none;margin:14px 0;padding:0}
+  .etapes li{counter-increment:e;position:relative;padding:10px 0 10px 46px}
+  .etapes li:before{content:counter(e);position:absolute;left:0;top:8px;width:32px;height:32px;border-radius:50%;background:var(--terra);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .cgv{font-size:14.5px;color:var(--ink2)}
+  .cgv h3{font-size:16px;margin:16px 0 4px}
+  details.cgv-bloc{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:18px 0}
+  details.cgv-bloc summary{cursor:pointer;font-weight:700}
+  .confirm{display:none}.confirm.on{display:block}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="/"><img src="/logo-apc.svg" alt="APC — Assistance Petites Copropriétés"></a>
+    <nav><a href="/">Accueil</a><a href="/guides/">Guides</a><a href="/retractation/">Se rétracter</a></nav>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="wrap">
+
+    <div id="formulaire">
+      <h1>Vous vendez votre lot ? On prépare le pré-état daté.</h1>
+      <p class="lead">Quand on vend un appartement en copropriété, le notaire demande des informations financières sur le lot : charges payées, fonds de travaux, impayés… Avec un syndic professionnel, c'est lui qui les donne (et il les facture souvent 300 € ou plus). <strong>Quand le syndic est bénévole, personne ne sait les sortir.</strong> APC les prépare pour vous, à partir de vos papiers.</p>
+
+      <div class="prix">
+        <div class="card terra"><strong>Vous êtes un particulier</strong><div class="montant">49 €</div><span class="small">TVA non applicable, art. 293 B du CGI</span></div>
+        <div class="card"><strong>Vous êtes un professionnel</strong><br><span class="small">notaire, agence, marchand de biens</span><div class="montant">39 €</div><span class="small">par dossier</span></div>
+      </div>
+      <p class="small"><strong>Vous ne payez qu'à la livraison</strong> : le document vous est envoyé par e-mail avec la facture et un lien de paiement.</p>
+
+      <h2>Comment ça marche</h2>
+      <ol class="etapes">
+        <li><strong>Vous déposez vos papiers ici</strong>, en photo ou en PDF (liste juste en dessous).</li>
+        <li><strong>Nous vérifions</strong> qu'il ne manque rien. S'il manque une pièce, nous vous écrivons.</li>
+        <li><strong>Vous recevez le pré-état daté par e-mail</strong>, au plus tard 2 jours ouvrés après réception de toutes les pièces, prêt à transmettre au notaire.</li>
+      </ol>
+      <div class="card small">
+        <strong>Ce que contient le document</strong> (Code de la construction et de l'habitation, article L.721-2, II, 2°, a à d) : les charges courantes et hors budget payées par le vendeur sur les deux derniers exercices, les sommes qui pourraient être dues par l'acquéreur, l'état global des impayés de charges et des dettes envers les fournisseurs, et la part du fonds de travaux rattachée au lot.
+      </div>
+
+      <form id="f" novalidate>
+
+        <div class="champ">
+          <label>Vous êtes</label>
+          <div class="radios">
+            <label><input type="radio" name="qui" value="particulier" checked> <span><b>Un particulier</b><br><span class="aide">Vous vendez votre lot — 49 €</span></span></label>
+            <label><input type="radio" name="qui" value="pro"> <span><b>Un professionnel</b><br><span class="aide">Notaire, agence… — 39 €</span></span></label>
+          </div>
+        </div>
+
+        <div class="deux">
+          <div class="champ">
+            <label for="nom">Votre nom et prénom</label>
+            <input type="text" id="nom" autocomplete="name" required maxlength="120">
+          </div>
+          <div class="champ">
+            <label for="email">Votre adresse e-mail</label>
+            <input type="email" id="email" autocomplete="email" required maxlength="180">
+            <p class="aide">C'est là que vous recevrez l'accusé de réception, puis le document.</p>
+          </div>
+        </div>
+
+        <div class="deux">
+          <div class="champ">
+            <label for="tel">Votre téléphone <span class="opt">— facultatif</span></label>
+            <input type="tel" id="tel" autocomplete="tel" maxlength="30">
+          </div>
+          <div class="champ">
+            <label for="promesse">Date prévue de la promesse de vente <span class="opt">— si vous la connaissez</span></label>
+            <input type="text" id="promesse" maxlength="40" placeholder="Ex. : 15/12/2026">
+          </div>
+        </div>
+
+        <div class="champ">
+          <label for="adresse">Adresse de la copropriété et numéro de votre lot</label>
+          <input type="text" id="adresse" required maxlength="300" placeholder="Ex. : 12 rue des Tilleuls, 89100 Sens — lot n° 4">
+        </div>
+
+        <div class="champ">
+          <label for="message">Quelque chose à nous préciser ? <span class="opt">— facultatif</span></label>
+          <textarea id="message" maxlength="3000" placeholder="Par exemple : le syndic bénévole est mon voisin, il peut confirmer les montants ; l'assemblée de cette année n'a pas encore eu lieu…"></textarea>
+        </div>
+
+        <div class="champ">
+          <label>Vos papiers</label>
+          <div class="depot" id="depot" tabindex="0" role="button" aria-controls="fichier">
+            <span class="ic" aria-hidden="true">📎</span>
+            <strong>Cliquez ici pour choisir vos fichiers</strong><br>
+            <span class="aide">ou faites-les glisser dans ce cadre — photos ou PDF, 25 Mo par fichier, 20 fichiers maximum</span>
+          </div>
+          <input type="file" id="fichier" multiple hidden accept=".pdf,.jpg,.jpeg,.png,.heic,.doc,.docx,.xls,.xlsx,.zip">
+          <ul class="fichiers" id="liste"></ul>
+          <p class="aide"><strong>Ce qu'il nous faut :</strong> les procès-verbaux des 3 dernières assemblées · les comptes approuvés des 2 derniers exercices (avec l'état financier) · les appels de fonds ou relevés de charges de votre lot sur 2 ans · le dernier budget voté · le montant du fonds de travaux s'il existe · le règlement de copropriété (ou au moins les tantièmes de votre lot). Il vous manque une pièce ? Envoyez ce que vous avez, nous vous dirons quoi chercher.</p>
+          <p class="aide">Vos fichiers sont déposés sur un espace privé, hébergé dans l'Union européenne : personne ne peut les consulter depuis le site, seul APC y a accès pour préparer votre dossier.</p>
+        </div>
+
+        <details class="cgv-bloc">
+          <summary>Conditions de la prestation (à lire avant de valider)</summary>
+          <div class="cgv">
+            <h3>1. Qui fait quoi</h3>
+            <p>Le service est fourni par Franck Bigand, entrepreneur individuel, sous le nom APC — Assistance Petites Copropriétés, 7 lieu-dit Les Martins, 89330 Verlin, SIREN 519 339 170, téléphone 06 30 52 99 86. APC n'est pas un syndic : il prépare le document à partir des pièces que vous lui transmettez, sous votre responsabilité de vendeur, et ne s'engage pas au nom du syndicat des copropriétaires.</p>
+            <h3>2. Prix et paiement</h3>
+            <p>49 € pour un particulier, 39 € pour un professionnel, TVA non applicable (art. 293 B du CGI). Rien n'est payé à la commande : la facture et le lien de paiement sont envoyés avec le document.</p>
+            <h3>3. Délai</h3>
+            <p>Le document est envoyé par e-mail au plus tard 2 jours ouvrés après réception de toutes les pièces nécessaires. S'il en manque, nous vous écrivons ; le délai court à partir de la dernière pièce reçue.</p>
+            <h3>4. Droit de rétractation (particuliers)</h3>
+            <p>Si vous êtes un particulier, vous pouvez vous rétracter pendant 14 jours à compter de votre demande, sans motif et sans frais, en un clic sur la page <a href="/retractation/">Se rétracter</a> (ou par e-mail à bigandfranck89@gmail.com, ou avec le formulaire type de cette même page). Nous vous en accusons réception par e-mail sans délai. Si vous nous demandez de commencer tout de suite (case ci-dessous), et que le document vous est entièrement livré avant la fin des 14 jours, vous ne pouvez plus vous rétracter (Code de la consommation, art. L.221-28, 1°). Si vous vous rétractez après le début du travail, sans qu'il soit terminé, vous ne payez que la part déjà faite (art. L.221-25).</p>
+            <h3>5. Responsabilité</h3>
+            <p>Le document reprend les chiffres des pièces fournies. Les montants ne peuvent pas être plus justes que ces pièces : signalez-nous tout document que vous savez incomplet ou erroné.</p>
+            <h3>6. Réclamations et médiation</h3>
+            <p>Toute réclamation se fait par écrit à bigandfranck89@gmail.com, réponse sous 48 heures ouvrées. En cas de désaccord persistant, un particulier peut recourir gratuitement à un médiateur de la consommation : <strong>[MÉDIATEUR À COMPLÉTER AVANT MISE EN LIGNE]</strong>.</p>
+            <h3>7. Vos données</h3>
+            <p>Vos informations et vos pièces servent uniquement à préparer votre dossier. Elles sont conservées trois ans, hébergées dans l'Union européenne, ni vendues ni cédées. Vous pouvez en demander l'effacement à tout moment.</p>
+          </div>
+        </details>
+
+        <div class="champ">
+          <label class="coche"><input type="checkbox" id="cgv" required> <span>J'ai lu et j'accepte les conditions de la prestation, et j'accepte que mes informations soient utilisées pour préparer mon dossier.</span></label>
+        </div>
+        <div class="champ">
+          <label class="coche"><input type="checkbox" id="tout_de_suite"> <span><strong>Je demande que le travail commence tout de suite</strong>, sans attendre la fin du délai de rétractation de 14 jours. Je sais qu'une fois le document entièrement livré, je ne pourrai plus me rétracter. <span class="opt">— facultatif ; sans cette case, nous commençons au 15e jour.</span></span></label>
+        </div>
+
+        <div style="position:absolute;left:-9999px" aria-hidden="true">
+          <label for="site_web">Ne pas remplir</label>
+          <input type="text" id="site_web" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="msg err" id="erreur" role="alert"></div>
+        <div class="msg info" id="patiente" role="status"></div>
+
+        <div class="cta">
+          <button type="submit" class="btn" id="envoyer">Envoyer ma demande — paiement à la livraison</button>
+          <p class="sous">Vous recevez votre numéro de dossier tout de suite, à l'écran et par e-mail.</p>
+        </div>
+      </form>
+    </div>
+
+    <div class="confirm" id="confirmation" role="status" aria-live="polite">
+      <span class="ic" aria-hidden="true">✅</span>
+      <h2>Votre demande est bien arrivée</h2>
+      <p>Votre numéro de dossier :</p>
+      <div class="dossier" id="numero">—</div>
+      <p>Reçue le <strong id="recu">—</strong> (heure de Paris). Un accusé de réception part à votre adresse e-mail dans les minutes qui viennent : conservez-le.</p>
+      <p class="small mut" id="depot-ok" style="display:none"></p>
+      <p class="small mut">Vous changez d'avis ? Vous pouvez vous rétracter sur la page <a href="/retractation/">Se rétracter</a>, avec ce numéro.</p>
+      <div class="cta"><a class="btn ghost" href="/">Retour à l'accueil</a></div>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>APC — Assistance Petites Copropriétés</strong> · Franck Bigand · 7 lieu-dit Les Martins, 89330 Verlin · SIREN 519 339 170 · 06 30 52 99 86</p>
+    <p class="small"><a href="/">Accueil</a> · <a href="/guides/">Guides</a> · <a href="/retractation/">Se rétracter</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var API = "https://bmvytqfddrfgcgokoxfn.supabase.co";
+  var CLE = "sb_publishable_tGwuRROW7-AjWdE8K8ZbFA_R8_V2LUU";
+  var SEAU = "depots-apc";
+  var MAX = 25 * 1024 * 1024, MAXN = 20;
+  var f = document.getElementById("f"), btn = document.getElementById("envoyer");
+  var err = document.getElementById("erreur"), att = document.getElementById("patiente");
+  var input = document.getElementById("fichier"), depot = document.getElementById("depot"), liste = document.getElementById("liste");
+  var choisis = [];
+  function montre(el, t){ el.textContent = t; el.classList.add("on"); }
+  function cache(el){ el.classList.remove("on"); }
+  function taille(o){ return o < 1048576 ? Math.max(1, Math.round(o/1024)) + " Ko" : (o/1048576).toFixed(1) + " Mo"; }
+  function dessine(){
+    liste.innerHTML = "";
+    choisis.forEach(function(fi, i){
+      var li = document.createElement("li"), g = document.createElement("span"), b = document.createElement("button");
+      g.textContent = fi.name + " — " + taille(fi.size);
+      b.type = "button"; b.textContent = "✕"; b.setAttribute("aria-label", "Retirer " + fi.name);
+      b.onclick = function(){ choisis.splice(i,1); dessine(); };
+      li.appendChild(g); li.appendChild(b); liste.appendChild(li);
+    });
+  }
+  function ajoute(fs){
+    cache(err); var refus = [];
+    Array.prototype.forEach.call(fs, function(fi){
+      if (fi.size > MAX) { refus.push(fi.name + " (trop lourd)"); return; }
+      if (choisis.length >= MAXN) { refus.push(fi.name + " (au-delà de 20 fichiers)"); return; }
+      if (choisis.some(function(c){ return c.name === fi.name && c.size === fi.size; })) return;
+      choisis.push(fi);
+    });
+    if (refus.length) montre(err, "Ces fichiers n'ont pas pu être ajoutés : " + refus.join(", ") + ".");
+    dessine();
+  }
+  depot.addEventListener("click", function(){ input.click(); });
+  depot.addEventListener("keydown", function(e){ if (e.key === "Enter" || e.key === " ") { e.preventDefault(); input.click(); } });
+  input.addEventListener("change", function(){ ajoute(input.files); input.value = ""; });
+  ["dragenter","dragover"].forEach(function(ev){ depot.addEventListener(ev, function(e){ e.preventDefault(); depot.classList.add("sur"); }); });
+  ["dragleave","drop"].forEach(function(ev){ depot.addEventListener(ev, function(e){ e.preventDefault(); depot.classList.remove("sur"); }); });
+  depot.addEventListener("drop", function(e){ if (e.dataTransfer && e.dataTransfer.files) ajoute(e.dataTransfer.files); });
+  function propre(nom){ return nom.normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^A-Za-z0-9._-]/g, "_").slice(-90); }
+  function v(id){ return document.getElementById(id).value.trim(); }
+
+  f.addEventListener("submit", function(e){
+    e.preventDefault(); cache(err); cache(att);
+    if (v("site_web")) return;
+    var nom = v("nom"), email = v("email"), adresse = v("adresse");
+    if (nom.length < 2) { montre(err, "Merci d'indiquer votre nom."); return; }
+    if (!/^[^@\s]+@[^@\s]+\.[a-zA-Z]{2,}$/.test(email)) { montre(err, "Cette adresse e-mail ne semble pas valide : c'est là que vous recevrez le document."); return; }
+    if (adresse.length < 8) { montre(err, "Indiquez l'adresse de la copropriété et le numéro de votre lot."); return; }
+    if (!document.getElementById("cgv").checked) { montre(err, "Merci de cocher la case d'acceptation des conditions."); return; }
+    btn.disabled = true;
+    var qui = f.querySelector('input[name=qui]:checked').value;
+    var tds = document.getElementById("tout_de_suite").checked;
+    var ref = "vente-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2,7);
+    var chemins = [], envoyes = 0, rates = 0;
+    var texte = "PRÉ-ÉTAT DATÉ — " + (qui === "pro" ? "PROFESSIONNEL (39 €)" : "PARTICULIER (49 €)") +
+      "\nCopropriété et lot : " + adresse +
+      "\nTéléphone : " + (v("tel") || "—") +
+      "\nPromesse prévue : " + (v("promesse") || "—") +
+      "\nExécution immédiate demandée : " + (tds ? "OUI (renonce au délai de 14 jours, art. L.221-28 1°)" : "NON (démarrage au 15e jour)") +
+      "\nConditions acceptées le " + new Date().toLocaleString("fr-FR", {timeZone: "Europe/Paris"}) +
+      (v("message") ? "\n\nMessage : " + v("message") : "");
+    function envoiFichier(i){
+      if (i >= choisis.length) return Promise.resolve();
+      var fi = choisis[i];
+      montre(att, "Envoi de vos papiers… " + (i+1) + " sur " + choisis.length + " (" + fi.name + ")");
+      var chemin = ref + "/" + (i+1) + "-" + propre(fi.name);
+      return fetch(API + "/storage/v1/object/" + SEAU + "/" + encodeURI(chemin), {
+        method: "POST",
+        headers: { "apikey": CLE, "Authorization": "Bearer " + CLE, "Content-Type": fi.type || "application/octet-stream", "x-upsert": "true" },
+        body: fi
+      }).then(function(r){ if (r.ok) { chemins.push(chemin); envoyes++; } else { rates++; chemins.push("[ÉCHEC] " + fi.name); } })
+        .catch(function(){ rates++; chemins.push("[ÉCHEC] " + fi.name); })
+        .then(function(){ return envoiFichier(i+1); });
+    }
+    envoiFichier(0).then(function(){
+      montre(att, "Enregistrement de votre demande…");
+      return fetch(API + "/rest/v1/rpc/apc_deposer_demande", {
+        method: "POST",
+        headers: { "apikey": CLE, "Authorization": "Bearer " + CLE, "Content-Type": "application/json" },
+        body: JSON.stringify({ p_type: "vente_lot", p_nom: nom, p_email: email, p_message: texte,
+          p_copropriete: adresse, p_urgence: "normale", p_fichiers: chemins, p_origine: "site:vendre-mon-lot:" + ref })
+      });
+    }).then(function(r){ return r.json().then(function(d){ return { ok: r.ok, d: d }; }); })
+    .then(function(res){
+      cache(att);
+      if (!res.ok) {
+        var m = (res.d && (res.d.message || res.d.hint)) || "";
+        montre(err, /trop_de_demandes/.test(m) ? "Vous avez déjà envoyé plusieurs demandes dans l'heure : elles sont bien arrivées." : "Votre demande n'a pas pu être enregistrée. Réessayez dans un instant, ou appelez le 06 30 52 99 86.");
+        btn.disabled = false; return;
+      }
+      document.getElementById("numero").textContent = res.d.numero_dossier;
+      document.getElementById("recu").textContent = res.d.recu_le || "";
+      if (choisis.length) {
+        var p = document.getElementById("depot-ok"); p.style.display = "block";
+        p.textContent = rates ? envoyes + " fichier(s) bien reçu(s), " + rates + " n'ont pas pu être envoyés : répondez à l'accusé de réception en les joignant." : envoyes + " fichier(s) bien reçu(s).";
+      }
+      document.getElementById("formulaire").style.display = "none";
+      document.getElementById("confirmation").classList.add("on");
+      try { if (window.apcVisite) window.apcVisite("demande"); } catch (e) {}
+      window.scrollTo(0, 0);
+    }).catch(function(){ cache(att); montre(err, "La connexion n'a pas abouti. Vérifiez votre accès à internet et réessayez : rien n'a été perdu."); btn.disabled = false; });
+  });
+})();
+</script>
+<script src="/visite.js" defer></script>
+</body>
+</html>

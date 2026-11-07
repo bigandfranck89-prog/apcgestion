@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Se rétracter du contrat — APC</title>
+<meta name="description" content="Vous avez commandé une prestation APC et vous changez d'avis ? Rétractez-vous ici en un clic, sans motif et sans frais. Accusé de réception immédiat par e-mail.">
+<link rel="canonical" href="https://apcgestion.fr/retractation/">
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" href="/logo-apc.svg" type="image/svg+xml">
+<style>
+  .confirm{display:none}.confirm.on{display:block}
+  #etape2{display:none}
+  .modele{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;font-size:14.5px;color:var(--ink2)}
+  @media print{header,footer,#formulaire,.modele-bloc,.cta{display:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="/"><img src="/logo-apc.svg" alt="APC — Assistance Petites Copropriétés"></a>
+    <nav><a href="/">Accueil</a></nav>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="wrap">
+
+    <div id="formulaire">
+      <h1>Se rétracter du contrat</h1>
+      <p class="lead">Vous avez commandé une prestation à APC en tant que particulier et vous changez d'avis ? Vous pouvez vous rétracter <strong>pendant 14 jours</strong> après votre commande, <strong>sans donner de motif et sans frais</strong>. Vous recevez immédiatement un accusé de réception par e-mail.</p>
+
+      <form id="f" novalidate>
+        <div id="etape1">
+          <div class="deux">
+            <div class="champ">
+              <label for="nom">Votre nom et prénom</label>
+              <input type="text" id="nom" autocomplete="name" required maxlength="120">
+            </div>
+            <div class="champ">
+              <label for="email">L'adresse e-mail utilisée pour la commande</label>
+              <input type="email" id="email" autocomplete="email" required maxlength="180">
+              <p class="aide">L'accusé de réception y sera envoyé.</p>
+            </div>
+          </div>
+          <div class="deux">
+            <div class="champ">
+              <label for="dossier">Numéro de dossier</label>
+              <input type="text" id="dossier" maxlength="30" placeholder="Ex. : APC-2026-0042">
+              <p class="aide">Il figure dans l'e-mail de confirmation. Vous ne l'avez plus ? Laissez vide, votre nom et votre adresse suffisent.</p>
+            </div>
+            <div class="champ">
+              <label for="commande">Date de la commande <span class="opt">— facultatif</span></label>
+              <input type="text" id="commande" maxlength="30" placeholder="Ex. : 03/11/2026">
+            </div>
+          </div>
+          <div class="champ">
+            <label for="message">Un mot à ajouter ? <span class="opt">— facultatif, aucun motif n'est demandé</span></label>
+            <textarea id="message" maxlength="1000"></textarea>
+          </div>
+          <div style="position:absolute;left:-9999px" aria-hidden="true">
+            <label for="site_web">Ne pas remplir</label>
+            <input type="text" id="site_web" tabindex="-1" autocomplete="off">
+          </div>
+          <div class="msg err" id="erreur" role="alert"></div>
+          <div class="cta">
+            <button type="button" class="btn" id="suite">Se rétracter du contrat ici</button>
+          </div>
+        </div>
+
+        <div id="etape2">
+          <div class="card terra">
+            <h3 style="margin-top:0">Confirmez votre rétractation</h3>
+            <p id="recap"></p>
+            <p>En cliquant sur le bouton ci-dessous, vous vous rétractez de ce contrat. La demande est annulée et vous ne devez rien.</p>
+          </div>
+          <div class="msg err" id="erreur2" role="alert"></div>
+          <div class="msg info" id="patiente" role="status"></div>
+          <div class="cta">
+            <button type="submit" class="btn" id="confirmer">Confirmer la rétractation</button>
+            <p class="sous"><a href="#" id="retour">← Revenir et corriger</a></p>
+          </div>
+        </div>
+      </form>
+
+      <div class="modele-bloc">
+        <h2>Vous préférez écrire ?</h2>
+        <p>Vous pouvez aussi nous adresser une déclaration sans ambiguïté par e-mail à <a href="mailto:bigandfranck89@gmail.com">bigandfranck89@gmail.com</a> ou par courrier à APC — Franck Bigand, 7 lieu-dit Les Martins, 89330 Verlin, par exemple avec ce modèle :</p>
+        <div class="modele">
+          <p><strong>Formulaire de rétractation</strong> (à compléter et renvoyer uniquement si vous souhaitez vous rétracter du contrat)</p>
+          <p>À l'attention de Franck Bigand, APC — Assistance Petites Copropriétés, 7 lieu-dit Les Martins, 89330 Verlin, bigandfranck89@gmail.com :</p>
+          <p>Je vous notifie par la présente ma rétractation du contrat portant sur la prestation de services ci-dessous :<br>
+          Commandé le : ………… · Numéro de dossier : …………<br>
+          Nom du consommateur : …………<br>
+          Adresse du consommateur : …………<br>
+          Signature du consommateur (uniquement en cas de notification sur papier) :<br>
+          Date : …………</p>
+        </div>
+        <p class="small mut">À savoir : si vous aviez demandé que le travail commence tout de suite et que le document vous a été entièrement livré avant la fin des 14 jours, le droit de rétractation ne s'applique plus (Code de la consommation, art. L.221-28, 1°). Si le travail était commencé mais pas terminé, seule la part déjà faite reste due (art. L.221-25).</p>
+      </div>
+    </div>
+
+    <div class="confirm" id="confirmation" role="status" aria-live="polite">
+      <span class="ic" aria-hidden="true">✅</span>
+      <h2>Votre rétractation est enregistrée</h2>
+      <p>Numéro d'enregistrement :</p>
+      <div class="dossier" id="numero">—</div>
+      <p>Reçue le <strong id="recu">—</strong> (heure de Paris). L'accusé de réception part à votre adresse e-mail dans les minutes qui viennent : conservez-le.</p>
+      <p>Votre demande est annulée : vous ne devez rien. Si vous aviez déjà payé, vous êtes remboursé par le même moyen de paiement au plus tard dans les 14 jours.</p>
+      <div class="cta"><button type="button" class="btn ghost" onclick="window.print()">Imprimer ou enregistrer cette page</button></div>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>APC — Assistance Petites Copropriétés</strong> · Franck Bigand · 7 lieu-dit Les Martins, 89330 Verlin · SIREN 519 339 170 · 06 30 52 99 86</p>
+    <p class="small"><a href="/">Accueil</a> · <a href="/vendre-mon-lot/">Vous vendez votre lot ?</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var API = "https://bmvytqfddrfgcgokoxfn.supabase.co";
+  var CLE = "sb_publishable_tGwuRROW7-AjWdE8K8ZbFA_R8_V2LUU";
+  function el(id){ return document.getElementById(id); }
+  function v(id){ return el(id).value.trim(); }
+  function montre(e, t){ e.textContent = t; e.classList.add("on"); }
+  function cache(e){ e.classList.remove("on"); }
+  try { var q = new URLSearchParams(location.search).get("dossier"); if (q) el("dossier").value = q; } catch (e) {}
+
+  el("suite").addEventListener("click", function(){
+    cache(el("erreur"));
+    if (v("nom").length < 2) { montre(el("erreur"), "Merci d'indiquer votre nom."); return; }
+    if (!/^[^@\s]+@[^@\s]+\.[a-zA-Z]{2,}$/.test(v("email"))) { montre(el("erreur"), "Cette adresse e-mail ne semble pas valide."); return; }
+    el("recap").textContent = v("nom") + " — " + v("email") + (v("dossier") ? " — dossier " + v("dossier") : "") + (v("commande") ? " — commande du " + v("commande") : "");
+    el("etape1").style.display = "none"; el("etape2").style.display = "block";
+  });
+  el("retour").addEventListener("click", function(e){ e.preventDefault(); el("etape2").style.display = "none"; el("etape1").style.display = "block"; });
+
+  el("f").addEventListener("submit", function(e){
+    e.preventDefault();
+    if (v("site_web")) return;
+    cache(el("erreur2")); montre(el("patiente"), "Enregistrement de votre rétractation…");
+    el("confirmer").disabled = true;
+    var texte = "Je me rétracte du contrat" + (v("dossier") ? " (dossier " + v("dossier") + ")" : "") + (v("commande") ? ", commandé le " + v("commande") : "") + "." + (v("message") ? " " + v("message") : "");
+    fetch(API + "/rest/v1/rpc/apc_deposer_demande", {
+      method: "POST",
+      headers: { "apikey": CLE, "Authorization": "Bearer " + CLE, "Content-Type": "application/json" },
+      body: JSON.stringify({ p_type: "retractation", p_nom: v("nom"), p_email: v("email"), p_message: texte,
+        p_copropriete: v("dossier") || null, p_urgence: "ca_presse", p_origine: "site:retractation" })
+    }).then(function(r){ return r.json().then(function(d){ return { ok: r.ok, d: d }; }); })
+    .then(function(res){
+      cache(el("patiente"));
+      if (!res.ok) { montre(el("erreur2"), "La rétractation n'a pas pu être enregistrée. Réessayez, ou écrivez à bigandfranck89@gmail.com : la date de votre e-mail fera foi."); el("confirmer").disabled = false; return; }
+      el("numero").textContent = res.d.numero_dossier;
+      el("recu").textContent = res.d.recu_le || "";
+      el("formulaire").style.display = "none";
+      el("confirmation").classList.add("on");
+      window.scrollTo(0, 0);
+    }).catch(function(){ cache(el("patiente")); montre(el("erreur2"), "La connexion n'a pas abouti. Réessayez, ou écrivez à bigandfranck89@gmail.com : la date de votre e-mail fera foi."); el("confirmer").disabled = false; });
+  });
+})();
+</script>
+</body>
+</html>
