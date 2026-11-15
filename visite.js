@@ -46,14 +46,14 @@
     return d || null;
   }
 
-  function noter(evenement) {
+  function noter(evenement, page) {
     try {
       if (navigator.webdriver) return;
       if (/bot|crawl|spider|slurp|headless|lighthouse|preview/i.test(navigator.userAgent || "")) return;
       var src = lire("src");
       try { src = src || sessionStorage.getItem("apc_src"); } catch (e) {}
       var corps = {
-        p_page: window.location.pathname || "/",
+        p_page: page || window.location.pathname || "/",
         p_referent: referent(),
         p_src: src,
         p_utm_source: lire("utm_source"),
