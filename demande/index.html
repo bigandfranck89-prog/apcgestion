@@ -241,7 +241,7 @@
       return fetch(API + "/storage/v1/object/" + SEAU + "/" + encodeURI(chemin), {
         method: "POST",
         headers: { "apikey": CLE, "Authorization": "Bearer " + CLE,
-                   "Content-Type": fi.type || "application/octet-stream", "x-upsert": "true" },
+                   "Content-Type": fi.type || "application/octet-stream" },
         body: fi
       }).then(function(r){
         if (r.ok) { chemins.push(chemin); envoyes++; } else { rates++; chemins.push("[ÉCHEC] " + fi.name); }
